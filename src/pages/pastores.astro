@@ -1,0 +1,160 @@
+
+---
+import Layout from "../layouts/Layout.astro"
+import Header from "../components/Header.astro"
+import { Image } from "astro:assets";
+import mike from "../../public/img/mike.avif"
+import fabio from "../../public/img/fabio.avif"
+---
+
+<Layout>
+    <Header validacion ="/contacto"/>
+    <section class="diaconos">
+
+        <article class="diaconos__texto">
+            <h1 class="diaconos__titulo">Pastores</h1>
+            <!-- <p>Los diáconos tienen el deber de ministrar a los necesitados, a los enfermos, a los que no tienen amigos y a todo aquel que se encuentre en apuros. También tienen el deber de cultivar la gracia de la liberalidad en los miembros de la iglesia y de idear métodos eficaces para recolectar las donaciones del pueblo. También supervisan las actividades de confraternidad y de extensión de toda la iglesia.</p> -->
+        </article>
+        
+  
+        <div class="diaconos__lista">
+            <article class="diaconos__item">
+                <Image src={mike} alt="Pastor Mike" width={380} height={380} class="diaconos__img" loading="eager" alt="Pastor Mike" />
+                <h2 class="diaconos__nombre">Pastor Michael Riffle</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum rem voluptas velit, iure repudiandae beatae officiis inventore autem aut, vitae nesciunt laboriosam cumque</p>
+            </article>
+  
+            <article class="diaconos__item">
+                <Image src={fabio} alt="Pastor Mike" width={380} height={380}
+                class="diaconos__img" loading="eager" alt="Pastor Fabio" />
+               
+                <h2 class="diaconos__nombre">Pastor Fabio Ledezma</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus harum rem voluptas velit, iure repudiandae beatae officiis inventore autem aut, vitae nesciunt laboriosam cumque</p>
+            </article>
+  
+  
+            
+        </div>
+  
+    </section> 
+    
+</Layout>
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+     /*Font size*/
+  --font-size-xs:0.9rem;
+  --font-size-s:1rem;
+  --font-size-m:1.2rem;
+  --font-size-l :1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl:2.3rem;
+
+  /*Font weight*/
+  --font-weight-normal:400;
+  --font-weight-medium:500;
+  --font-weight-semibold:600;
+  --font-weight-bold:700;
+    --primary-color: #b4715b;
+    --color_titulos: #545454;
+    --color_texto: #676767;
+    --gris_oscuro: #363636;
+}
+.diaconos{
+    margin-top: 96px;
+}
+
+.diaconos__texto{
+    background-color: #b4715b;
+    color: #FAF5F2;
+    padding: 20px 50px;
+}
+
+.diaconos__texto p{
+    padding: 0 100px;
+    font-size: var(--font-size-m);
+}
+
+.diaconos__titulo{
+    text-align: center;
+    color: #FAF5F2;
+    font-size: var(--font-size-xl);
+}
+
+.diaconos__lista{
+    margin: 70px ;
+    margin-inline:auto ;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 80px;
+}
+
+.diaconos__item{
+    background-color: #FAF5F2;
+    border-radius: 5px;
+    width: clamp(320px, 30%,400px);
+    box-shadow: 0 1px 2px #b4715b;
+    /* min-width: 320px;
+    max-width: 400px;
+    min-height: 500px; */
+}
+
+.diaconos__item p{
+    padding:  0 15px;
+}
+.diaconos__img{
+    object-fit: cover;
+    border-radius: 10px;
+    object-position: 0 10%;
+    width: 100%;
+    height: 60%;
+}
+
+.diaconos__nombre{
+    text-align: center;
+    color: #b4715b;
+    margin: 10px 0;
+    font-size: var(--font-size-l);
+}
+
+@media(width<=850px){
+
+    body{
+        /*Font size*/
+     --font-size-xs:0.9rem;
+     --font-size-s:1rem;
+     --font-size-m:1rem;
+     --font-size-l :1.2rem;
+     --font-size-xl: 1.6rem;
+     --font-size-xxl:2rem;
+   
+     /*Font weight*/
+     --font-weight-normal:400;
+     --font-weight-medium:500;
+     --font-weight-semibold:600;
+     --font-weight-bold:700;
+       --primary-color: #b4715b;
+       --color_titulos: #545454;
+       --color_texto: #676767;
+       --gris_oscuro: #363636;
+   }
+
+    .diaconos__texto{
+
+        padding: 20px 20px;
+    }
+
+    .diaconos__texto p{
+        padding: 0 20px;
+       
+    }
+}
+</style>
