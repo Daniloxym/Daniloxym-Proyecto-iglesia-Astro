@@ -23,7 +23,22 @@ import Footer from "../components/Footer.astro";
       src="https://kit.fontawesome.com/fbcd9eb844.js"
       crossorigin="anonymous"
     ></script>
+    <meta name="title" content="Iglesia Nido de Gracia" />
+    <meta name="description" content="Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danilo.com.co/" />
+    <meta property="og:title" content="Iglesia Nido de Gracia" />
+    <meta property="og:description" content="Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos." />
+    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://danilo.com.co/" />
+    <meta property="twitter:title" content="Iglesia Nido de Gracia" />
+    <meta property="twitter:description" content="Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos." />
+    <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
 	</head>
 	<body>
 		
@@ -32,6 +47,7 @@ import Footer from "../components/Footer.astro";
     <script src="../script.js"></script>
 	</body>
 </html>
+
 
 <style>
 	* {
@@ -64,7 +80,9 @@ import Footer from "../components/Footer.astro";
   --color_texto: #363636;
   --gris_oscuro: #363636;
 }
-
+@view-transition{
+    navigation: auto;
+}
 body,
 html {
   font-family: "Poppins", serif;

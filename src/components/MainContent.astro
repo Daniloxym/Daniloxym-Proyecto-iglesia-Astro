@@ -36,8 +36,9 @@ import { Image } from "astro:assets";
       <div class="categorias__lista">
         <div class="evangelismo">
           <h3>CREENCIAS</h3>
-          <Image height={320} width={320} src={creencias} alt="Creencias de la iglesia" class="descripcion__img" loading="lazy"/> 
-          
+          <a href="/creencias">
+            <Image height={320} width={320} src={creencias} alt="Creencias de la iglesia" class="descripcion__img" loading="lazy"/> 
+          </a>
           <a
             href="/creencias"
             class="categorias__btn categorias__btn--evangelismo"
@@ -61,7 +62,7 @@ import { Image } from "astro:assets";
             target="_blank"
             href="https://facultadteologicabautista.org/"
           >
-            <Image height={320} width={320} src={seminario} alt="Seminario teológico" class="descripcion__img" loading="lazy"/> 
+            <Image height={320} width={620} src={seminario} alt="Seminario teológico" class="descripcion__img" loading="lazy"/> 
 
           </a>
 

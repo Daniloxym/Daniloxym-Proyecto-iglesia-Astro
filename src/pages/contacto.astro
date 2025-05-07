@@ -2,51 +2,100 @@
 import Layout from "../layouts/Layout.astro"
 import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
+
 ---
 
+<script type="module">
+  const formulario = document.querySelector(".formulario");
+const mensajeRespuesta = document.querySelector(".formulario__confirmacion");
+
+formulario.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+ 
+
+  const formData = new FormData(formulario);
+
+  try {
+    const res = await fetch("https://danilo.com.co/backend/enviar-correo.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const texto = await res.text();
+    mensajeRespuesta.style.display = "block";
+    mensajeRespuesta.style.color = "green"
+   
+
+  } catch (err) {
+    mensajeRespuesta.style.display = "block";
+    mensajeRespuesta.style.color = "red"
+    mensajeRespuesta.textContent = "❌ Hubo un error al enviar el formulario.";
+    console.error("Error al enviar el formulario:", err); // Ayuda para depurar
+  }
+
+  document.querySelector(".formulario__nombre").value= "";
+  document.querySelector(".formulario__correo").value= "";
+  document.querySelector(".formulario__tema").value= "";
+  document.querySelector(".formulario_mensaje").value= "";
+
+  setTimeout(() => {
+    mensajeRespuesta.style.display = "none";
+  },6000);
+
+});
+</script>
 <Layout>
     <Header validacion =""/>
     <footer id="contacto" class="footer">
-        <div class="footer__informacion">
-          <h3>CONTACTANOS</h3>
-          <p class="footer__informacion__texto">
-            Nos encantaría conocerte y ayudarte en tu caminar con Dios! Si tienes
-            alguna pregunta, petición de oración o simplemente deseas hablar con
-            alguien, no dudes en comunicarte con nosotros.
-          </p>
-    
-          <article class="footer__informacion__direccion">
-            <p>📍 Dirección</p>
-            <p>Calle 30 #30-18 Carretera Turbaco-Turbana Bolivar, Colombia</p>
-          </article>
-    
-          <article class="footer__informacion__correo">
-            <p>📧 Correo electrónico</p>
-            <p>Daniloxym21@gmail.com</p>
-          </article>
+      <section class="footer__informacion">
+        <h3>CONTACTANOS</h3>
+        <p class="footer__informacion__texto">
+          Nos encantaría conocerte y ayudarte en tu caminar con Dios! Si tienes
+          alguna pregunta, petición de oración o simplemente deseas hablar con
+          alguien, no dudes en comunicarte con nosotros.
+        </p>
+  
+        <article class="footer__informacion__direccion">
+          <p>📍 Dirección</p>
+          <p>Calle 30 #30-18 Carretera Turbaco-Turbana Bolivar, Colombia</p>
+        </article>
+  
+        <article class="footer__informacion__correo">
+          <p>📧 Correo electrónico</p>
+          <p>Daniloxym21@gmail.com</p>
+        </article>
+      </section>
+  
+      <form class="formulario">
+        <input
+          name="nombre"
+          type="text"
+          class="formulario__nombre"
+          placeholder="Nombre completo"
+          required
+        />
+        <input
+          name="email"
+          type="email"
+          class="formulario__correo"
+          placeholder="Correo electronico"
+          required
+        />
+        <input name ="asunto" type="text" class="formulario__tema" required placeholder="Asunto" />
+        <textarea
+          class="formulario_mensaje"
+          name="mensaje"
+          id=""
+          required
+          placeholder="Mensaje"
+        ></textarea>
+        <div class="hidden formulario__confirmacion">
+          ✅ ¡Tu mensaje fue enviado con éxito! Te responderemos pronto.
         </div>
-    
-        <div class="formulario">
-          <input
-            type="text"
-            class="formulario__nombre"
-            placeholder="Nombre completo"
-          />
-          <input
-            type="email"
-            class="formulario__correo"
-            placeholder="Correo electronico"
-          />
-          <input type="text" class="formulario__tema" placeholder="Asunto" />
-          <textarea
-            class="formulario_mensaje"
-            name=""
-            id=""
-            placeholder="Mensaje"
-          ></textarea>
-          <button class="formulario__btn">Enviar</button>
-        </div>
-      </footer>
+        <button type= "submit" class="formulario__btn">Enviar</button>
+      </form>
+    </footer>
     
       
 </Layout>
@@ -107,10 +156,9 @@ html {
   :is(
     .formulario__nombre,
     .formulario__correo,
-    .formulario__tema,
-    .formulario_mensaje
-  )::placeholder {
-  font-size: var(--font-size-m);
+    .formulario__tema
+  ){
+  font-size: var(--font-size-n);
 }
 
 .formulario {
@@ -136,13 +184,24 @@ html {
   margin: 30px 0;
   border: 1px solid var(--gris_oscuro);
 }
-.formulario_mensaje {
+.formulario_mensaje{
   resize: none;
   width: 100%;
   min-height: 100px;
   overflow: hidden;
+  font-size: var(--font-size-m);
 }
 
+.formulario_mensaje::placeholder{
+  padding-left: 5px;
+  font-size: var(--font-size-m);
+}
+.formulario__confirmacion{
+  display: none;
+  color: green;
+  font-size: var(--font-size-m);
+  font-weight:400;
+}
 .formulario__btn {
   margin-top: 20px;
   padding: 15px 65px;
