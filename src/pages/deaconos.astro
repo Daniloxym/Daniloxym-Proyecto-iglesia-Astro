@@ -1,16 +1,17 @@
 
 
 ---
-import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header.astro"
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
-import amaury from "../../public/img/amaury2.avif"
-import holger from "../../public/img/holger2.avif"
-import silvio from "../../public/img/silvio2.avif"
+import amaury from "../../public/img/amaury2.avif";
+import holger from "../../public/img/holger2.avif";
+import silvio from "../../public/img/silvio2.avif";
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout>
-    <Header validacion ="/contacto"/>
+    <Header validacion ="/contacto" seleccion={currentPath}/>
     <section class="diaconos">
 
         <article class="diaconos__texto">

@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout>
-    <Header validacion ="/contacto"/>
+    <Header validacion ="/contacto" seleccion={currentPath} />
 </Layout>

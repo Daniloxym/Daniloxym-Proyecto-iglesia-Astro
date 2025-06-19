@@ -2,13 +2,14 @@
 import Layout from "../layouts/Layout.astro"
 import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
-import confesion from "../../public/img/confesion.png"
---- 
+import confesion from "../../public/img/confesion.png";
+const currentPath = Astro.url.pathname;
+---
 
 
 
 <Layout>
-    <Header validacion ="/contacto"/>
+    <Header validacion ="/contacto" seleccion={currentPath}/>
     <section class="creencias">
 
         <article class="creencias__texto">

@@ -5,10 +5,11 @@ import Header from "../components/Header.astro"
 import { Image } from "astro:assets";
 import mike from "../../public/img/mike.avif"
 import fabio from "../../public/img/fabio.avif"
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout>
-    <Header validacion ="/contacto"/>
+    <Header validacion ="/contacto" seleccion={currentPath} />
     <section class="diaconos">
 
         <article class="diaconos__texto">
