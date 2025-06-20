@@ -8,6 +8,7 @@ import BibliaSVG from "./SVG/BibliaSVG.astro";
 import ManosSVG from "./SVG/ManosSVG.astro";
 import Oracion from "./SVG/OracionSVG.astro";
 import MapaIglesia from "./MapaIglesia.astro";
+import Elemento from "./Elemento.astro";
 import "../styles/mainContent.css";
 ---
 
@@ -131,35 +132,27 @@ import "../styles/mainContent.css";
       </h3>
 
       <div class="descripcion__elementos">
-        <div class="descripcion__elemento">
-          <BibliaSVG class="descripcion__icono" />
-          <p class="elemento">Nuestro Santificador</p>
-          <p class="elemento__texto">
-            “Mas por Él estáis vosotros en Cristo Jesús, el cual nos ha sido
+
+        <Elemento titulo = "Nuestro Santificador">
+           <BibliaSVG slot="icono"/>
+          “Mas por Él estáis vosotros en Cristo Jesús, el cual nos ha sido
             hecho por Dios sabiduría, justificación, santificación y
-            redención”<strong>1 Corintios 1:30</strong>
-          </p>
-        </div>
-        <div class="descripcion__elemento">
-          <ManosSVG class="descripcion__icono" />
-          <p class="elemento">Nuestro Sanador</p>
-          <p class="elemento__texto">
+            redención”<strong>1 Corintios 1:30</strong> 
+        </Elemento>
+       
+        <Elemento titulo = "Nuestro Sanador">
+          <ManosSVG slot="icono"/>
             “Y la oración de fe salvará al enfermo, y el Señor lo levantará; y
             si hubiere cometido pecados, le serán perdonados”<strong
-              >Santiago 5:15</strong
-            >
-          </p>
-        </div>
-        <div class="descripcion__elemento">
-          <Oracion class="descripcion__icono" />
-          <p class="elemento">Nuestro Rey que viene</p>
-          <p class="elemento__texto">
+              >Santiago 5:15</strong>
+        </Elemento>
+
+        <Elemento titulo = "Nuestro Rey que viene">
+          <Oracion slot="icono"/>
             "Este mismo Jesús, que ha sido tomado de vosotros al cielo, vendrá
             otra vez de la misma manera que lo han visto ir al cielo"<strong
-              >Hechos 1:11b</strong
-            >
-          </p>
-        </div>
+              >Hechos 1:11b</strong>
+        </Elemento>
       </div>
     </section>
   </main>

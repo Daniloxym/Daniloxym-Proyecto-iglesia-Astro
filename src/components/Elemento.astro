@@ -1,0 +1,13 @@
+---
+const {titulo} = Astro.props;
+---
+
+ <div class="descripcion__elemento">
+    <slot name="icono" />
+    <p class="elemento">{titulo}</p>
+    <p class="elemento__texto"></p>
+    
+    <p slot="texto"  class="elemento__texto">
+      <slot/>
+    </p>
+</div>
