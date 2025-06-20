@@ -47,6 +47,8 @@
   transition: width 0.2s linear;
 }
 
+
+
 .navegacion__item:hover .navegacion__link {
   color: var(--primary-color);
 }
