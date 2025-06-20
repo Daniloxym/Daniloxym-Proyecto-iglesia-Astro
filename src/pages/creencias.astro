@@ -1,16 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
 import confesion from "../assets/img/confesion.png";
-const currentPath = Astro.url.pathname;
+import "../styles/creencias.css";
 ---
-
 
 
 <Layout>
     <section class="creencias">
-
         <article class="creencias__texto">
             <h1 class="creencias__titulo">Esto creemos - confesión de fe de 1689</h1>
             <!-- <p>Los diáconos tienen el deber de ministrar a los necesitados, a los enfermos, a los que no tienen amigos y a todo aquel que se encuentre en apuros. También tienen el deber de cultivar la gracia de la liberalidad en los miembros de la iglesia y de idear métodos eficaces para recolectar las donaciones del pueblo. También supervisan las actividades de confraternidad y de extensión de toda la iglesia.</p> -->
@@ -23,139 +20,7 @@ const currentPath = Astro.url.pathname;
                 <p>“Este pequeño tomo no se presenta como una regla autoritativa ni como un código de fe, sino como una ayuda en casos de controversia, una confirmación en la fe y un medio para edificación en justicia. En él los miembros más jóvenes de nuestra iglesia tendrán un conjunto resumido de enseñanzas divinas, y por medio de pruebas bíblicas, estarán preparados para dar razón de la esperanza que hay en ellos. No te avergüences de tu fe; recuerda que es el antiguo evangelio de los mártires, confesores, reformadores y santos. Sobre todo, es la verdad de Dios, contra la que las puertas del infierno no pueden prevalecer. Haz que tu vida adorne tu fe, haz que tu ejemplo adorne tus creencias. Sobre todo, vive en Cristo Jesús, y permanece en él, no creyendo ninguna enseñanza que no haya sido manifiestamente aprobada por él y sea propia del Espíritu Santo. Aférrate a la Palabra de Dios que aquí es explicada para ti.”
                     – Charles Haddon Spurgeon (1834-1892)</p>
                 <a download=" Esto creemos - confesión de fe de 1689" class="creencias__btn" href="/confesion.pdf">Descargar</a>
-            </article>
-  
-            
-  
-  
-            
+            </article> 
         </div>
-  
     </section> 
 </Layout>
-
-
-
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    body{
-    /*Font size*/
- --font-size-xs:0.9rem;
- --font-size-s:1rem;
- --font-size-m:1.2rem;
- --font-size-l :1.5rem;
- --font-size-xl: 2rem;
- --font-size-xxl:2.3rem;
-
- /*Font weight*/
- --font-weight-normal:400;
- --font-weight-medium:500;
- --font-weight-semibold:600;
- --font-weight-bold:700;
-   --primary-color: #b4715b;
-   --color_titulos: #545454;
-   --color_texto: #676767;
-   --gris_oscuro: #363636;
-}
-
-.creencias{
-    margin-top: 96px;
-}
-.creencias__texto{
-    background-color: #b4715b;
-    color: #FAF5F2;
-    padding: 20px 50px;
-}
-.creencias__titulo{
-    text-align: center;
-    color: #FAF5F2;
-    font-size: var(--font-size-xl);
-}
-
-.creencias__item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 60px auto;
-    padding: 10px 50px;
-    gap: 20px;
-}
-
-.confesion__img{
-    width: 230px;
-}
-
-.creencias__item p{
-    width: 80%;
-    font-size: var(--font-size-s);
-    padding: 10px 100px;
-}
-.creencias__btn{
-  
-  margin-top: 20px;
-  padding: 15px 100px;
-  border-radius: 8px;
-  border: none;
-  background-color: var(--primary-color);
-  color: white;
-  font-size: var(--font-size-m);
-  cursor: pointer;
-  text-decoration: none;
-  margin-top: 18px;
-  
-}
-
-.creencias__btn:hover{
-
-    background-color: #C18C76;
-  }
-
-.creencias__btn:active{
-    background-color: #9a5345;
-}
-
-@media(width<=850px){
-
-    body{
-        /*Font size*/
-     --font-size-xs:0.9rem;
-     --font-size-s:1rem;
-     --font-size-m:1rem;
-     --font-size-l :1.2rem;
-     --font-size-xl: 1.6rem;
-     --font-size-xxl:2rem;
-   
-     /*Font weight*/
-     --font-weight-normal:400;
-     --font-weight-medium:500;
-     --font-weight-semibold:600;
-     --font-weight-bold:700;
-       --primary-color: #b4715b;
-       --color_titulos: #545454;
-       --color_texto: #676767;
-       --gris_oscuro: #363636;
-   }
-    .creencias__item p{
-        
-        padding: 10px 50px;
-    }
-}
-
-@media(width<=600px){
-
-    .creencias__item{
-
-        padding: 10px 20px;
-
-    }
-
-    .creencias__item p{
-        width: 90%;
-        padding: 10px 10px;
-    }
-}
-</style>

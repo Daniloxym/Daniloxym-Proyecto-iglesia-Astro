@@ -1,0 +1,88 @@
+.creencias {
+  margin-top: 96px;
+}
+.creencias__texto {
+  background-color: #b4715b;
+  color: #faf5f2;
+  padding: 20px 50px;
+}
+.creencias__titulo {
+  text-align: center;
+  color: #faf5f2;
+  font-size: var(--font-size-xl);
+}
+
+.creencias__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto;
+  padding: 10px 50px;
+  gap: 20px;
+}
+
+.confesion__img {
+  width: 230px;
+}
+
+.creencias__item p {
+  width: 80%;
+  font-size: var(--font-size-s);
+  padding: 10px 100px;
+}
+.creencias__btn {
+  margin-top: 20px;
+  padding: 15px 100px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: var(--font-size-m);
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 18px;
+}
+
+.creencias__btn:hover {
+  background-color: #c18c76;
+}
+
+.creencias__btn:active {
+  background-color: #9a5345;
+}
+
+@media (width<=850px) {
+  body {
+    /*Font size*/
+    --font-size-xs: 0.9rem;
+    --font-size-s: 1rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.2rem;
+    --font-size-xl: 1.6rem;
+    --font-size-xxl: 2rem;
+
+    /*Font weight*/
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --primary-color: #b4715b;
+    --color_titulos: #545454;
+    --color_texto: #676767;
+    --gris_oscuro: #363636;
+  }
+  .creencias__item p {
+    padding: 10px 50px;
+  }
+}
+
+@media (width<=600px) {
+  .creencias__item {
+    padding: 10px 20px;
+  }
+
+  .creencias__item p {
+    width: 90%;
+    padding: 10px 10px;
+  }
+}
