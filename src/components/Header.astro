@@ -24,13 +24,13 @@ import "../styles/header.css";
           </svg>
           <ul class="submenu">
             <li class="submenu_elemento prueba">
-              <a href="/pastores">PASTORES</a>
+              <a href="/pastores/">PASTORES</a>
             </li>
             <li class="submenu_elemento">
-              <a href="/deaconos">DIÁCONOS</a>
+              <a href="/deaconos/">DIÁCONOS</a>
             </li>
             <li class="submenu_elemento">
-              <a href="/creencias">CREENCIAS</a>
+              <a href="/creencias/">CREENCIAS</a>
             </li>
           </ul>
         </li>
@@ -51,16 +51,14 @@ import "../styles/header.css";
 
     document.addEventListener("DOMContentLoaded", () => {
       links.forEach(link => {
-        console.log(link.getAttribute("href"));
         if (link.getAttribute("href") === pathName) {
           document.querySelector(".navegacion__link--active")?.classList.remove("navegacion__link--active");
           link.classList.add("navegacion__link--active");
-          console.log("EXITOSO");
         }
        
       });
 
-      if(pathName === "/pastores" || pathName === "/deaconos" || pathName === "/creencias"){
+      if(pathName === "/pastores/" || pathName === "/deaconos/" || pathName === "/creencias/"){
          document.querySelector('.nosotros')?.classList.add("navegacion__link--active");
         console.log("EXITOSO");
       }   
