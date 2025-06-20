@@ -16,10 +16,10 @@ import "../styles/header.css";
 
       <ul class="navegacion__lista">
         <CerrarSVG class="navegacion__cerrar" />
-        <li class="navegacion__item"><a  class=`navegacion__link` href="/">INICIO</a></li>
+        <li class="navegacion__item"><a  class="navegacion__link" href="/">INICIO</a></li>
         <!-- Submenu -->
         <li class="navegacion__item navegacion__item--posicion">
-          <a class=`navegacion__link nosotros `>NOSOTROS</a>
+          <a class="navegacion__link nosotros">NOSOTROS</a>
           <FlechaSVG class="navegacion__icono" />
           </svg>
           <ul class="submenu">
@@ -35,14 +35,33 @@ import "../styles/header.css";
           </ul>
         </li>
 
-        <li class="navegacion__item"><a class=`navegacion__link` href="/predicas">ENSEÑANZAS</a></li>
-        <li class="navegacion__item"><a class=`navegacion__link` href= `/contacto`>CONTACTO</a></li>
+        <li class="navegacion__item"><a class="navegacion__link" href="/predicas">ENSEÑANZAS</a></li>
+        <li class="navegacion__item"><a class="navegacion__link" href="/contacto">CONTACTO</a></li>
       </ul>
       <MenuSVG class="navegacion__menu" />
     </nav>
   </header>
 
   <script>
-   alert("Hola, bienvenido a nuestra iglesia");
+    const pathName = window.location.pathname;
+    const links = document.querySelectorAll(".navegacion__link");
+    console.log(pathName);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      links.forEach(link => {
+        console.log(link.getAttribute("href"));
+        if (link.getAttribute("href") === pathName) {
+          document.querySelector(".navegacion__link--active")?.classList.remove("navegacion__link--active");
+          link.classList.add("navegacion__link--active");
+          console.log("EXITOSO");
+        }
+       
+      });
+
+      if(pathName === "/pastores" || pathName === "/deaconos" || pathName === "/creencias"){
+         document.querySelector('.nosotros')?.classList.add("navegacion__link--active");
+        console.log("EXITOSO");
+      }   
+    })
 
   </script>
