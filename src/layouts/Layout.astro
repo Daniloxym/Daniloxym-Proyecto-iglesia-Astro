@@ -1,5 +1,6 @@
 ---
 import Header from "../sections/Header.astro";
+import { ClientRouter } from "astro:transitions";
 import Footer from "../sections/Footer.astro";
 
 ---
@@ -35,6 +36,7 @@ import Footer from "../sections/Footer.astro";
     <meta property="twitter:title" content="Iglesia Nido de Gracia" />
     <meta property="twitter:description" content="Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos." />
     <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+    <ClientRouter />
 	</head>
 	<body>
 		<Header />
@@ -107,9 +109,6 @@ import Footer from "../sections/Footer.astro";
 
   --color_texto: #363636;
   --gris_oscuro: #363636;
-}
-@view-transition{
-    navigation: auto;
 }
 body,
 html {

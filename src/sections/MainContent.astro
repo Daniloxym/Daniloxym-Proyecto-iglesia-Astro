@@ -9,6 +9,7 @@ import ManosSVG from "@/components/SVG/ManosSVG.astro";
 import Oracion from "@/components/SVG/OracionSVG.astro";
 import MapaIglesia from "@/components/MapaIglesia.astro";
 import Elemento from "@/components/Elemento.astro";
+import confesion from "@/assets/img/confesion.png";
 import "@/styles/mainContent.css";
 ---
 
@@ -43,7 +44,7 @@ import "@/styles/mainContent.css";
         <div class="evangelismo">
           <h3>CREENCIAS</h3>
           <a href="/creencias/">
-            <Image height={320} width={320} src={creencias} alt="Creencias de la iglesia" class="descripcion__img" loading="lazy"/> 
+            <Image transition:name="confesion" height={320} width={320} src={confesion} alt="Creencias de la iglesia" class="descripcion__img" loading="lazy"/> 
           </a>
           <a
             href="/creencias/"

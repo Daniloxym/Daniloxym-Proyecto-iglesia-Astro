@@ -151,6 +151,7 @@
 
 .descripcion__img {
   aspect-ratio: 1;
+  object-position: 0 36%;
   object-fit: cover;
   max-width: 320px;
   min-width: 250px;
