@@ -18,17 +18,18 @@
   align-items: center;
   margin: 60px auto;
   padding: 10px 50px;
-  gap: 20px;
 }
 
 .confesion__img {
   width: 230px;
+  margin-bottom: 20px;
 }
 
 .creencias__item p {
   width: 80%;
   font-size: var(--font-size-s);
-  padding: 10px 100px;
+  max-width: 800px;
+  margin-block: 0.3lh;
 }
 .creencias__btn {
   margin-top: 20px;
@@ -71,9 +72,7 @@
     --color_texto: #676767;
     --gris_oscuro: #363636;
   }
-  .creencias__item p {
-    padding: 10px 50px;
-  }
+  
 }
 
 @media (width<=600px) {
@@ -82,7 +81,6 @@
   }
 
   .creencias__item p {
-    width: 90%;
-    padding: 10px 10px;
+    width: 80%;
   }
 }
