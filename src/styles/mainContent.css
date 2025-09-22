@@ -71,7 +71,7 @@
   display: block;
   max-height: 630px;
   object-fit: cover;
-  object-position: 0 50%;
+  object-position: 0 80%;
 }
 .contenido__portada::before {
   content: '';
