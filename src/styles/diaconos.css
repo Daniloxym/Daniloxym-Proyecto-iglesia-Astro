@@ -1,28 +1,28 @@
-.pastores {
+.diaconos {
   margin-top: 96px;
   background: var(--white-color);
   padding-bottom: 100px;
 }
 
-.pastores__texto {
+.diaconos__texto {
   background-color: var(--primary-color);
   font-weight: var(--font-weight-bold);
   color: var(--white-color);
   padding: 20px 50px;
 }
 
-.pastores__texto p {
+.diaconos__texto p {
   padding: 0 100px;
   font-size: var(--font-size-m);
 }
 
-.pastores__titulo {
+.diaconos__titulo {
   text-align: center;
   color: var(--white-color);
   font-size: var(--font-size-xl);
 }
 
-.pastores__lista {
+.diaconos__lista {
   margin: 70px;
   margin-inline: auto;
   display: flex;
@@ -32,7 +32,7 @@
   padding-inline: 30px;
 }
 
-.pastores__item {
+.diaconos__item {
   background-color: var(--white-color);
   border-radius: 5px;
   max-width: 450px;
@@ -41,15 +41,15 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.pastores__item:hover {
+.diaconos__item:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 16px #b4715b8c;
 }
 
-.pastores__img {
+.diaconos__img {
   object-fit: cover;
   border-radius: 50%;
-  object-position: 0 20%;
+  object-position: 0 0;
   width: 100%;
   max-width: 250px;
   max-height: 250px;
@@ -57,7 +57,7 @@
   margin: 0 auto;
 }
 
-.pastores__nombre {
+.diaconos__nombre {
   text-align: center;
   color: #333;
   margin: 15px 0;
@@ -65,49 +65,7 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.pastores__item p {
+.diaconos__item p {
   font-size: 1rem;
   color: #555;
-}
-
-@keyframes moveUpAndDown {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@media (width<=850px) {
-  body {
-    /*Font size*/
-    --font-size-xs: 0.9rem;
-    --font-size-s: 1rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.2rem;
-    --font-size-xl: 1.6rem;
-    --font-size-xxl: 2rem;
-
-    /*Font weight*/
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --primary-color: #b4715b;
-    --color_titulos: #545454;
-    --color_texto: #676767;
-    --gris_oscuro: #363636;
-  }
-
-  .pastores__texto {
-    padding: 20px 20px;
-  }
-
-  .pastores__texto p {
-    padding: 0 20px;
-  }
 }

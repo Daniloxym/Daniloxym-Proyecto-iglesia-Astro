@@ -1,0 +1,18 @@
+---
+import iglesia from "@/assets/img/imagen_iglesia.jpg";
+import { Image } from "astro:assets";
+---
+
+<div class="contenido__portada">
+      <Image src={iglesia} alt="Iglesia Bautista Nido de Gracia" loading="eager"  
+      width={1905}  height={630} sizes="(max-width: 768px) 100vw, 50vw" class="contenido__img img-responsive" />
+      <!-- <div class="contenido__img"></div> -->
+
+      <article class="contenido__titulo">
+        <h3>IGLESIA BAUTISTA NIDO DE GRACIA</h3>
+        <p>
+          SOLA SCRIPTURA - SOLA GRATIA - SOLA FIDE - SOLUS CHRISTUS - SOLI DEO
+          GLORIA
+        </p>
+      </article>
+</div>

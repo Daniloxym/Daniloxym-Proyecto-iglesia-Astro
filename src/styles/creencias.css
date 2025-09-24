@@ -3,12 +3,12 @@
 }
 .creencias__texto {
   background-color: #b4715b;
-  color: #faf5f2;
+  color: var(--white-color);
   padding: 20px 50px;
 }
 .creencias__titulo {
   text-align: center;
-  color: #faf5f2;
+  color: var(--white-color);
   font-size: var(--font-size-xl);
 }
 
@@ -32,7 +32,6 @@
   margin-block: 0.3lh;
 }
 .creencias__btn {
-  margin-top: 20px;
   padding: 15px 100px;
   border-radius: 8px;
   border: none;
@@ -41,15 +40,15 @@
   font-size: var(--font-size-m);
   cursor: pointer;
   text-decoration: none;
-  margin-top: 18px;
+  margin-top: 50px;
 }
 
 .creencias__btn:hover {
-  background-color: #c18c76;
+  background-color: var(--btn-hover);
 }
 
 .creencias__btn:active {
-  background-color: #9a5345;
+  background-color: var(--btn-active);
 }
 
 @media (width<=850px) {
@@ -72,7 +71,6 @@
     --color_texto: #676767;
     --gris_oscuro: #363636;
   }
-  
 }
 
 @media (width<=600px) {

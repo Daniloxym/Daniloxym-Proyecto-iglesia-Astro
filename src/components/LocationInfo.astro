@@ -1,0 +1,45 @@
+---
+import MapaIglesia from "@/components/MapaIglesia.astro";
+---
+
+<section class="informacion-general">
+      <h2 class="informacion-general__titulo">Ubicación y horarios</h2>
+
+      <div class="informacion-general__container">
+        <div class="informacion-general__direccion">
+          <h3>Planea tu visita</h3>
+
+          <figure>
+            <p><span> Escuela dominical:</span> domingo 9:00 am</p>
+            <img
+              class="informacion-general__iconos"
+              src="/img/church.webp"
+              loading="lazy"
+              alt="Escuela dominical"
+            />
+          </figure>
+
+          <figure>
+            <p><span>Culto de adoracion: </span> domingo 10:45am</p>
+            <img
+              class="informacion-general__iconos"
+              src="/img/libro.webp"
+              loading="lazy"
+              alt="Culto de adoración"
+            />
+          </figure>
+          <figure>
+            <p><span>Culto de oracion: </span> miércoles 4:00pm</p>
+            <img
+              class="informacion-general__iconos"
+              src="/img/pray.webp"
+              loading="lazy"
+              alt="Culto de oración"
+            />
+          </figure>
+        </div>
+        <div class="informacion-general__ubicacion">
+          <MapaIglesia class="informacion-general__google-maps" />
+        </div>
+      </div>
+    </section>

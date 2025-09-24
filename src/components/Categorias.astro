@@ -1,0 +1,51 @@
+---
+import confesion from "@/assets/img/confesion.png";
+import pastores from "@/assets/img/pastores.avif";
+import seminario from "@/assets/img/seminario.jpeg";
+import { Image } from "astro:assets";
+---
+
+<section class="categorias">
+      <div class="categorias__lista">
+        <div class="evangelismo">
+          <h3>CREENCIAS</h3>
+          <a href="/creencias/">
+            <Image transition:name="confesion" height={320} width={320} src={confesion} alt="Creencias de la iglesia" class="descripcion__img" loading="lazy"/> 
+          </a>
+          <a
+            href="/creencias/"
+            class="categorias__btn categorias__btn--evangelismo"
+            >Leer más</a
+          >
+        </div>
+
+        <div class="nosotros">
+          <h3>CONÓCENOS</h3>
+          <a href="/pastores/">
+            <Image height={320} width={320} src={pastores} alt="Pastores de la iglesia" class="descripcion__img" loading="lazy"/> 
+          </a>
+
+          <a href="/pastores/" class="categorias__btn">Leer más</a>
+        </div>
+
+        <div class="seminario">
+          <h3 class="seminario__titulo">SEMINARIO</h3>
+          <a 
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://facultadteologicabautista.org/"
+          >
+            <Image height={320} width={620} src={seminario} alt="Seminario teológico" class="descripcion__img" loading="lazy"/> 
+
+          </a>
+
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            class="categorias__btn categorias__btn--seminario"
+            href="https://facultadteologicabautista.org/"
+            >Visitar pagina</a
+          >
+        </div>
+      </div>
+    </section>

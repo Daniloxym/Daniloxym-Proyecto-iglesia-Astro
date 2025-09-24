@@ -1,0 +1,37 @@
+---
+import Elemento from "@/components/Elemento.astro";
+import BibliaSVG from "@/assets/svg/BibliaSVG.astro";
+import ManosSVG from "@/assets/svg/ManosSVG.astro";
+import Oracion from "@/assets/svg/OracionSVG.astro";
+---
+
+<section class="descripcion">
+      <h3 class="descripcion__titulo">
+        Nuestro corazón late<br />
+        por conocer a Jesús como:
+      </h3>
+
+      <div class="descripcion__elementos">
+
+        <Elemento titulo = "Nuestro Santificador">
+           <BibliaSVG slot="icono"/>
+          “Mas por Él estáis vosotros en Cristo Jesús, el cual nos ha sido
+            hecho por Dios sabiduría, justificación, santificación y
+            redención”<strong>1 Corintios 1:30</strong> 
+        </Elemento>
+       
+        <Elemento titulo = "Nuestro Sanador">
+          <ManosSVG slot="icono"/>
+            “Y la oración de fe salvará al enfermo, y el Señor lo levantará; y
+            si hubiere cometido pecados, le serán perdonados”<strong
+              >Santiago 5:15</strong>
+        </Elemento>
+
+        <Elemento titulo = "Nuestro Rey que viene">
+          <Oracion slot="icono"/>
+            "Este mismo Jesús, que ha sido tomado de vosotros al cielo, vendrá
+            otra vez de la misma manera que lo han visto ir al cielo"<strong
+              >Hechos 1:11b</strong>
+        </Elemento>
+      </div>
+    </section>

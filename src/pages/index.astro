@@ -1,10 +1,20 @@
 ---
-import Footer from '@/sections/Footer.astro'
-import MainContent from '@/sections/MainContent.astro';
-import Layout from '@/layouts/Layout.astro';
+import creencias from "@/assets/img/fe.avif";
+import "@/styles/mainContent.css";
+import Layout from "@/layouts/Layout.astro";
+import Categorias from "@/components/Categorias.astro";
+import Banner from "@/components/Banner.astro";
+import LocationInfo from "@/components/LocationInfo.astro";
+import Description from "@/components/Description.astro";
+import Portada from "@/components/Portada.astro";
 ---
 
 <Layout>
-	<MainContent/>
-	<Footer/>
+<main class="contenido">
+    <Portada />
+    <Banner />
+    <Categorias />
+    <LocationInfo />
+    <Description />
+</main>
 </Layout>
