@@ -14,6 +14,7 @@
   top: 20px;
   color: var(--pure-white);
   text-shadow: 0 5px 25px black;
+  font-family: 'Merriweather', serif;
 }
 
 .img-responsive {

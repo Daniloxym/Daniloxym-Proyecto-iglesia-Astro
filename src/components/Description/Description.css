@@ -1,5 +1,3 @@
-
-
 .descripcion {
   padding: 64px 50px;
 }
@@ -37,6 +35,7 @@
   font-size: var(--font-size-m);
   color: var(--color_texto);
   text-wrap: wrap;
+  font-style: italic;
 }
 .elemento__texto strong {
   font-size: var(--font-size-m);

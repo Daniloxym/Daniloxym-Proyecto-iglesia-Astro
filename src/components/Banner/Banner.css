@@ -1,7 +1,7 @@
 /* ESTILOS DEL BANNER*/
 .banner {
   height: auto;
-  min-width: 375px;
+  min-width: 340px;
   min-height: 180px;
   background-color: var(--white-color);
   color: var(--color_titulos);
