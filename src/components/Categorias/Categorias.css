@@ -44,11 +44,12 @@
 }
 
 .categorias__btn--seminario {
+  display: block;
   background-color: var(--pure-white);
   color: var(--btn-color);
   font-weight: var(--font-weight-semibold);
   border: 2px solid var(--btn-color);
-  padding: 15px 75px;
+  padding: 15px 0;
   transition: 0.4s ease;
 }
 
@@ -74,7 +75,7 @@
 .categorias__img {
   aspect-ratio: 1;
   object-position: 50% 36%;
-    object-fit: cover;
+  object-fit: cover;
   width: 100%;
   border-radius: 5px;
   box-shadow: 0 1px 5px var(--color_titulos);

@@ -9,28 +9,27 @@ import "./header.css";
 
 <header class="navegacion">
     <nav class="navegacion__contenedor">
-      <a class="navegacion__link" href="/">
+      <a aria-label="Ir a inicio" class="navegacion__link" href="/">
         
         <Image src={logo} alt="Logo de la iglesia" width={85} height={85} class="navegacion__logo" loading="eager" />
       </a>
 
       <ul class="navegacion__lista">
-        <CerrarSVG class="navegacion__cerrar" />
+        <CerrarSVG aria-label="Cerrar menú" class="navegacion__cerrar" />
         <li class="navegacion__item"><a  class="navegacion__link" href="/">INICIO</a></li>
         <!-- Submenu -->
         <li class="navegacion__item navegacion__item--posicion">
-          <a href="" class="navegacion__link nosotros">NOSOTROS</a>
-          <FlechaSVG class="navegacion__icono" />
-          </svg>
+          <button class="navegacion__link nosotros">NOSOTROS</button>
+          <FlechaSVG aria-label="Abrir submenu" class="navegacion__icono" />
           <ul class="submenu">
             <li class="submenu_elemento prueba">
-              <a href="/pastores/">PASTORES</a>
+              <a aria-label="Ir a pastores" href="/pastores/">PASTORES</a>
             </li>
             <li class="submenu_elemento">
-              <a href="/diaconos/">DIÁCONOS</a>
+              <a aria-label="Ir a diáconos" href="/diaconos/">DIÁCONOS</a>
             </li>
             <li class="submenu_elemento">
-              <a href="/creencias/">CREENCIAS</a>
+              <a aria-label="Ir a creencias" href="/creencias/">CREENCIAS</a>
             </li>
           </ul>
         </li>
@@ -38,7 +37,7 @@ import "./header.css";
         <li class="navegacion__item"><a class="navegacion__link" href="/predicas/">ENSEÑANZAS</a></li>
         <li class="navegacion__item"><a class="navegacion__link" href="/contacto/">CONTACTO</a></li>
       </ul>
-      <MenuSVG class="navegacion__menu" />
+      <MenuSVG aria-label="Abrir menú" class="navegacion__menu" />
     </nav>
   </header>
 

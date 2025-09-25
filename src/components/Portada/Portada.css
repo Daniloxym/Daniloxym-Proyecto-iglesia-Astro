@@ -2,10 +2,6 @@
   position: relative;
 }
 
-.contenido {
-  margin-top: 96px;
-}
-
 .contenido__titulo {
   text-align: center;
   font-size: var(--font-size-xl);

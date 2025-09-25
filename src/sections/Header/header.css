@@ -2,7 +2,7 @@
 .navegacion {
   height: 96px;
   background-color: var(--pure-white);
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -140,6 +140,15 @@
 }
 .submenu_elemento:hover a {
   color: var(--pure-white);
+}
+
+.nosotros {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  color: var(--color_texto);
+  font-weight: var(--font-weight-semibold);
 }
 
 @media (width<=850px) {
