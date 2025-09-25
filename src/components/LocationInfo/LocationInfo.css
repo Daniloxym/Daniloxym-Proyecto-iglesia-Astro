@@ -1,87 +1,53 @@
-/*INFORMACIÓN GENERAL*/
-
-.informacion-general {
-  background-color: var(--white-color);
-  padding: 64px 50px;
-}
-
-.informacion-general__titulo {
+.visit {
   text-align: center;
-  color: var(--color_titulos);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
+  padding: 60px 20px;
+  background-color: var(--white-color);
 }
 
-.informacion-general__container {
-  margin: 50px 0;
+.visit h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 40px;
+  color: var(--color_titulos);
+}
+
+.schedule-container {
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
-  gap: 90px;
   justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
 }
 
-.informacion-general__direccion {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color: var(--color_titulos);
-  align-items: start;
-  justify-content: center;
+.schedule-card {
+  background: var(--pure-white);
+  border-left: 6px solid var(--primary-color); /* color tierra */
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  flex: 1 1 250px;
+  max-width: 280px;
+  transition: transform 0.3s ease;
 }
 
-.informacion-general__direccion p {
-  color: var(--color_texto);
+.schedule-card:hover {
+  transform: translateY(-5px);
 }
 
-.informacion-general__direccion h3 {
-  font-size: var(--font-size-l);
-  margin: 15px 0;
-  color: var(--color_titulos);
-  align-self: center;
+.schedule-card h3 {
+  margin-bottom: 8px;
+  color: var(--primary-color); /* tono tierra que combina con tu web */
 }
 
-.informacion-general__direccion figure {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 10px;
+.schedule-card p {
+  color: var(--text-color);
+  font-size: var(--font-size-s);
 }
 
-.informacion-general__direccion p {
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-semibold);
-}
-
-.informacion-general__ubicacion h3 {
-  color: var(--color_titulos);
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: var(--font-size-l);
-}
-
-.informacion-general__ubicacion {
-  text-align: center;
-  width: 35%;
-  min-width: 370px;
-}
-
-.informacion-general__google-maps {
-  aspect-ratio: 16/9;
-  max-width: 600px;
-  width: 90%;
-  min-width: 300px;
-  box-shadow: 0 2px 5px var(--gris_oscuro);
-  margin-inline: auto;
-}
-
-.informacion-general__iconos {
-  width: 45px;
-}
-
-span {
-  font-weight: var(--font-weight-semibold);
-  color: var(--color_titulos);
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-normal);
+.map-container {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

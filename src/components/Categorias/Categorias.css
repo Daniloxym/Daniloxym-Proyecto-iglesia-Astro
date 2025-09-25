@@ -56,12 +56,29 @@
   background-color: var(--btn-color);
   color: var(--pure-white);
 }
-.seminario {
-  margin: 20px 0;
+.categorias__card {
+  max-width: 320px;
 }
-.evangelismo {
-  margin: 20px 0;
+
+.categorias__img-container {
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 1px 5px var(--color_titulos);
 }
-.nosotros {
-  margin: 20px 0;
+
+.categorias__img-container:hover :where(.categorias__img) {
+  transform: scale(1.12) translateY(-5px);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--primary-color); */
+}
+.categorias__img {
+  aspect-ratio: 1;
+  object-position: 50% 36%;
+    object-fit: cover;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px var(--color_titulos);
+  transition: transform 0.6s ease;
+  height: 100%;
+  display: block;
 }
