@@ -16,29 +16,38 @@ import "@/styles/contacto.css";
   
       <form class="formulario">
         <div class="formulario__grid">
-            <input
-            name="nombre"
-            type="text"
-            class="formulario__nombre"
-            placeholder="Nombre completo"
-            required
-          />
-          <input
-            name="email"
-            type="email"
-            class="formulario__correo"
-            placeholder="Correo electronico"
-            required
-          />
+            <label>
+              <input
+                name="nombre"
+                type="text"
+                class="formulario__nombre"
+                placeholder="Nombre completo"
+
+              />
+              <p class="error" id="error-nombre"></p>
+            </label>
+            <label>
+              <input
+                name="email"
+                type="email"
+                class="formulario__correo"
+                placeholder="Correo electronico"
+              />
+              <p class="error" id="error-email"></p>
+            </label>
         </div>
-        <input name ="asunto" type="text" class="formulario__tema" required placeholder="Asunto" />
-        <textarea
+        <label>
+          <input name ="asunto" type="text" class="formulario__tema" placeholder="Asunto" />
+          <p class="error" id="error-asunto"></p>
+        </label>
+        <label>
+           <textarea
           class="formulario_mensaje"
           name="mensaje"
-          id=""
-          required
           placeholder="Mensaje"
         ></textarea>
+        <p class="error" id="error-mensaje"></p>
+        </label>
         <div  class="formulario__confirmacion">
           ✅ ¡Tu mensaje fue enviado con éxito! Te responderemos pronto.
         </div>

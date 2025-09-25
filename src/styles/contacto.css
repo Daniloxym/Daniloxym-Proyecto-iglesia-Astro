@@ -32,7 +32,7 @@
   gap: 25px;
 }
 
-.formulario__grid input {
+.formulario__grid :where(input, label) {
   flex-basis: 0;
   flex-grow: 1;
 }
@@ -67,7 +67,8 @@
   color: green;
   font-weight: 500;
   text-align: center;
-  visibility: hidden;
+  height: 10px;
+  display: none;
 }
 /* Botón */
 .formulario__btn {
@@ -99,6 +100,20 @@
   gap: 20px;
 }
 
+.formulario label {
+}
+
+.formulario :where(.error) {
+  height: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  margin-left: 5px;
+}
+
 @media (width<=580px) {
   .contacto__informacion__texto {
     font-size: var(--font-size-s);
@@ -106,7 +121,7 @@
     text-wrap: pretty;
   }
 
-  .formulario__grid input {
+  .formulario__grid label {
     flex-basis: auto;
     width: 100%;
   }
