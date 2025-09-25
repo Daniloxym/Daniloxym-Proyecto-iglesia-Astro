@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import Header from "@/sections/Header.astro";
 import Footer from "@/sections/Footer.astro";
-import { ClientRouter } from "astro:transitions";
+// import { ClientRouter } from "astro:transitions";
 
 const { title = "Iglesia Nido de Gracia" } = Astro.props;
 ---
@@ -30,12 +30,11 @@ const { title = "Iglesia Nido de Gracia" } = Astro.props;
     <meta property="twitter:url" content="https://nidodegracia.org" />
     <meta property="twitter:title" content="Iglesia Bautista Reformada Nido de Gracia" />
     <meta property="twitter:description" content="Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos." />
-    <ClientRouter />
 	</head>
 	<body>
 		<Header />
 		<slot />
     <Footer />
-    <script src="@/utils/mobile-menu.js" ></script>
+    <script src="../utils/mobile-menu.js"></script>
 	</body>
 </html>
