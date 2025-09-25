@@ -3,7 +3,7 @@
   height: auto;
   min-width: 375px;
   min-height: 180px;
-  background-color: #faf5f2;
+  background-color: var(--white-color);
   color: var(--color_titulos);
   text-align: center;
   box-shadow: 0 5px #d3b19e;

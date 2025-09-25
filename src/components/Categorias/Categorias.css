@@ -25,7 +25,7 @@
   border-radius: 8px;
   border: 2px solid var(--btn-color);
   background-color: var(--btn-color);
-  color: white;
+  color: var(--pure-white);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
@@ -35,16 +35,16 @@
   transition: 0.4s ease;
 }
 .categorias__btn:hover {
-  background-color: white;
+  background-color: var(--pure-white);
   color: var(--btn-color);
 }
 
 .categorias__btn:active {
-  background-color: #9a5345;
+  background-color: var(--btn-active);
 }
 
 .categorias__btn--seminario {
-  background-color: white;
+  background-color: var(--pure-white);
   color: var(--btn-color);
   font-weight: var(--font-weight-semibold);
   border: 2px solid var(--btn-color);
@@ -54,9 +54,8 @@
 
 .categorias__btn--seminario:hover {
   background-color: var(--btn-color);
-  color: white;
+  color: var(--pure-white);
 }
-
 .seminario {
   margin: 20px 0;
 }

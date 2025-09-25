@@ -5,9 +5,7 @@
   margin-top: 75px;
   flex-direction: column;
   align-items: center;
-
   justify-content: space-around;
-  background-color: #fff;
   gap: 20px;
 }
 
@@ -58,8 +56,9 @@
 }
 .formulario__btn {
   margin-top: 20px;
-  padding: 15px 65px;
-  color: white;
+  padding: 15px 0;
+  min-width: 180px;
+  color: var(--white-color);
   font-size: var(--font-size-m);
   border: 2px solid var(--btn-color);
   background-color: var(--btn-color);
@@ -67,6 +66,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.4s ease;
+  font-size: var(--font-size-m);
 }
 
 .formulario__btn:hover {
@@ -75,7 +75,7 @@
 }
 
 .formulario__btn:active {
-  background-color: #9a5345;
+  background-color: var(--btn-active);
 }
 
 .contacto__informacion {

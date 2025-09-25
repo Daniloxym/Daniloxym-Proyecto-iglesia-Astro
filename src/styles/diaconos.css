@@ -36,14 +36,14 @@
   background-color: var(--white-color);
   border-radius: 5px;
   max-width: 450px;
-  box-shadow: 0 8px 16px #b4715b4a;
+  box-shadow: 0 8px 16px var(--shadow-color);
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .diaconos__item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 16px #b4715b8c;
+  box-shadow: 0 8px 16px var(--shadow-color-hover);
 }
 
 .diaconos__img {
@@ -59,7 +59,7 @@
 
 .diaconos__nombre {
   text-align: center;
-  color: #333;
+  color: var(--color_titulos);
   margin: 15px 0;
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-semibold);
@@ -67,7 +67,7 @@
 
 .diaconos__item p {
   font-size: 1rem;
-  color: #555;
+  color: var(--gris-claro);
 }
 @media (width<=850px) {
   .diaconos__texto {

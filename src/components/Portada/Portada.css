@@ -12,7 +12,7 @@
   position: absolute;
   inset: 0;
   top: 20px;
-  color: #faf5f2;
+  color: var(--pure-white);
   text-shadow: 0 5px 25px black;
 }
 
@@ -27,7 +27,6 @@
   display: block;
   max-height: 630px;
   object-fit: cover;
-  object-position: 0 80%;
 }
 .contenido__portada::before {
   content: '';

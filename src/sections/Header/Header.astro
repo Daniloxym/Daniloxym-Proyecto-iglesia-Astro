@@ -1,0 +1,67 @@
+---
+import logo from "@/assets/img/logo.svg";
+import CerrarSVG from "@/assets/svg/CerrarSVG.astro";
+import FlechaSVG from "@/assets/svg/FlechaSVG.astro";
+import MenuSVG from "@/assets/svg/MenuSVG.astro";
+import { Image } from "astro:assets";
+import "./header.css";
+---
+
+<header class="navegacion">
+    <nav class="navegacion__contenedor">
+      <a class="navegacion__link" href="/">
+        
+        <Image src={logo} alt="Logo de la iglesia" width={85} height={85} class="navegacion__logo" loading="eager" />
+      </a>
+
+      <ul class="navegacion__lista">
+        <CerrarSVG class="navegacion__cerrar" />
+        <li class="navegacion__item"><a  class="navegacion__link" href="/">INICIO</a></li>
+        <!-- Submenu -->
+        <li class="navegacion__item navegacion__item--posicion">
+          <a href="" class="navegacion__link nosotros">NOSOTROS</a>
+          <FlechaSVG class="navegacion__icono" />
+          </svg>
+          <ul class="submenu">
+            <li class="submenu_elemento prueba">
+              <a href="/pastores/">PASTORES</a>
+            </li>
+            <li class="submenu_elemento">
+              <a href="/deaconos/">DIÁCONOS</a>
+            </li>
+            <li class="submenu_elemento">
+              <a href="/creencias/">CREENCIAS</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="navegacion__item"><a class="navegacion__link" href="/predicas/">ENSEÑANZAS</a></li>
+        <li class="navegacion__item"><a class="navegacion__link" href="/contacto/">CONTACTO</a></li>
+      </ul>
+      <MenuSVG class="navegacion__menu" />
+    </nav>
+  </header>
+
+  <script>
+
+    const pathName = window.location.pathname;
+    const links = document.querySelectorAll(".navegacion__link");
+    
+    if(pathName.includes(''))
+
+    document.addEventListener("DOMContentLoaded", () => {
+      links.forEach(link => {
+        if (link.getAttribute("href") === pathName) {
+          document.querySelector(".navegacion__link--active")?.classList.remove("navegacion__link--active");
+          link.classList.add("navegacion__link--active");
+        }
+       
+      });
+
+      if(pathName === "/pastores/" || pathName === "/deaconos/" || pathName === "/creencias/"){
+         document.querySelector('.nosotros')?.classList.add("navegacion__link--active");
+        console.log("EXITOSO");
+      }   
+    })
+
+  </script>

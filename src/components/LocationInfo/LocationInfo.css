@@ -1,7 +1,7 @@
 /*INFORMACIÓN GENERAL*/
 
 .informacion-general {
-  background-color: #faf5f2;
+  background-color: var(--white-color);
   padding: 64px 50px;
 }
 
@@ -81,7 +81,7 @@
 
 span {
   font-weight: var(--font-weight-semibold);
-  color: #363636;
+  color: var(--color_titulos);
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-normal);
 }

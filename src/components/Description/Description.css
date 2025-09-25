@@ -60,11 +60,11 @@
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-medium);
   display: block;
-  color: #363636;
+  color: var(--color_titulos);
 }
 
 .descripcion__icono {
-  fill: #a35e4e;
+  fill: var(--primary-color);
   cursor: pointer;
   transition: transform 0.3s linear;
   transform: translateY(0);

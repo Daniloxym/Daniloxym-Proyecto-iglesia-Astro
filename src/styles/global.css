@@ -44,6 +44,7 @@
   --font-size-l: 1.5rem;
   --font-size-xl: 2rem;
   --font-size-xxl: 2.3rem;
+  --font-size-xxxl: 9.6rem;
 
   /*Font weight*/
   --font-weight-normal: 400;
@@ -55,13 +56,24 @@
 
   --primary-color: #b4715b;
   --white-color: #faf5f2;
+  --pure-white: #ffffff;
   --color_titulos: #3b3b3b;
   --color_texto: #363636;
   --gris_oscuro: #363636;
+  --gris-claro: #6b6b6b;
 
+  /* Colores de los botones */
   --btn-color: #b4715b;
   --btn-hover: #c18c76;
   --btn-active: #9a5345;
+
+  /* Colores de sombras */
+
+  --shadow-color: #b4715b4a;
+  --shadow-color-hover: #b4715b8c;
+
+  /* Tamaños máximos */
+  --max-width: 1100px;
 }
 body,
 html {
