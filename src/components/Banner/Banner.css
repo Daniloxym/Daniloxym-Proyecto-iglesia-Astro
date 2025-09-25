@@ -1,0 +1,54 @@
+/* ESTILOS DEL BANNER*/
+.banner {
+  height: auto;
+  min-width: 375px;
+  min-height: 180px;
+  background-color: #faf5f2;
+  color: var(--color_titulos);
+  text-align: center;
+  box-shadow: 0 5px #d3b19e;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.banner__texto {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  gap: 15px;
+  overflow: hidden;
+}
+
+.banner__titulo {
+  font-size: var(--font-size-l);
+  clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  transition: clip-path 0.5s linear;
+  @starting-style {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+.banner__parrafo {
+  font-size: var(--font-size-m);
+  transform: translateX(0);
+  color: var(--color_texto);
+  transition: transform.5s 0.5s ease;
+  @starting-style {
+    transform: translateX(200%);
+  }
+}
+
+@media (width<=580px) {
+  .banner__titulo {
+    text-align: center;
+    font-size: var(--font-size-m);
+  }
+  .banner__parrafo {
+    text-align: left;
+    font-size: var(--font-size-n);
+  }
+}

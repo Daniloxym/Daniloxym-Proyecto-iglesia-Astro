@@ -71,3 +71,47 @@ html {
 p {
   text-wrap: pretty;
 }
+
+@media (width<=850px) {
+  :root {
+    /*Font size*/
+    --font-size-xs: 0.9rem;
+    --font-size-s: 1rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.3rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 1.8rem;
+  }
+
+  body.show-mobile-menu .navegacion__lista {
+    right: 0;
+    top: 0;
+  }
+
+  body.efecto header::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  body.efecto .navegacion__logo {
+    filter: blur(5px);
+  }
+}
+
+@media (width<=580px) {
+  :root {
+    /*Font size*/
+    --font-size-xs: 0.8rem;
+    --font-size-s: 0.9rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.1rem;
+    --font-size-xl: 1.4rem;
+    --font-size-xxl: 1.6rem;
+  }
+}

@@ -51,28 +51,6 @@
   background-color: var(--btn-active);
 }
 
-@media (width<=850px) {
-  body {
-    /*Font size*/
-    --font-size-xs: 0.9rem;
-    --font-size-s: 1rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.2rem;
-    --font-size-xl: 1.6rem;
-    --font-size-xxl: 2rem;
-
-    /*Font weight*/
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --primary-color: #b4715b;
-    --color_titulos: #545454;
-    --color_texto: #676767;
-    --gris_oscuro: #363636;
-  }
-}
-
 @media (width<=600px) {
   .creencias__item {
     padding: 10px 20px;

@@ -69,3 +69,12 @@
   font-size: 1rem;
   color: #555;
 }
+@media (width<=850px) {
+  .diaconos__texto {
+    padding: 20px 20px;
+  }
+
+  .diaconos__texto p {
+    padding: 0 20px;
+  }
+}

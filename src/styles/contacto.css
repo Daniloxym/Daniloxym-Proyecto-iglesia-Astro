@@ -1,4 +1,4 @@
-.footer {
+.contacto {
   display: flex;
   flex-wrap: wrap;
   padding: 40px 80px;
@@ -78,143 +78,38 @@
   background-color: #9a5345;
 }
 
-.footer__informacion {
+.contacto__informacion {
   width: 35%;
   min-width: 250px;
   font-size: var(--font-size-m);
   flex-grow: 1;
 }
 
-.footer__informacion h3 {
+.contacto__informacion h3 {
   font-size: var(--font-size-xxl);
   color: var(--color_titulos);
   margin: 10px;
 }
 
-.footer__informacion article {
+.contacto__informacion article {
   margin: 20px 0;
 }
 
-.footer__informacion__texto {
+.contacto__informacion__texto {
   font-size: var(--font-size-m);
   margin-bottom: 15px;
 }
 
-.footer__informacion__direccion p:first-child {
+.contacto__informacion__direccion p:first-child {
   font-weight: var(--font-weight-semibold);
 }
 
-.footer__informacion__correo p:first-child {
+.contacto__informacion__correo p:first-child {
   font-weight: var(--font-weight-semibold);
-}
-
-@media (width<=850px) {
-  :root {
-    /*Font size*/
-    --font-size-xs: 0.9rem;
-    --font-size-s: 1rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.3rem;
-    --font-size-xl: 1.5rem;
-    --font-size-xxl: 1.8rem;
-  }
-
-  .navegacion__lista {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: #f7f7f7;
-    flex-direction: column;
-    padding-top: 100px;
-    gap: 45px;
-    transition: top 0.6s ease, right 0.6s ease;
-  }
-
-  body.show-mobile-menu .navegacion__lista {
-    right: 0;
-    top: 0;
-  }
-
-  body.efecto header::before {
-    content: '';
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.3);
-  }
-
-  body.efecto .navegacion__logo {
-    filter: blur(5px);
-  }
-
-  .navegacion__item {
-    height: auto;
-  }
-
-  .navegacion__bars {
-    display: block;
-  }
-
-  .navegacion__logo {
-    width: 60px;
-  }
-  .navegacion__cerrar {
-    width: 16px;
-    display: block;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-  }
-  .submenu {
-    position: absolute;
-    top: 30px;
-    right: -90px;
-    background-color: #ffffff;
-    width: 290px;
-    height: 120px;
-    z-index: 1;
-    border-radius: 0;
-    box-shadow: 0 1px 5px black;
-  }
-
-  .contenido__img {
-  }
-
-  .contenido__titulo {
-    font-size: var(--font-size-l);
-    top: 50px;
-    left: 0;
-  }
 }
 
 @media (width<=580px) {
-  :root {
-    /*Font size*/
-    --font-size-xs: 0.8rem;
-    --font-size-s: 0.9rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.1rem;
-    --font-size-xl: 1.4rem;
-    --font-size-xxl: 1.6rem;
-  }
-
-  .contenido__titulo {
-    font-size: var(--font-size-xs);
-    top: 30px;
-    left: 0;
-  }
-  .banner__titulo {
-    text-align: center;
-  }
-  .banner__parrafo {
-    text-align: left;
-  }
-  .footer__informacion__texto {
+  .contacto__informacion__texto {
     font-size: var(--font-size-s);
   }
 
@@ -225,16 +120,7 @@
 }
 
 @media (width<=453px) {
-  .elemento__texto {
-    text-align: left;
-  }
-
-  .elemento__texto strong {
-    text-align: center;
-    display: inline-block;
-  }
-
-  .footer {
+  .contacto {
     padding: 20px 60px;
   }
   .formulario__nombre,

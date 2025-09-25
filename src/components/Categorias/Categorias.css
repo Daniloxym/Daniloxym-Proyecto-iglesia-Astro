@@ -1,0 +1,68 @@
+/* ESTILOS DE CATEGORÍAS*/
+
+.categorias {
+  padding: 0.1px;
+  padding: 64px 70px;
+}
+
+.categorias__lista {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  text-align: center;
+}
+
+.categorias__lista h3 {
+  font-size: var(--font-size-l);
+  color: var(--color_titulos);
+  margin-bottom: 20px;
+}
+
+.categorias__btn {
+  margin-top: 20px;
+  padding: 15px 100px;
+  border-radius: 8px;
+  border: 2px solid var(--btn-color);
+  background-color: var(--btn-color);
+  color: white;
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 18px;
+  transition: 0.4s ease;
+}
+.categorias__btn:hover {
+  background-color: white;
+  color: var(--btn-color);
+}
+
+.categorias__btn:active {
+  background-color: #9a5345;
+}
+
+.categorias__btn--seminario {
+  background-color: white;
+  color: var(--btn-color);
+  font-weight: var(--font-weight-semibold);
+  border: 2px solid var(--btn-color);
+  padding: 15px 75px;
+  transition: 0.4s ease;
+}
+
+.categorias__btn--seminario:hover {
+  background-color: var(--btn-color);
+  color: white;
+}
+
+.seminario {
+  margin: 20px 0;
+}
+.evangelismo {
+  margin: 20px 0;
+}
+.nosotros {
+  margin: 20px 0;
+}
