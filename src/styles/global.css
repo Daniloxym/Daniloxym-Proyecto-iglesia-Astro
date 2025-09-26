@@ -7,7 +7,6 @@
   src: url('/fonts/merriweather-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-
 /* poppins-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -88,7 +87,7 @@
 }
 body,
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 p {
@@ -138,3 +137,35 @@ p {
     --font-size-xxl: 1.6rem;
   }
 }
+
+/* ANIMACIONES CSS */
+
+.animation {
+  transform: translateY(50px);
+  scale: 0.8;
+  animation: appear ease forwards;
+  animation-timeline: view();
+  animation-range: entry 15% cover 25%;
+}
+
+.animation__iconos {
+  transform: translateY(50px);
+  scale: 0.8;
+  animation: appear ease forwards;
+  animation-timeline: view();
+  animation-range: entry 20% cover 30%;
+}
+
+@keyframes appear {
+  to {
+    transform: translateY(0);
+    scale: 1;
+  }
+}
+
+@media (width<= 750px) {
+  .animation {
+    animation-range: entry 10% cover 20%;
+  }
+}
+
