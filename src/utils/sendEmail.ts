@@ -10,6 +10,10 @@ interface InputData {
 
 const formulario = document.querySelector('.formulario') as HTMLFormElement;
 const mensajeRespuesta = document.querySelector('.formulario__confirmacion') as HTMLDivElement;
+const inputNombre = document.querySelector('.formulario__nombre') as HTMLInputElement;
+const inputEmail = document.querySelector('.formulario__correo') as HTMLInputElement;
+const inputAsunto = document.querySelector('.formulario__tema') as HTMLInputElement;
+const inputMensaje = document.querySelector('.formulario_mensaje') as HTMLTextAreaElement;
 
 async function sendEmail(e: Event) {
   e.preventDefault();
@@ -27,7 +31,7 @@ async function sendEmail(e: Event) {
   }
 
   try {
-    const res = await fetch('/api/send-email', {
+    const res = await fetch('/api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -41,10 +45,10 @@ async function sendEmail(e: Event) {
 
     const result = await res.json();
     console.log('Correo enviado:', result);
-    // mensajeRespuesta.textContent = '¡Mensaje enviado con éxito!';
-    // mensajeRespuesta.style.color = 'green';
-    // formulario.reset();
-    // return;
+    mensajeRespuesta.textContent = '¡Mensaje enviado con éxito!';
+    mensajeRespuesta.style.color = 'green';
+    formulario.reset();
+    return;
   } catch (error) {
     console.error('Error al enviar el correo:', error);
     mensajeRespuesta.style.display = 'block';
@@ -58,3 +62,17 @@ async function sendEmail(e: Event) {
 }
 
 formulario.addEventListener('submit', sendEmail);
+
+const inputsConErrores: { input: HTMLInputElement; errorId: string }[] = [
+  { input: inputNombre, errorId: 'error-nombre' },
+  { input: inputEmail, errorId: 'error-email' },
+  { input: inputAsunto, errorId: 'error-asunto' },
+  { input: inputMensaje, errorId: 'error-mensaje' }
+];
+
+inputsConErrores.forEach(({ input, errorId }) => {
+  input.addEventListener('input', () => {
+    const errorDiv = document.querySelector(`#${errorId}`) as HTMLDivElement | null;
+    if (errorDiv) errorDiv.textContent = '';
+  });
+});
