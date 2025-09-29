@@ -10,7 +10,7 @@ interface Props {
   url?: string;
 }
 
-const { title = "Iglesia Nido de Gracia", description = "Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.", url = "https://nidodegracia.org" } = Astro.props;
+const { title = "Iglesia Bautista Reformada Nido de Gracia", description = "Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.", url = "https://nidodegracia.org" } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,7 +32,7 @@ const { title = "Iglesia Nido de Gracia", description = "Nido de Gracia es una i
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+    <meta property="og:image" content="@/assets/img/imagen_iglesia.jpg" />
 
     <!-- X (Twitter) -->
     <meta property="twitter:card" content="summary_large_image" />
