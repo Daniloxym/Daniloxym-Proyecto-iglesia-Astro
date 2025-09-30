@@ -16,6 +16,7 @@
 .img-responsive {
   width: 100%;
   height: auto;
+  /* min-height: 250px; */
 }
 
 .contenido__img {
@@ -36,6 +37,10 @@
     top: 50px;
     left: 0;
   }
+
+  /* .contenido__img{
+    aspect-ratio: 9/16;
+  } */
 }
 
 @media (width<=580px) {
