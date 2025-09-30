@@ -156,6 +156,10 @@ p {
   animation-range: entry 20% cover 30%;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 @keyframes appear {
   to {
     transform: translateY(0);
@@ -168,4 +172,3 @@ p {
     animation-range: entry 10% cover 20%;
   }
 }
-
