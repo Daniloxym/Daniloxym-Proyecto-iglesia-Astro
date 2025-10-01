@@ -42,7 +42,11 @@ async function sendEmail(e: Event) {
     });
 
     if (!res.ok) {
-      throw new Error('Error en la respuesta del servidor');
+      if (res.status === 429) throw new Error('Intentar de nuevo en 10 minutos');
+
+      throw new Error(
+        'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
+      );
     }
 
     // const result = await res.json();
@@ -62,9 +66,9 @@ async function sendEmail(e: Event) {
 
     formulario.reset();
     return;
-  } catch (error) {
+  } catch (error: any) {
     Toastify({
-      text: 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.',
+      text: error.message,
       duration: 3000,
       close: true,
       className: 'toast-error',
