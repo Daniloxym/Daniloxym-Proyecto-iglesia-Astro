@@ -25,7 +25,7 @@ const emailTemplate = `
             <p style="background:#f9f9f9;padding:15px;border-radius:4px;border:1px solid #e0e0e0;">
               {{message}}
             </p>
-            <p>Correo del remitente: <a href="mailto:{{email}}" style="color:#b4715b;text-decoration:none;">{{email}}</a></p>
+            <p>Correo del remitente: <strong>{{email}}</strong> </p>
           </td>
         </tr>
 
