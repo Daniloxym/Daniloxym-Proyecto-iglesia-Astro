@@ -12,7 +12,7 @@ const emailTemplate = `
         <!-- Header -->
         <tr style="background:#b4715b;">
           <td style="padding:20px;text-align:center;">
-            <h1 style="color:#ffffff;font-size:24px;margin:0;">Iglesia Nido de Gracia</h1>
+            <h1 style="color:#ffffff;font-size:24px;margin:0;">Iglesia Bautista Reformada Nido de Gracia</h1>
             <p style="color:#ffffff;font-size:14px;margin:5px 0 0;">Un lugar de fe y comunidad</p>
           </td>
         </tr>
