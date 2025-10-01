@@ -77,8 +77,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
     if (!result.success) {
       return res.status(400).json({
-        error: 'Datos inválidos',
-        detalles: result.error.flatten()
+        error: 'Datos inválidos'
       });
     }
 
