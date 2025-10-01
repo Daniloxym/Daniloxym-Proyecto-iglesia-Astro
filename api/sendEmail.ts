@@ -62,7 +62,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       from: 'info@nidodegracia.org',
       to: 'pastores@nidodegracia.org',
       replyTo: email,
-      subject: `${asunto} - Mensaje de ${name}`,
+      subject: `${asunto} - Mensaje de ${nombre}`,
       html
     });
 
