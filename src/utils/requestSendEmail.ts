@@ -42,7 +42,8 @@ async function sendEmail(e: Event) {
     });
 
     if (!res.ok) {
-      if (res.status === 429) throw new Error('Intentar de nuevo en 10 minutos');
+      if (res.status === 429)
+        throw new Error('Demasiados solicitudes. Por favor, inténtalo más tarde.');
 
       throw new Error(
         'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
