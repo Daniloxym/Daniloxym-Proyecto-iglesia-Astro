@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const emailTemplate = `
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;font-family:Arial, sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4;font-family:Arial, sans-serif; padding: 20px;">
   <tr>
     <td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.1);">
@@ -22,9 +22,13 @@ const emailTemplate = `
           <td style="padding:20px;color:#333333;font-size:16px;line-height:1.5;">
             <p>Hola <strong>pastores</strong>,</p>
             <p>Has recibido un mensaje de <strong>{{name}}</strong>:</p>
-            <p style="background:#f9f9f9;padding:15px;border-radius:4px;border:1px solid #e0e0e0;">
-              {{message}}
-            </p>
+           <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background:#f9f9f9;border:1px solid #e0e0e0;">
+              <tr>
+                  <td style="padding:15px;border-radius:4px;">
+                      {{message}}
+                  </td>
+              </tr>
+            </table>
             <p>Correo del remitente: <strong>{{email}}</strong> </p>
           </td>
         </tr>
