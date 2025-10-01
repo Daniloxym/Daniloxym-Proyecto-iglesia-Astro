@@ -49,12 +49,12 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
   try {
-    const { name, email, asunto, message } = req.body;
+    const { nombre, email, asunto, mensaje } = JSON.parse(req.body);
 
     const html = emailTemplate
-      .replace('{{name}}', name)
+      .replace('{{name}}', nombre)
       .replace('{{email}}', email)
-      .replace('{{message}}', message);
+      .replace('{{message}}', mensaje);
 
     const data = await resend.emails.send({
       from: 'info@nidodegracia.org',
