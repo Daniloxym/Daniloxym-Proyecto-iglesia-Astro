@@ -70,6 +70,11 @@
   height: 10px;
   display: none;
 }
+
+.toast-error {
+  text-align: center;
+}
+
 /* Botón */
 .formulario__btn {
   padding: 14px 0;

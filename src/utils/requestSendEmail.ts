@@ -1,5 +1,7 @@
 import type { input } from 'astro:schema';
 import { validarInput, limpiarErrores, mostrarErrores } from './input-validation';
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
 
 interface InputData {
   nombre: string;
@@ -9,7 +11,7 @@ interface InputData {
 }
 
 const formulario = document.querySelector('.formulario') as HTMLFormElement;
-const mensajeRespuesta = document.querySelector('.formulario__confirmacion') as HTMLDivElement;
+// const mensajeRespuesta = document.querySelector('.formulario__confirmacion') as HTMLDivElement;
 const inputNombre = document.querySelector('.formulario__nombre') as HTMLInputElement;
 const inputEmail = document.querySelector('.formulario__correo') as HTMLInputElement;
 const inputAsunto = document.querySelector('.formulario__tema') as HTMLInputElement;
@@ -43,27 +45,50 @@ async function sendEmail(e: Event) {
       throw new Error('Error en la respuesta del servidor');
     }
 
-    const result = await res.json();
-    console.log('Correo enviado:', result);
-    mensajeRespuesta.textContent = '¡Mensaje enviado con éxito!';
-    mensajeRespuesta.style.color = 'green';
+    // const result = await res.json();
+
+    Toastify({
+      text: '¡Mensaje enviado con éxito!',
+      duration: 3000,
+      close: true,
+      gravity: 'top', // `top` or `bottom`
+      position: 'center', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: 'linear-gradient(135deg, #4CAF50, #45A049)'
+      },
+      onClick: function () {} // Callback after click
+    }).showToast();
+
     formulario.reset();
     return;
   } catch (error) {
-    console.error('Error al enviar el correo:', error);
-    mensajeRespuesta.style.display = 'block';
-    mensajeRespuesta.textContent =
-      'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
-    mensajeRespuesta.style.color = 'red';
+    Toastify({
+      text: 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.',
+      duration: 3000,
+      close: true,
+      className: 'toast-error',
+      gravity: 'top', // `top` or `bottom`
+      position: 'center', // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: 'linear-gradient(135deg, #F44336, #D32F2F)'
+      },
+      onClick: function () {} // Callback after click
+    }).showToast();
+    // console.error('Error al enviar el correo:', error);
+    // mensajeRespuesta.style.display = 'block';
+    // mensajeRespuesta.textContent =
+    //   'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
+    // mensajeRespuesta.style.color = 'red';
     formulario.reset();
-    setTimeout(() => (mensajeRespuesta.style.display = 'none'), 5000);
     return;
   }
 }
 
 formulario.addEventListener('submit', sendEmail);
 
-const inputsConErrores: { input: HTMLInputElement; errorId: string }[] = [
+const inputsConErrores: { input: HTMLInputElement | HTMLTextAreaElement; errorId: string }[] = [
   { input: inputNombre, errorId: 'error-nombre' },
   { input: inputEmail, errorId: 'error-email' },
   { input: inputAsunto, errorId: 'error-asunto' },
