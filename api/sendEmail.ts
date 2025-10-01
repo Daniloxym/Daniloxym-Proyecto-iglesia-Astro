@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
+import { z } from 'zod';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -47,15 +48,41 @@ const emailTemplate = `
 </table>
 `;
 
+const InputSchema = z.object({
+  nombre: z
+    .string()
+    .min(3, 'El nombre debe tener al menos 3 caracteres')
+    .max(100, 'El nombre es demasiado largo'),
+  email: z
+    .string()
+    .email('El correo electrónico no es válido')
+    .max(255, 'El correo electrónico es demasiado largo'),
+  asunto: z
+    .string()
+    .min(3, 'El asunto debe tener al menos 3 caracteres')
+    .max(100, 'El asunto es demasiado largo'),
+  mensaje: z
+    .string()
+    .min(3, 'El mensaje debe tener al menos 3 caracteres')
+    .max(1000, 'El mensaje es demasiado largo')
+});
+
 export default async (req: VercelRequest, res: VercelResponse) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
   try {
-    const { nombre, email, asunto, mensaje } = req.body;
+    const result = InputSchema.safeParse(req.body);
 
-    console.log('Datos recibidos en sendEmail:', { nombre, email, asunto, mensaje });
+    if (!result.success) {
+      return res.status(400).json({
+        error: 'Datos inválidos',
+        detalles: result.error.flatten()
+      });
+    }
+
+    const { nombre, email, asunto, mensaje } = result.data;
 
     const html = emailTemplate
       .replace('{{name}}', nombre)
