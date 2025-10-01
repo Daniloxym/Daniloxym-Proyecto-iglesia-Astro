@@ -11,11 +11,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
   try {
-    const body = await req.json();
-    console.log('Cuerpo recibido:', body);
+    const { name, email, message } = req.body;
 
-    const { name, email, message } = body;
-
+    console.log('Cuerpo recibido:', req.body);
     const data = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'daniolip2021@gmail.com',
