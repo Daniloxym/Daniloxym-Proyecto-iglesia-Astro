@@ -49,7 +49,9 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   }
 
   try {
-    const { nombre, email, asunto, mensaje } = JSON.parse(req.body);
+    const { nombre, email, asunto, mensaje } = req.body;
+
+    console.log('Datos recibidos en sendEmail:', { nombre, email, asunto, mensaje });
 
     const html = emailTemplate
       .replace('{{name}}', nombre)
