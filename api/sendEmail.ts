@@ -12,7 +12,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const { name, email, message } = req.body;
 
     const data = await resend.emails.send({
-      from: 'pastores@nidodegracia.org', // verificado en Resend
+      from: 'onboarding@resend.dev', // verificado en Resend
       to: 'daniolip2021@gmail.com',
       subject: `Nuevo mensaje de ${name}`,
       html: `<p>Has recibido un mensaje de <strong>${name}</strong> (${email}):</p><p>${message}</p>`
