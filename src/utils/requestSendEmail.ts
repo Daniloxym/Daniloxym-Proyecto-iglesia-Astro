@@ -53,8 +53,8 @@ async function sendEmail(e: Event) {
     // const result = await res.json();
 
     Toastify({
-      text: '¡Mensaje enviado con éxito!',
-      duration: 3000,
+      text: 'Mensaje enviado con éxito. Esperamos responderte pronto.',
+      duration: 4000,
       close: true,
       gravity: 'top', // `top` or `bottom`
       position: 'center', // `left`, `center` or `right`
