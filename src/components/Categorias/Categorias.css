@@ -2,14 +2,14 @@
 
 .categorias {
   padding: 0.1px;
-  padding: 64px 70px;
+  padding: 64px 50px;
 }
 
 .categorias__lista {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 50px;
   text-align: center;
 }
 

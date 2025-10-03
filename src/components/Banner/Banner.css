@@ -21,25 +21,19 @@
 }
 
 .banner__titulo {
-  font-size: var(--font-size-l);
+  font-size: clamp(var(--font-size-s), 4vw, var(--font-size-l));
   text-transform: uppercase;
 }
 
 .banner__parrafo {
-  font-size: var(--font-size-m);
+  font-size: clamp(var(--font-size-xs), 4vw, var(--font-size-m));
   transform: translateX(0);
   color: var(--color_texto);
   line-height: 1.6;
 }
 
 @media (width<=580px) {
-  .banner__titulo {
-    text-align: center;
-    font-size: var(--font-size-m);
-  }
   .banner__parrafo {
     text-align: left;
-    font-size: var(--font-size-s);
-    text-wrap: pretty;
   }
 }
