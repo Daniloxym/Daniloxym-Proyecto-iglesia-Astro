@@ -96,7 +96,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       html
     });
 
-    res.status(200).json({ success: true, id: data.id });
+    res.status(200).json({ message: 'Correo enviado con éxito'});
   } catch (error) {
     console.error('Error en sendEmail:', error);
     res.status(500).json({ error: 'Error enviando el correo' });

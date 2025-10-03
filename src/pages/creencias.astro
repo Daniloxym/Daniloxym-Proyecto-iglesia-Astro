@@ -2,34 +2,38 @@
 import Layout from "@/layouts/Layout.astro"
 import { Image } from "astro:assets";
 import confesion from "@/assets/img/confesion.png";
+import DownloadSVG from "@/assets/svg/DownloadSVG.astro";
 import "@/styles/creencias.css";
 ---
 
 
 <Layout title = "Creencias - Nido de Gracia 🙏 " description="Conoce nuestras creencias y la confesión de fe de 1689." url="https://nidodegracia.org/creencias">
     <section class="creencias">
-        <article class="creencias__texto">
-            <h1 class="creencias__titulo">Esto creemos - confesión de fe de 1689</h1>
-        </article>
+    
+            <article class="creencias__header">
+                <h1 class="creencias__titulo">Esto creemos - Confesión de fe de 1689</h1>
+               
+             </article>
+        
         
   
-        <div class="creencias__lista">
-            <article class="creencias__item">
-                <Image transition:name="confesion" src={confesion} alt="Confesión de Fé" width={230} class="confesion__img" loading="eager"/>
-                <p>Este pequeño tomo no se presenta como una regla autoritativa ni como un código de fe, sino como una ayuda en casos de controversia, una confirmación en la fe y un medio para edificación en justicia.</p>
+       <div class="creencias__contenido">
+        <figure class="creencias__imagen">
+            <Image src={confesion} alt="Confesión de fe de 1689" width={250} />
+        </figure>
 
-                <p>En él los miembros más jóvenes de nuestra iglesia tendrán un conjunto resumido de enseñanzas divinas, y por medio de pruebas bíblicas, estarán preparados para dar razón de la esperanza que hay en ellos.
-                No te avergüences de tu fe; recuerda que es el antiguo evangelio de los mártires, confesores, reformadores y santos.</p>
+        <div class="creencias__texto">
+            <p>Este pequeño tomo no se presenta como una regla autoritativa ni como un código de fe, sino como una ayuda en casos de controversia, una confirmación en la fe y un medio para edificación en justicia.</p>
 
-                <p>Sobre todo, es la verdad de Dios, contra la que las puertas del infierno no pueden prevalecer.
-                Haz que tu vida adorne tu fe, haz que tu ejemplo adorne tus creencias.</p>
+            <p>En él los miembros más jóvenes de nuestra iglesia tendrán un conjunto resumido de enseñanzas divinas, y por medio de pruebas bíblicas, estarán preparados para dar razón de la esperanza que hay en ellos. No te avergüences de tu fe; recuerda que es el antiguo evangelio de los mártires, confesores, reformadores y santos.</p>
 
-                <p>Sobre todo, vive en Cristo Jesús, y permanece en él, no creyendo ninguna enseñanza que no haya sido manifiestamente aprobada por él y sea propia del Espíritu Santo.
-                Aférrate a la Palabra de Dios que aquí es explicada para ti.
-                <strong>– Charles Haddon Spurgeon (1834–1892)</strong></p>
+            <p>Sobre todo, es la verdad de Dios, contra la que las puertas del infierno no pueden prevalecer. Haz que tu vida adorne tu fe, haz que tu ejemplo adorne tus creencias.</p>
 
-                <a download=" Esto creemos - confesión de fe de 1689" class="creencias__btn" href="/confesion.pdf">Descargar</a>
-            </article> 
+            <p>Sobre todo, vive en Cristo Jesús, y permanece en él, no creyendo ninguna enseñanza que no haya sido manifiestamente aprobada por él y sea propia del Espíritu Santo. Aférrate a la Palabra de Dios que aquí es explicada para ti. <strong>– Charles Haddon Spurgeon (1834–1892)</strong></p>
+
+            <a download="Esto creemos - confesión de fe de 1689" class="creencias__btn" href="/confesion.pdf"> <DownloadSVG size={26} /> Descargar PDF</a>
         </div>
+    </div>
+    
     </section> 
 </Layout>

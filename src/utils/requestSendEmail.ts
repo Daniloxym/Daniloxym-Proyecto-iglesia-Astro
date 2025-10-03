@@ -43,7 +43,7 @@ async function sendEmail(e: Event) {
 
     if (!res.ok) {
       if (res.status === 429)
-        throw new Error('Demasiados solicitudes. Por favor, inténtalo más tarde.');
+        throw new Error('Demasiadas solicitudes. Por favor, inténtalo más tarde.');
 
       throw new Error(
         'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
@@ -54,15 +54,14 @@ async function sendEmail(e: Event) {
 
     Toastify({
       text: 'Mensaje enviado con éxito. Esperamos responderte pronto.',
-      duration: 4000,
+      duration: 5000,
       close: true,
       gravity: 'top', // `top` or `bottom`
       position: 'center', // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
         background: 'linear-gradient(135deg, #4CAF50, #45A049)'
-      },
-      onClick: function () {} // Callback after click
+      }
     }).showToast();
 
     formulario.reset();
@@ -78,8 +77,7 @@ async function sendEmail(e: Event) {
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
         background: 'linear-gradient(135deg, #F44336, #D32F2F)'
-      },
-      onClick: function () {} // Callback after click
+      }
     }).showToast();
     // console.error('Error al enviar el correo:', error);
     // mensajeRespuesta.style.display = 'block';
