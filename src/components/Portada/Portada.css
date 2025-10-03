@@ -57,7 +57,7 @@
 }
 
 @media (width<=850px) {
-  .contenido__titulo {
+  .contenido__titulo h3 {
     font-size: var(--font-size-l);
     top: 50px;
     left: 0;
@@ -73,8 +73,8 @@
 }
 
 @media (width<=580px) {
-  .contenido__titulo {
-    font-size: var(--font-size-xs);
+  .contenido__titulo h3 {
+    font-size: var(--font-size-m);
     top: 30px;
     left: 0;
   }
