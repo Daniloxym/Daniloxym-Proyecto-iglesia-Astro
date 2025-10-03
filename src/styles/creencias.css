@@ -35,11 +35,19 @@
   margin: 0 auto;
 }
 
+.creencias__imagen {
+}
+
 .creencias__imagen img {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  animation: fadeInUp 1s ease forwards;
+  translate: 0;
+  transition: transform 0.3s ease, translate 1.2s ease, opacity 1.2s ease;
+
+  @starting-style {
+    opacity: 0;
+    translate: 0 30px;
+  }
 }
 
 .creencias__imagen img:hover {
@@ -67,6 +75,7 @@
   align-items: center;
   gap: 10px;
   max-width: 220px;
+
   animation: fadeInUp 1s 0.15s ease forwards;
 }
 
