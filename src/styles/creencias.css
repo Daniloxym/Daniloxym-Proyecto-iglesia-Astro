@@ -1,8 +1,5 @@
 .creencias {
-  padding: 2rem;
   line-height: 1.6;
-  max-width: 1200px;
-  margin: 0 auto;
   color: #333;
 }
 .creencias__header {
@@ -16,7 +13,7 @@
   color: #1a1a1a;
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 5px 0;
+  padding: 10px 0;
   margin-bottom: 2rem;
 }
 
@@ -32,6 +29,8 @@
   grid-template-columns: 1fr 3fr;
   gap: 2rem;
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .creencias__imagen img {
@@ -42,7 +41,7 @@
 }
 
 .creencias__imagen img:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .creencias__texto p {
@@ -64,11 +63,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  max-width: 230px;
+  max-width: 220px;
 }
 
 .creencias__btn:hover {
   background: var(--btn-hover);
+}
+
+.creencias__btn:active {
+  background: var(--btn-active);
 }
 
 /* Responsive */
@@ -82,8 +85,6 @@
   }
 
   .creencias__btn {
-    display: block;
-    text-align: center;
     margin-inline: auto;
   }
 }

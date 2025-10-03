@@ -1,46 +1,40 @@
 /* ESTILOS DEL BANNER*/
 .banner {
-  height: auto;
-  min-width: 320px;
-  min-height: 180px;
-  background-color: var(--white-color);
+  min-height: 150px;
+  background: linear-gradient(135deg, #faf5f2, #f7e8de);
+
   color: var(--color_titulos);
   text-align: center;
   box-shadow: 0 5px #d3b19e;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
 }
 
 .banner__texto {
   display: flex;
-  width: 90%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-inline: auto;
   gap: 15px;
-  overflow: hidden;
 }
 
 .banner__titulo {
   font-size: var(--font-size-l);
-  clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
-  transition: clip-path 0.5s linear;
-  @starting-style {
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-  }
+  text-transform: uppercase;
+  /* animation: textReveal 1s ease forwards; */
 }
 
 .banner__parrafo {
   font-size: var(--font-size-m);
   transform: translateX(0);
   color: var(--color_texto);
-  transition: transform.5s 0.5s ease;
-  @starting-style {
-    transform: translateX(200%);
-  }
+  line-height: 1.6;
+  
 }
+
+
 
 @media (width<=580px) {
   .banner__titulo {
@@ -49,6 +43,7 @@
   }
   .banner__parrafo {
     text-align: left;
-    font-size: var(--font-size-n);
+    font-size: var(--font-size-s);
+    text-wrap: pretty;
   }
 }

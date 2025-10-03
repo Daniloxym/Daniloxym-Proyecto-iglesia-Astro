@@ -52,6 +52,7 @@
   --font-size-s: 1rem;
   --font-size-m: 1.12rem;
   --font-size-l: 1.5rem;
+  --font-size-2l: 1.75rem;
   --font-size-xl: 2rem;
   --font-size-xxl: 2.3rem;
   --font-size-xxxl: 9.6rem;
@@ -107,6 +108,7 @@ body {
     --font-size-s: 1rem;
     --font-size-m: 1rem;
     --font-size-l: 1.3rem;
+    --font-size-2l: 1.35rem;
     --font-size-xl: 1.5rem;
     --font-size-xxl: 1.8rem;
   }

@@ -17,6 +17,10 @@
   padding: 0 20px;
 }
 
+.footer__info {
+  margin-top: 15px;
+}
+
 .footer__contacto {
   display: flex;
   flex-direction: column;
