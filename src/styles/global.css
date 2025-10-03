@@ -51,11 +51,11 @@
   --font-size-xs: 0.9rem;
   --font-size-s: 1rem;
   --font-size-m: 1.12rem;
-  --font-size-l: 1.5rem;
-  --font-size-2l: 1.75rem;
+  --font-size-l: 1.45rem;
+  --font-size-2l: 1.65rem;
   --font-size-xl: 2rem;
   --font-size-xxl: 2.3rem;
-  --font-size-xxxl: 9.6rem;
+  --font-size-xxxl: 2.5rem;
 
   /*Font weight*/
   --font-weight-normal: 400;
@@ -147,6 +147,18 @@ body {
 }
 
 /* ANIMACIONES CSS */
+
+/* ANIMACIONES */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .animation {
   transform: translateY(50px);

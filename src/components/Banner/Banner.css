@@ -23,7 +23,6 @@
 .banner__titulo {
   font-size: var(--font-size-l);
   text-transform: uppercase;
-  /* animation: textReveal 1s ease forwards; */
 }
 
 .banner__parrafo {
@@ -31,10 +30,7 @@
   transform: translateX(0);
   color: var(--color_texto);
   line-height: 1.6;
-  
 }
-
-
 
 @media (width<=580px) {
   .banner__titulo {

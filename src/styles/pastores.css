@@ -54,6 +54,8 @@
   max-height: 250px;
   display: block;
   margin: 0 auto;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .pastores__nombre {
