@@ -3,6 +3,9 @@ import { predicas } from './constants';
 const predicasLista = document.querySelector('.predicas__lista') as HTMLDivElement;
 const paginationContainer = document.querySelector('.pagination') as HTMLDivElement;
 const pageInfo = document.getElementById('page-info') as HTMLSpanElement;
+const videoFrame = document.querySelector('.videoFrame') as HTMLIFrameElement;
+const modal = document.querySelector('.modal') as HTMLDivElement;
+const closeModal = document.querySelector('.close-btn') as HTMLSpanElement;
 
 const itemsPerPage = 6;
 let currentPage = 1;
@@ -74,7 +77,7 @@ function setupPagination() {
   paginationContainer.appendChild(nextButton);
 }
 
-function openModal(videoId) {
+function openModal(videoId: string) {
   videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
   modal.classList.add('active');
 }
