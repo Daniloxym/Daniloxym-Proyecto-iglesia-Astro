@@ -1,61 +1,26 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-
-const currentPath = Astro.url.pathname;
+import "@/styles/predicas.css";
 ---
 
 <Layout title="Predicas - Nido de Gracia" description="Explora nuestras predicas y mensajes inspiradores en Nido de Gracia. Encuentra enseñanzas bíblicas que fortalecen tu fe y te guían en tu caminar cristiano." url="https://nidodegracia.org/predicas">
-    <div class="contenedor">
-    <div class="card">
-      <h1>Esta página está en construcción</h1>
-      <p>Estamos trabajando para traerte el contenido muy pronto.</p>
-    </div>
+     <section class="predicas">
+      
+        <article class="predicas__texto">
+            <h1 class="predicas__titulo">Predicaciones</h1>
+        </article>
+
+        <div class="predicas__lista" id="preaches-container"></div>
+        <div class="pagination">
+            <span id="page-info"></span>  
+        </div>
+
+        <!-- Modal para ver el video -->
+  <div class="modal">
+    <span class="close-btn">✖</span>
+    <iframe class="videoFrame" allow="autoplay; encrypted-media"></iframe>
   </div>
+    </section> 
 </Layout>
 
-  <style>
-
-    /* Contenedor principal */
-    .contenedor{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      background: linear-gradient(180deg, rgba(11,59,102,0.05), rgba(181,138,58,0.03)), var(--bg);
-      color:#0f1724;
-      padding:20px;
-    }
-
-    .card{
-      background: rgba(255,255,255,0.9);
-      padding:40px 30px;
-      border-radius:18px;
-      box-shadow: 0 10px 28px var(--shadow-color);
-      max-width:480px;
-      backdrop-filter: blur(6px);
-      border:1px solid rgba(11,59,102,0.05);
-      animation: movesUpandDown 2s ease-in-out infinite;
-    }
-
-    .card h1{
-      font-family:Merriweather, serif;
-      font-size:32px;
-      color:var(--color_titulos);
-      margin-bottom:14px;
-    }
-
-    .card p{
-      font-size:16px;
-      color:var(--gris_oscuro);
-    }
-
-    @keyframes movesUpandDown {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-  </style>
+ <script src="../utils/pagination.ts"></script>

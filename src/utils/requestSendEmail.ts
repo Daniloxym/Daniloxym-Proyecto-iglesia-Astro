@@ -1,6 +1,6 @@
-import type { input } from 'astro:schema';
 import { validarInput, limpiarErrores, mostrarErrores } from './input-validation';
 import Toastify from 'toastify-js';
+import Swal from 'sweetalert2';
 import 'toastify-js/src/toastify.css';
 
 interface InputData {
@@ -49,36 +49,48 @@ async function sendEmail(e: Event) {
         'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
       );
     }
-
+    Swal.fire({
+      title: '¡Mensaje enviado!',
+      text: 'Te responderemos lo antes posible.',
+      icon: 'success',
+      confirmButtonColor: '#4CAF50'
+    });
     // const result = await res.json();
 
-    Toastify({
-      text: 'Mensaje enviado con éxito. Esperamos responderte pronto.',
-      duration: 5000,
-      close: true,
-      gravity: 'top', // `top` or `bottom`
-      position: 'center', // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: 'linear-gradient(135deg, #4CAF50, #45A049)'
-      }
-    }).showToast();
+    // Toastify({
+    //   text: 'Mensaje enviado con éxito. Esperamos responderte pronto.',
+    //   duration: 5000,
+    //   close: true,
+    //   gravity: 'top', // `top` or `bottom`
+    //   position: 'center', // `left`, `center` or `right`
+    //   stopOnFocus: true, // Prevents dismissing of toast on hover
+    //   style: {
+    //     background: 'linear-gradient(135deg, #4CAF50, #45A049)'
+    //   }
+    // }).showToast();
 
     formulario.reset();
     return;
   } catch (error: any) {
-    Toastify({
+    Swal.fire({
+      title: 'Error al enviar el mensaje',
       text: error.message,
-      duration: 3000,
-      close: true,
-      className: 'toast-error',
-      gravity: 'top', // `top` or `bottom`
-      position: 'center', // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: 'linear-gradient(135deg, #F44336, #D32F2F)'
-      }
-    }).showToast();
+      icon: 'error',
+      confirmButtonColor: '#fd4646ff'
+    });
+
+    // Toastify({
+    //   text: error.message,
+    //   duration: 3000,
+    //   close: true,
+    //   className: 'toast-error',
+    //   gravity: 'top', // `top` or `bottom`
+    //   position: 'center', // `left`, `center` or `right`
+    //   stopOnFocus: true, // Prevents dismissing of toast on hover
+    //   style: {
+    //     background: 'linear-gradient(135deg, #F44336, #D32F2F)'
+    //   }
+    // }).showToast();
     // console.error('Error al enviar el correo:', error);
     // mensajeRespuesta.style.display = 'block';
     // mensajeRespuesta.textContent =
