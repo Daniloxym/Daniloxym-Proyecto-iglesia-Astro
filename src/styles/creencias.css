@@ -55,7 +55,7 @@
 }
 
 .creencias__texto p {
-  margin-bottom: 1rem;
+  margin-bottom: 1lh;
   text-align: justify;
   font-size: var(--font-size-xs);
   animation: fadeInUp 1s 0.1s ease forwards;
