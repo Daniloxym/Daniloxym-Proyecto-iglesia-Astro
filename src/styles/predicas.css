@@ -87,6 +87,7 @@
   padding: 0 20px;
   font-size: var(--font-size-s);
   color: var(--text-color-secondary);
+  align-items: baseline;
 }
 .predicas__preacher {
   font-style: italic;
