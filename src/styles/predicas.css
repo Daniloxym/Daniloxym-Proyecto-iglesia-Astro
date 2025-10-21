@@ -76,7 +76,7 @@
   opacity: 1;
 }
 .predicas__title {
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
   font-weight: var(--font-weight-bold);
   color: var(--text-color);
   margin: 15px;

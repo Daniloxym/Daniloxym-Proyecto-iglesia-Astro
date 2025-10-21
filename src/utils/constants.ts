@@ -2,13 +2,13 @@ import type { Predicas } from '../types';
 import predica from '@/assets/img/predica4.png';
 
 export const predicas: Predicas[] = [
-  // {
-  //   id: 'ysz5S6PUM-U',
-  //   title: 'Dios Tiene un Plan Perfecto para Ti',
-  //   thumbnail: predica.src,
-  //   preacher: 'Pastor Mike Riffle',
-  //   date: '2024-07-30'
-  // },
+  {
+    id: 'T-ebvJYsTRY',
+    title: 'LA SOCIEDAD DE LA SIMIENTE DE LA SERPIENTE',
+    thumbnail: `https://img.youtube.com/vi/T-ebvJYsTRY/maxresdefault.jpg`,
+    preacher: 'Pastor Mike Riffle',
+    date: '19 de Octubre del 2025'
+  }
   // {
   //   id: 'tgbNymZ7vqY',
   //   title: 'Sanando las Heridas del Pasado',
