@@ -22,7 +22,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  column-gap: 80px;
+  column-gap: 70px;
   row-gap: 40px;
   padding-inline: 30px;
 }
@@ -32,7 +32,7 @@
   border-radius: 5px;
   max-width: 410px;
   width: calc((100% / 3) - 80px);
-  min-width: 300px;
+  min-width: 400px;
   box-shadow: 0 8px 16px var(--shadow-color);
   /* padding: 20px; */
   padding-bottom: 10px;
@@ -94,6 +94,7 @@
 }
 .predicas__date {
   color: var(--text-color);
+  font-size: var(--font-size-xs);
 }
 
 /* Pagination styles */
