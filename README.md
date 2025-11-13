@@ -1,4 +1,4 @@
-# Proyecto Iglesia Astro 🙏
+# Proyecto Iglesia Baustista Reformada Nido de Gracia 🙏
 
 Sitio web moderno para una iglesia construido con Astro, presentando información sobre la comunidad, pastores, diáconos, predicas, creencias y un formulario de contacto.
 
@@ -9,7 +9,6 @@ Sitio web moderno para una iglesia construido con Astro, presentando informació
   - 🏠 Página de inicio con información general
   - 👨‍💼 Sección de Pastores
   - 🤝 Sección de Diáconos
-  - 📖 Predicas disponibles
   - ✝️ Creencias y confesión de fe
   - 📧 Formulario de contacto funcional
 - **Mapa de Ubicación**: Integración de mapa para localizar la iglesia
@@ -97,7 +96,6 @@ npm run dev
 - **/** - Página principal con información general
 - **/pastores** - Información sobre los pastores
 - **/diaconos** - Información sobre los diáconos
-- **/predicas** - Predicas y enseñanzas
 - **/creencias** - Creencias y doctrina de la iglesia
 - **/contacto** - Formulario de contacto
 - **/404** - Página de error personalizada
