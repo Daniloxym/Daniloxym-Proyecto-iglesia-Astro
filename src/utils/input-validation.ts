@@ -1,63 +1,33 @@
-interface InputData {
-  nombre: string;
-  email: string;
-  asunto: string;
-  mensaje: string;
+import { inputSchema } from '../schema/input.schema';
+import type { InputData, Errors } from '../types';
+
+const errorName = document.querySelector('#error-nombre') as HTMLDivElement;
+const errorEmail = document.querySelector('#error-email') as HTMLDivElement;
+const errorAsunto = document.querySelector('#error-asunto') as HTMLDivElement;
+const errorMensaje = document.querySelector('#error-mensaje') as HTMLDivElement;
+
+export function validarInput({ nombre, email, asunto, mensaje }: InputData): Errors | undefined {
+  const result = inputSchema.safeParse({ nombre, email, asunto, mensaje });
+
+  if (!result.success) {
+    const zodErrors = result.error.flatten().fieldErrors;
+    return {
+      errorName: zodErrors.nombre ? zodErrors.nombre[0] : '',
+      errorEmail: zodErrors.email ? zodErrors.email[0] : '',
+      errorAsunto: zodErrors.asunto ? zodErrors.asunto[0] : '',
+      errorMensaje: zodErrors.mensaje ? zodErrors.mensaje[0] : ''
+    };
+  }
+  return undefined;
 }
 
-type Errors = Record<keyof InputData, string>;
+export function mostrarErrores(errores: Errors | undefined) {
+  if (!errores) return;
 
-export function validarInput({ nombre, email, asunto, mensaje }: InputData) {
-  const errors = {
-    errorName: '',
-    errorEmail: '',
-    errorAsunto: '',
-    errorMensaje: ''
-  };
-
-  if (!nombre || nombre.trim().length < 3) {
-    errors.errorName = 'El nombre debe tener al menos 3 caracteres.';
-  }
-
-  if (!email || !validarEmail(email)) {
-    errors.errorEmail = 'El correo electrónico no es válido.';
-  }
-
-  if (!asunto || asunto.trim().length < 3) {
-    errors.errorAsunto = 'El asunto debe tener al menos 3 caracteres.';
-  }
-
-  if (!mensaje || mensaje.trim().length < 10) {
-    errors.errorMensaje = 'El mensaje debe tener al menos 10 caracteres.';
-  }
-
-  return errors;
-}
-
-export function mostrarErrores(errores: ReturnType<typeof validarInput>) {
-  if (errores.errorName) {
-    const errorName = document.querySelector('#error-nombre') as HTMLDivElement;
-    errorName.textContent = errores.errorName;
-  }
-
-  if (errores.errorEmail) {
-    const errorEmail = document.querySelector('#error-email') as HTMLDivElement;
-    errorEmail.textContent = errores.errorEmail;
-  }
-
-  if (errores.errorAsunto) {
-    const errorAsunto = document.querySelector('#error-asunto') as HTMLDivElement;
-    errorAsunto.textContent = errores.errorAsunto;
-  }
-  if (errores.errorMensaje) {
-    const errorMensaje = document.querySelector('#error-mensaje') as HTMLDivElement;
-    errorMensaje.textContent = errores.errorMensaje;
-  }
-}
-
-export function validarEmail(email: string) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+  errorName.textContent = errores.errorName || '';
+  errorEmail.textContent = errores.errorEmail || '';
+  errorAsunto.textContent = errores.errorAsunto || '';
+  errorMensaje.textContent = errores.errorMensaje || '';
 }
 
 export function limpiarErrores() {

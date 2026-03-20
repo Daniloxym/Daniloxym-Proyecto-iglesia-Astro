@@ -1,74 +1,45 @@
 import { validarInput, limpiarErrores, mostrarErrores } from './input-validation';
-import Toastify from 'toastify-js';
 import Swal from 'sweetalert2';
 import 'toastify-js/src/toastify.css';
-
-interface InputData {
-  nombre: string;
-  email: string;
-  asunto: string;
-  mensaje: string;
-}
+import type { InputData } from '../types';
+import { requestSendEmail } from '../services/email.service';
 
 const formulario = document.querySelector('.formulario') as HTMLFormElement;
-// const mensajeRespuesta = document.querySelector('.formulario__confirmacion') as HTMLDivElement;
 const inputNombre = document.querySelector('.formulario__nombre') as HTMLInputElement;
 const inputEmail = document.querySelector('.formulario__correo') as HTMLInputElement;
 const inputAsunto = document.querySelector('.formulario__tema') as HTMLInputElement;
 const inputMensaje = document.querySelector('.formulario_mensaje') as HTMLTextAreaElement;
 
+const API_URL = `/api/sendEmail`;
+
 async function sendEmail(e: Event) {
   e.preventDefault();
   const formData = new FormData(formulario);
 
-  const data = Object.fromEntries(formData.entries()) as { [key: string]: string };
+  const data: InputData = {
+    nombre: formData.get('nombre') as string,
+    email: formData.get('email') as string,
+    asunto: formData.get('asunto') as string,
+    mensaje: formData.get('mensaje') as string
+  };
 
   limpiarErrores();
 
   const errores = validarInput(data);
 
-  if (errores.errorName || errores.errorEmail || errores.errorAsunto || errores.errorMensaje) {
+  if (errores) {
     mostrarErrores(errores);
     return;
   }
 
   try {
-    const res = await fetch('/api/sendEmail', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
-
-    if (!res.ok) {
-      if (res.status === 429)
-        throw new Error('Demasiadas solicitudes. Por favor, inténtalo más tarde.');
-
-      throw new Error(
-        'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.'
-      );
-    }
+    await requestSendEmail(API_URL, data);
     Swal.fire({
       title: '¡Mensaje enviado!',
       text: 'Te responderemos lo antes posible.',
       icon: 'success',
       confirmButtonColor: '#4CAF50'
     });
-    // const result = await res.json();
-
-    // Toastify({
-    //   text: 'Mensaje enviado con éxito. Esperamos responderte pronto.',
-    //   duration: 5000,
-    //   close: true,
-    //   gravity: 'top', // `top` or `bottom`
-    //   position: 'center', // `left`, `center` or `right`
-    //   stopOnFocus: true, // Prevents dismissing of toast on hover
-    //   style: {
-    //     background: 'linear-gradient(135deg, #4CAF50, #45A049)'
-    //   }
-    // }).showToast();
-
     formulario.reset();
     return;
   } catch (error: any) {
@@ -78,24 +49,6 @@ async function sendEmail(e: Event) {
       icon: 'error',
       confirmButtonColor: '#fd4646ff'
     });
-
-    // Toastify({
-    //   text: error.message,
-    //   duration: 3000,
-    //   close: true,
-    //   className: 'toast-error',
-    //   gravity: 'top', // `top` or `bottom`
-    //   position: 'center', // `left`, `center` or `right`
-    //   stopOnFocus: true, // Prevents dismissing of toast on hover
-    //   style: {
-    //     background: 'linear-gradient(135deg, #F44336, #D32F2F)'
-    //   }
-    // }).showToast();
-    // console.error('Error al enviar el correo:', error);
-    // mensajeRespuesta.style.display = 'block';
-    // mensajeRespuesta.textContent =
-    //   'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.';
-    // mensajeRespuesta.style.color = 'red';
     formulario.reset();
     return;
   }
@@ -112,7 +65,7 @@ const inputsConErrores: { input: HTMLInputElement | HTMLTextAreaElement; errorId
 
 inputsConErrores.forEach(({ input, errorId }) => {
   input.addEventListener('input', () => {
-    const errorDiv = document.querySelector(`#${errorId}`) as HTMLDivElement | null;
+    const errorDiv = document.querySelector(`#${errorId}`);
     if (errorDiv) errorDiv.textContent = '';
   });
 });
