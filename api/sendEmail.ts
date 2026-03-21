@@ -72,33 +72,32 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
+  const result = InputSchema.safeParse(req.body);
+
+  if (!result.success) {
+    return res.status(400).json({
+      error: 'Datos inválidos'
+    });
+  }
+
+  const { nombre, email, asunto, mensaje } = result.data;
+
+  const html = emailTemplate
+    .replace('{{name}}', nombre)
+    .replace('{{email}}', email)
+    .replace('{{message}}', mensaje);
+
   try {
-    const result = InputSchema.safeParse(req.body);
-
-    if (!result.success) {
-      return res.status(400).json({
-        error: 'Datos inválidos'
-      });
-    }
-
-    const { nombre, email, asunto, mensaje } = result.data;
-
-    const html = emailTemplate
-      .replace('{{name}}', nombre)
-      .replace('{{email}}', email)
-      .replace('{{message}}', mensaje);
-
     const data = await resend.emails.send({
-      from: 'info@nidodegracia.org',
-      to: 'pastores@nidodegracia.org',
+      from: process.env.EMAIL_FROM as string,
+      to: process.env.EMAIL_TO as string,
       replyTo: email,
       subject: `${asunto} - Mensaje de ${nombre}`,
       html
     });
 
-    res.status(200).json({ message: 'Correo enviado con éxito'});
+    res.status(200).json({ message: 'Correo enviado con éxito' });
   } catch (error) {
-    console.error('Error en sendEmail:', error);
     res.status(500).json({ error: 'Error enviando el correo' });
   }
 };
