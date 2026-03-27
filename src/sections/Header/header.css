@@ -1,27 +1,26 @@
 /*------BARRA DE NAVEGACIÓN---------------*/
 .navegacion {
-  height: 96px;
+  padding-inline: 47px;
+  padding-block: 5px;
   background-color: var(--pure-white);
   position: sticky;
   top: 0;
   z-index: 1;
-  width: 100%;
   box-shadow: 0 1px 2px var(--primary-color);
 }
 .navegacion__contenedor {
-  width: 95%;
-  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
   position: relative;
+  height: 100%;
 }
 .navegacion__lista {
   display: flex;
-  gap: 36px;
   height: 100%;
+  gap: 36px;
   align-items: center;
+  justify-content: center;
   list-style: none;
 }
 .navegacion__bars {
@@ -29,21 +28,19 @@
 }
 .navegacion__item {
   position: relative;
-  font-size: 15px;
-  height: 100%;
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .navegacion__item::after {
   content: '';
+  position: absolute;
+  left: 0;
+  bottom: 25px;
   width: 0;
   height: 4px;
   background-color: var(--primary-color);
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  top: 35px;
   transition: width 0.2s linear;
 }
 
@@ -99,8 +96,7 @@
 .submenu {
   list-style: none;
   position: absolute;
-  top: 96px;
-  right: -110px;
+  top: 97px;
   background-color: var(--pure-white);
   width: 220px;
   display: flex;
@@ -111,7 +107,10 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: visibility 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    visibility 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .submenu_elemento {
@@ -119,6 +118,9 @@
   text-align: center;
   padding-block: 15px;
   background-color: var(--pure-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color_texto);
 }
 
 .submenu li:nth-child(n) {
@@ -146,6 +148,7 @@
   border: none;
   font: inherit;
   cursor: pointer;
+  line-height: inherit;
   color: var(--color_texto);
   font-weight: var(--font-weight-semibold);
 }
@@ -161,7 +164,9 @@
     flex-direction: column;
     padding-top: 100px;
     gap: 45px;
-    transition: top 0.6s ease, right 0.6s ease;
+    transition:
+      top 0.6s ease,
+      right 0.6s ease;
   }
 
   .navegacion__item {

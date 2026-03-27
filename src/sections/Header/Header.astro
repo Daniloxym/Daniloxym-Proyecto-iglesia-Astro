@@ -3,6 +3,7 @@ import logo from "@/assets/img/logo.svg";
 import CerrarSVG from "@/assets/svg/CerrarSVG.astro";
 import FlechaSVG from "@/assets/svg/FlechaSVG.astro";
 import MenuSVG from "@/assets/svg/MenuSVG.astro";
+import LogoSVG from "@/assets/svg/LogoSVG.astro";
 import { Image } from "astro:assets";
 import "./header.css";
 ---
@@ -11,7 +12,7 @@ import "./header.css";
     <nav class="navegacion__contenedor">
       <a aria-label="Ir a inicio" class="navegacion__link" href="/">
         
-        <Image src={logo} alt="Logo de la iglesia" width={85} height={85} class="navegacion__logo" loading="eager" />
+        <LogoSVG aria-label="Logo de la iglesia" width="85" height="85" loading="eager" />
       </a>
 
       <ul class="navegacion__lista">
@@ -22,21 +23,25 @@ import "./header.css";
           <button class="navegacion__link nosotros">NOSOTROS</button>
           <FlechaSVG aria-label="Abrir submenu" class="navegacion__icono" />
           <ul class="submenu">
-            <li class="prueba">
-              <a class="submenu_elemento" aria-label="Ir a pastores" href="/pastores/">PASTORES</a>
-            </li>
-            <li>
-              <a class="submenu_elemento" aria-label="Ir a diáconos" href="/diaconos/">DIÁCONOS</a>
-            </li>
-            <li>
-              <a class="submenu_elemento" aria-label="Ir a creencias" href="/creencias/">CREENCIAS</a>
-            </li>
-          </ul>
+              <li class="prueba">
+                <a class="submenu_elemento" aria-label="Ir a pastores" href="/pastores/">PASTORES</a>
+              </li>
+              <li>
+                <a class="submenu_elemento" aria-label="Ir a diáconos" href="/diaconos/">DIÁCONOS</a>
+              </li>
+              <li>
+                <a class="submenu_elemento" aria-label="Ir a creencias" href="/creencias/">CREENCIAS</a>
+              </li>
+            </ul>
         </li>
+
 
         <!-- <li class="navegacion__item"><a class="navegacion__link" href="/predicas/">ENSEÑANZAS</a></li> -->
         <li class="navegacion__item"><a class="navegacion__link" href="/contacto/">CONTACTO</a></li>
+
+        
       </ul>
+      
       <MenuSVG aria-label="Abrir menú" class="navegacion__menu" />
     </nav>
   </header>
