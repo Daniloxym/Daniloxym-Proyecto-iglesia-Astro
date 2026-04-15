@@ -9,6 +9,8 @@ const inputNombre = document.querySelector('.formulario__nombre') as HTMLInputEl
 const inputEmail = document.querySelector('.formulario__correo') as HTMLInputElement;
 const inputAsunto = document.querySelector('.formulario__tema') as HTMLInputElement;
 const inputMensaje = document.querySelector('.formulario_mensaje') as HTMLTextAreaElement;
+const checkboxConsentimiento = document.querySelector('#consentimiento') as HTMLInputElement;
+const errorConsentimiento = document.querySelector('#error-consentimiento') as HTMLParagraphElement;
 
 const API_URL = `/api/sendEmail`;
 
@@ -24,6 +26,12 @@ async function sendEmail(e: Event) {
   };
 
   limpiarErrores();
+  if (errorConsentimiento) errorConsentimiento.textContent = '';
+
+  if (!checkboxConsentimiento?.checked) {
+    if (errorConsentimiento) errorConsentimiento.textContent = 'Debes aceptar el tratamiento de datos personales para continuar.';
+    return;
+  }
 
   const errores = validarInput(data);
 
@@ -62,6 +70,10 @@ const inputsConErrores: { input: HTMLInputElement | HTMLTextAreaElement; errorId
   { input: inputAsunto, errorId: 'error-asunto' },
   { input: inputMensaje, errorId: 'error-mensaje' }
 ];
+
+checkboxConsentimiento?.addEventListener('change', () => {
+  if (errorConsentimiento) errorConsentimiento.textContent = '';
+});
 
 inputsConErrores.forEach(({ input, errorId }) => {
   input.addEventListener('input', () => {
