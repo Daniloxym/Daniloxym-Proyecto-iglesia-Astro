@@ -85,7 +85,9 @@
   color: #fff;
   background-color: var(--btn-color);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
   font-family: inherit;
 }
 .formulario__btn:hover {
@@ -129,6 +131,12 @@
   .formulario__grid label {
     flex-basis: auto;
     width: 100%;
+  }
+
+  #error-consentimiento {
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: var(--font-size-xs);
   }
 }
 
