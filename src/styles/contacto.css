@@ -134,3 +134,81 @@
 
 @media (width<=453px) {
 }
+
+/* Consentimiento de datos personales */
+.formulario__consentimiento-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formulario__consentimiento {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.formulario__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.formulario__checkbox-custom {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formulario__consentimiento:hover .formulario__checkbox-custom {
+  border-color: var(--primary-color);
+  background: #fff;
+}
+
+.formulario__checkbox:focus-visible + .formulario__checkbox-custom {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.formulario__checkbox:checked + .formulario__checkbox-custom {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.formulario__checkbox:checked + .formulario__checkbox-custom::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.formulario__consentimiento-texto {
+  font-size: 0.85rem;
+  color: var(--gris_oscuro);
+  line-height: 1.5;
+}
+
+.formulario__consentimiento-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.formulario__consentimiento-link:hover {
+  opacity: 0.75;
+}
