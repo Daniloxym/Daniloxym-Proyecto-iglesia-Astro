@@ -5,16 +5,12 @@ import type { InputData } from '../types';
 import { requestSendEmail } from '../services/email.service';
 
 const formulario = document.querySelector('.formulario') as HTMLFormElement;
-const inputNombre = document.querySelector('.formulario__nombre') as HTMLInputElement;
-const inputEmail = document.querySelector('.formulario__correo') as HTMLInputElement;
-const inputAsunto = document.querySelector('.formulario__tema') as HTMLInputElement;
-const inputMensaje = document.querySelector('.formulario_mensaje') as HTMLTextAreaElement;
 const checkboxConsentimiento = document.querySelector('#consentimiento') as HTMLInputElement;
 const errorConsentimiento = document.querySelector('#error-consentimiento') as HTMLParagraphElement;
 
 const API_URL = `/api/sendEmail`;
 
-async function sendEmail(e: Event) {
+export async function sendEmail(e: Event) {
   e.preventDefault();
   const formData = new FormData(formulario);
 
@@ -26,10 +22,11 @@ async function sendEmail(e: Event) {
   };
 
   limpiarErrores();
-  if (errorConsentimiento) errorConsentimiento.textContent = '';
 
   if (!checkboxConsentimiento?.checked) {
-    if (errorConsentimiento) errorConsentimiento.textContent = 'Debes aceptar el tratamiento de datos personales para continuar.';
+    if (errorConsentimiento)
+      errorConsentimiento.textContent =
+        'Debes aceptar el tratamiento de datos personales para continuar.';
     return;
   }
 
@@ -48,8 +45,6 @@ async function sendEmail(e: Event) {
       icon: 'success',
       confirmButtonColor: '#4CAF50'
     });
-    formulario.reset();
-    return;
   } catch (error: any) {
     Swal.fire({
       title: 'Error al enviar el mensaje',
@@ -57,18 +52,30 @@ async function sendEmail(e: Event) {
       icon: 'error',
       confirmButtonColor: '#fd4646ff'
     });
+  } finally {
     formulario.reset();
-    return;
   }
 }
 
 formulario.addEventListener('submit', sendEmail);
 
 const inputsConErrores: { input: HTMLInputElement | HTMLTextAreaElement; errorId: string }[] = [
-  { input: inputNombre, errorId: 'error-nombre' },
-  { input: inputEmail, errorId: 'error-email' },
-  { input: inputAsunto, errorId: 'error-asunto' },
-  { input: inputMensaje, errorId: 'error-mensaje' }
+  {
+    input: document.querySelector('.formulario__nombre') as HTMLInputElement,
+    errorId: 'error-nombre'
+  },
+  {
+    input: document.querySelector('.formulario__correo') as HTMLInputElement,
+    errorId: 'error-email'
+  },
+  {
+    input: document.querySelector('.formulario__tema') as HTMLInputElement,
+    errorId: 'error-asunto'
+  },
+  {
+    input: document.querySelector('.formulario_mensaje') as HTMLTextAreaElement,
+    errorId: 'error-mensaje'
+  }
 ];
 
 checkboxConsentimiento?.addEventListener('change', () => {

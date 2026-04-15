@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "astro": "^5.5.4",
@@ -18,6 +20,9 @@
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "@vercel/node": "^5.6.18"
+    "@vercel/node": "^5.6.18",
+    "@vitest/coverage-v8": "^4.1.4",
+    "jsdom": "^29.0.2",
+    "vitest": "^4.1.4"
   }
 }
