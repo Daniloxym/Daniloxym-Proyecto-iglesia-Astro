@@ -2,6 +2,7 @@
 import "@/styles/global.css";
 import Header from "@/sections/Header/Header.astro";
 import Footer from "@/sections/Footer/Footer.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 // import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -39,6 +40,9 @@ const { title = "Iglesia Bautista Reformada Nido de Gracia", description = "Nido
     <meta property="twitter:url" content={url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <!-- Vercel Speed Insights -->
+    <SpeedInsights />
 
 	</head>
 	<body>
