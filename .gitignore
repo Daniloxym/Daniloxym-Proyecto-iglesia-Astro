@@ -14,9 +14,3 @@ package-lock.json
 # environment variables
 .env
 .env.production
-
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
