@@ -154,7 +154,7 @@ El formulario de contacto sigue un flujo de tres capas:
 
 1. **Cliente** (`src/utils/requestSendEmail.ts`): maneja el submit, valida el consentimiento y llama al servicio.
 2. **Servicio** (`src/services/email.service.ts`): realiza el `fetch POST` a la API y maneja errores HTTP (incluyendo rate limiting 429).
-3. **API Serverless** (`api/sendEmail.ts`): valida el cuerpo con Zod y envía el correo mediante Resend a `pastores@nidodegracia.org`.
+3. **API Serverless** (`api/sendEmail.ts`): valida el cuerpo con Zod y envía el correo mediante Resend al destinatario configurado en la variable de entorno `EMAIL_TO`.
 
 ## 🧪 Tests
 
