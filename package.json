@@ -27,7 +27,6 @@
     "vitest": "^4.1.10"
   },
   "overrides": {
-    "js-yaml": ">4.2.0",
     "@vercel/node": {
       "@vercel/build-utils": {
         "minimatch": ">10.2.2"
