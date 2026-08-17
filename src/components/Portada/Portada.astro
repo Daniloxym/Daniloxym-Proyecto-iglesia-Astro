@@ -4,10 +4,9 @@ import { Image } from "astro:assets";
 import "./Portada.css"
 ---
 
-<div class="contenido__portada">
+<section class="contenido__portada" aria-labelledby="portada-titulo">
       <Image src={iglesia} alt="Iglesia Bautista Nido de Gracia" loading="eager"  
-      width={1905}  height={630} class="contenido__img img-responsive" />
-      <!-- <div class="contenido__img"></div> -->
+      width={1905} height={630} class="contenido__img" />
 
       <article class="contenido__titulo">
         <h3>IGLESIA BAUTISTA REFORMADA NIDO DE GRACIA</h3>
@@ -16,4 +15,4 @@ import "./Portada.css"
           GLORIA
         </p>
       </article>
-</div>
+    </section>

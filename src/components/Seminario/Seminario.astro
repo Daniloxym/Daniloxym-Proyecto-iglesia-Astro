@@ -1,0 +1,57 @@
+---
+import seminario from "@/assets/img/seminario.jpeg";
+import { Image } from "astro:assets";
+import "./Seminario.css";
+---
+
+<section class="seminario" aria-labelledby="seminario-titulo">
+  <div class="seminario__contenido">
+    <div class="seminario__texto">
+      <span class="seminario__eyebrow">Formación teológica</span>
+      <h2 id="seminario-titulo">Seminario Teológico</h2>
+      <p>
+        Comprometidos con la preparación de hombres fieles que sean idóneos para
+        enseñar también a otros. Ofrecemos educación teológica rigurosa basada
+        en las Escrituras.
+      </p>
+      <a
+        class="seminario__boton"
+        href="https://facultadteologicabautista.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Más información
+      </a>
+    </div>
+
+    <Image
+      src={seminario}
+      alt="Estudiantes del Seminario Teológico"
+      class="seminario__imagen"
+      width={1200}
+      height={600}
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<script>
+  const seminarSection = document.querySelector(".seminario");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (seminarSection && !reducedMotion && "IntersectionObserver" in window) {
+    seminarSection.classList.add("seminario--reveal");
+
+    const seminarObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -40px" },
+    );
+
+    seminarObserver.observe(seminarSection);
+  }
+</script>

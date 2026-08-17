@@ -1,0 +1,67 @@
+---
+import pastores from "@/assets/img/pastores.avif";
+import { Image } from "astro:assets";
+import "./Liderazgo.css";
+---
+
+<section class="liderazgo" aria-labelledby="liderazgo-titulo">
+  <div class="liderazgo__contenido">
+    <div class="liderazgo__texto">
+      <span class="liderazgo__eyebrow">Liderazgo</span>
+      <h2 id="liderazgo-titulo">Conócenos</h2>
+      <p class="liderazgo__descripcion">
+        Nuestra iglesia está gobernada por una pluralidad de ancianos, hombres
+        llamados por Dios y reconocidos por la congregación para pastorear el
+        rebaño con la Palabra, la oración y el ejemplo.
+      </p>
+
+      <article class="liderazgo__tarjeta">
+        <h3>Nuestros Pastores</h3>
+        <p>
+          Hombres dedicados al ministerio de la Palabra y a la cura de almas,
+          buscando siempre la gloria de Cristo en la edificación de Su iglesia.
+        </p>
+      </article>
+
+      <a class="liderazgo__boton" href="/pastores/">
+        Conoce a nuestros pastores
+      </a>
+    </div>
+
+    <a class="liderazgo__imagen" href="/pastores/" aria-label="Conoce a nuestros pastores">
+      <Image
+        src={pastores}
+        alt="Pastores de la iglesia Nido de Gracia"
+        width={720}
+        height={720}
+        loading="lazy"
+      />
+    </a>
+  </div>
+</section>
+
+<script>
+  const liderazgo = document.querySelector(".liderazgo");
+  const liderazgoElements = document.querySelectorAll(
+    ".liderazgo__texto, .liderazgo__imagen",
+  );
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (liderazgo && !reducedMotion && "IntersectionObserver" in window) {
+    liderazgo.classList.add("liderazgo--reveal");
+
+    const liderazgoObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -48px" },
+    );
+
+    liderazgoElements.forEach((element) => liderazgoObserver.observe(element));
+  }
+</script>

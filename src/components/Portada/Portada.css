@@ -42,6 +42,7 @@
   display: block;
   max-height: 630px;
   object-fit: cover;
+  width: 100%;
 }
 .contenido__portada::before {
   content: '';

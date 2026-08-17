@@ -4,34 +4,101 @@ import "./LocationInfo.css"
 ---
 
 <section class="visit">
-      <h2>Ubicación y horarios</h2>
+      <header class="visit__header" data-text-reveal>
+        <span class="visit__eyebrow">Ven a visitarnos</span>
+        <h2>Ubicación y horarios</h2>
+        <p>Acompáñanos a adorar a Dios y estudiar su Palabra. Eres bienvenido a unirte a nuestra congregación en cualquiera de nuestros servicios semanales.</p>
+      </header>
 
-      <div class="schedule-container animation__iconos">
-        <div class="schedule-card">
-          <h3>📖 Escuela dominical</h3>
-          <p>Domingo · 9:00 am</p>
+      <div class="schedule-container">
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon" aria-hidden="true">▧</span>
+          <h3>Escuela dominical</h3>
+          <p>Estudio sistemático de la Escritura.</p>
+          <time datetime="SU09:00">Domingos · 9:00 AM</time>
         </div>
-        <div class="schedule-card">
-          <h3>🙌 Culto de adoración</h3>
-          <p>Domingo · 10:45 am</p>
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon schedule-card__icon--active" aria-hidden="true">✦</span>
+          <h3>Culto de adoración</h3>
+          <p>Lectura, predicación, cantos y sacramentos.</p>
+          <time datetime="SU10:45">Domingos · 10:45 AM</time>
         </div>
-        <div class="schedule-card">
-          <h3>🙏 Culto de oración</h3>
-          <p>Miércoles · 4:00 pm</p>
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon" aria-hidden="true">♧</span>
+          <h3>Culto de oración</h3>
+          <p>Tiempo dedicado a clamar juntos al Señor.</p>
+          <time datetime="WE16:00">Miércoles · 4:00 PM</time>
         </div>
       </div>
 
-      <div class="map-container">
-        <iframe
-          title="Ubicación de la iglesia"
-          class="informacion-general__google-maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15702.103888301663!2d-75.44640921366003!3d10.299725108943846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef6274cdf45953f%3A0x1b3cc25a743c46ed!2sFinca%20El%20Nido!5e0!3m2!1ses!2sco!4v1741015974796!5m2!1ses!2sco"
-          width="100%"
-          height="300"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+      <div class="visit__lugar">
+        <div class="visit__datos">
+          <span class="visit__eyebrow">Nuestra ubicación</span>
+          <h3>Finca El Nido</h3>
+          <p>Un espacio para reunirnos, aprender de la Palabra y crecer juntos en la fe.</p>
+          <address>Finca El Nido<br />Turbana, Bolívar</address>
+          <a href="https://www.google.com/maps/search/?api=1&query=Finca+El+Nido+Turbana+Bolivar" target="_blank" rel="noopener noreferrer">Ver en Google Maps <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="map-container" data-map-reveal>
+          <MapaIglesia />
+        </div>
+        
       </div>
     </section>
+
+<script>
+  const visitHeader = document.querySelector(".visit__header");
+  const scheduleContainer = document.querySelector(".schedule-container");
+  const scheduleCards = document.querySelectorAll("[data-card-reveal]");
+  const mapContainer = document.querySelector("[data-map-reveal]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (visitHeader && !reducedMotion && "IntersectionObserver" in window) {
+    visitHeader.classList.add("visit__header--reveal");
+
+    const visitHeaderObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -36px" },
+    );
+
+    visitHeaderObserver.observe(visitHeader);
+  }
+
+  if (scheduleContainer && !reducedMotion && "IntersectionObserver" in window) {
+    scheduleContainer.classList.add("schedule-container--reveal");
+
+    const scheduleObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -36px" },
+    );
+
+    scheduleCards.forEach((card) => scheduleObserver.observe(card));
+  }
+
+  if (mapContainer && !reducedMotion && "IntersectionObserver" in window) {
+    const mapObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("map-container--reveal");
+        requestAnimationFrame(() => entry.target.classList.add("is-visible"));
+        observer.unobserve(entry.target);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -36px" },
+    );
+
+    mapObserver.observe(mapContainer);
+  }
+</script>

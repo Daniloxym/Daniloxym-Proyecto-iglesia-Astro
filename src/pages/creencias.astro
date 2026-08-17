@@ -1,39 +1,124 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 import confesion from "@/assets/img/confesion.png";
 import DownloadSVG from "@/assets/svg/DownloadSVG.astro";
+import BibliaSVG from "@/assets/svg/BibliaSVG.astro";
 import "@/styles/creencias.css";
 ---
 
+<Layout
+  title="Creencias - Nido de Gracia"
+  description="Conoce nuestras creencias y la confesión de fe de 1689."
+  url="https://nidodegracia.org/creencias"
+>
+  <main class="creencias">
+    <section class="creencias__hero">
+      <span class="creencias__eyebrow">Nuestra base doctrinal</span>
+      <h1 class="creencias__titulo">Nuestras creencias: la Confesión de Londres de 1689</h1>
+      <div class="creencias__rule"></div>
+    </section>
 
-<Layout title = "Creencias - Nido de Gracia 🙏 " description="Conoce nuestras creencias y la confesión de fe de 1689." url="https://nidodegracia.org/creencias">
-    <section class="creencias">
-    
-            <article class="creencias__header">
-                <h1 class="creencias__titulo">Esto creemos - Confesión de fe de 1689</h1>
-               
-             </article>
-        
-        
-  
-       <div class="creencias__contenido">
-        <a  href="/confesion.pdf" download="Esto creemos - confesión de fe de 1689" class="creencias__imagen">
-            <Image src={confesion} alt="Confesión de fe de 1689" width={250} />
+    <section class="creencias__contenido" aria-labelledby="ancla-historica" data-reveal>
+      <a
+        href="/confesion.pdf"
+        download="Esto creemos - confesión de fe de 1689"
+        class="creencias__imagen"
+      >
+        <Image src={confesion} alt="Confesión de fe de 1689" width={480} />
+        <span>Ver y descargar el documento</span>
+      </a>
+
+      <div class="creencias__texto">
+        <h2 id="ancla-historica">Un ancla histórica</h2>
+        <p>
+          En Nido de Gracia, no buscamos inventar una nueva teología. Creemos firmemente que la fe que profesamos es la misma fe "una vez dada a los santos" (Judas 3). Por esta razón, nos adherimos a la Confesión de Fe Bautista de Londres de 1689.
+        </p>
+        <p>
+          Este documento histórico no reemplaza a la Biblia; más bien, sirve como un resumen fiel y sistemático de lo que creemos que la Biblia enseña. Proporciona un marco doctrinal sólido que protege a nuestra congregación del error y nos une en una comprensión común de las doctrinas de la gracia.
+        </p>
+
+        <blockquote>
+          <p>"Escudriñad las Escrituras; porque a vosotros os parece que en ellas tenéis la vida eterna; y ellas son las que dan testimonio de mí."</p>
+          <cite>Juan 5:39</cite>
+        </blockquote>
+
+        <p>
+          Al adoptar esta confesión, nos conectamos con una rica herencia de creyentes reformados a lo largo de los siglos, afirmando la soberanía de Dios en la salvación, la autoridad inerrante de las Escrituras y la suficiencia de Cristo.
+        </p>
+
+        <a
+          download="Esto creemos - confesión de fe de 1689"
+          class="creencias__btn"
+          href="/confesion.pdf"
+        >
+          <DownloadSVG size={24} />
+          Descargar PDF
         </a>
+      </div>
+    </section>
 
-        <div class="creencias__texto">
-            <p>Este pequeño tomo no se presenta como una regla autoritativa ni como un código de fe, sino como una ayuda en casos de controversia, una confirmación en la fe y un medio para edificación en justicia.</p>
+    <section class="solas" aria-labelledby="cinco-solas">
+      <header class="solas__header" data-reveal>
+        <span class="solas__marca" aria-hidden="true">
+          <BibliaSVG width="40" height="40" />
+        </span>
+        <h2 id="cinco-solas">Las Cinco Solas</h2>
+        <p>El clamor de la Reforma Protestante y el corazón de nuestra predicación.</p>
+      </header>
 
-            <p>En él los miembros más jóvenes de nuestra iglesia tendrán un conjunto resumido de enseñanzas divinas, y por medio de pruebas bíblicas, estarán preparados para dar razón de la esperanza que hay en ellos. No te avergüences de tu fe; recuerda que es el antiguo evangelio de los mártires, confesores, reformadores y santos.</p>
-
-            <p>Sobre todo, es la verdad de Dios, contra la que las puertas del infierno no pueden prevalecer. Haz que tu vida adorne tu fe, haz que tu ejemplo adorne tus creencias.</p>
-
-            <p>Sobre todo, vive en Cristo Jesús, y permanece en él, no creyendo ninguna enseñanza que no haya sido manifiestamente aprobada por él y sea propia del Espíritu Santo. Aférrate a la Palabra de Dios que aquí es explicada para ti. <strong>– Charles Haddon Spurgeon (1834–1892)</strong></p>
-
-            <a download="Esto creemos - confesión de fe de 1689" class="creencias__btn" href="/confesion.pdf"> <DownloadSVG size={26} /> Descargar PDF</a>
-        </div>
-    </div>
-    
-    </section> 
+      <div class="solas__grid">
+        <article class="sola" data-reveal>
+          <h3>Sola Scriptura</h3>
+          <span>Solo la Escritura</span>
+          <p>La Biblia es la única regla inerrante, suficiente y final de fe y práctica. Toda enseñanza debe someterse a la autoridad de la Palabra de Dios.</p>
+        </article>
+        <article class="sola" data-reveal>
+          <h3>Sola Gratia</h3>
+          <span>Solo por Gracia</span>
+          <p>La salvación es un don inmerecido de Dios. Somos rescatados de la ira divina por su favor, no por ninguna obra o mérito humano.</p>
+        </article>
+        <article class="sola" data-reveal>
+          <h3>Sola Fide</h3>
+          <span>Solo por Fe</span>
+          <p>La justificación ante Dios se recibe únicamente a través de la fe en Jesucristo, descansando enteramente en su obra perfecta.</p>
+        </article>
+        <article class="sola" data-reveal>
+          <h3>Solus Christus</h3>
+          <span>Solo Cristo</span>
+          <p>Jesucristo es el único mediador entre Dios y los hombres. Su vida sin pecado y muerte expiatoria son suficientes para nuestra salvación.</p>
+        </article>
+        <article class="sola" data-reveal>
+          <h3>Soli Deo Gloria</h3>
+          <span>Solo a Dios la Gloria</span>
+          <p>El propósito último de la creación y la salvación es exaltar a Dios. Toda la vida debe vivirse bajo su señorío y para su honor supremo.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<script>
+  document.documentElement.classList.add("reveal-ready");
+
+  const revealElements = document.querySelectorAll("[data-reveal]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -48px" },
+    );
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+  }
+</script>
