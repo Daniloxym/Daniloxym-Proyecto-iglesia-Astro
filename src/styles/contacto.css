@@ -81,7 +81,9 @@
   background: transparent;
   font-family: inherit;
   font-size: 0.78rem;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .formulario textarea {
@@ -139,7 +141,9 @@
   justify-content: center;
   border: 1px solid rgba(96, 91, 87, 0.35);
   background: var(--pure-white);
-  transition: background-color 180ms ease, border-color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .formulario__checkbox:checked + .formulario__checkbox-custom {
@@ -186,7 +190,9 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 180ms ease, transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
 }
 
 .formulario__btn:hover,
