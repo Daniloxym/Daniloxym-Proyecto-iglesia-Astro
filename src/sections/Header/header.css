@@ -20,6 +20,11 @@
   background: var(--btn-color);
   transform: translateX(-50%);
 }
+
+body.show-mobile-menu .navegacion::after {
+  width: 0;
+}
+
 .navegacion__contenedor {
   display: flex;
   width: 100%;
@@ -69,7 +74,7 @@
   bottom: -9px;
   width: 0;
   height: 3px;
-  background-color: #b28a4b;
+  background-color: var(--primary-color);
   transition: width 0.2s linear;
 }
 
@@ -113,7 +118,7 @@
 .navegacion__item--posicion:hover :where(.submenu) {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(10px);
 }
 
 .navegacion__icono {
@@ -121,6 +126,7 @@
 }
 .navegacion__item--posicion:hover :where(.navegacion__icono) {
   transform: rotate(180deg);
+  fill: var(--btn-hover);
 }
 
 .submenu {
@@ -205,7 +211,7 @@
 .navegacion__seminario:hover,
 .navegacion__seminario:focus-visible {
   background: var(--btn-hover);
-  transform: translateY(-1px);
+  transform: translateY(-0.8px);
 }
 
 .navegacion__item--cta::after {
@@ -275,5 +281,10 @@
 
   .navegacion__seminario {
     padding: 10px 22px;
+  }
+}
+
+@media (width<=500px) {
+  .navegacion__item::after {
   }
 }
