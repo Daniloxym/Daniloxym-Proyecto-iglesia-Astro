@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import MapaIglesia from "@/components/MapaIglesia.astro";
-import "@/styles/contacto.css";
+import "./contacto.css";
 ---
 <Layout title = "Contacto - Nido de Gracia 🙏" description="Ponte en contacto con nosotros para cualquier pregunta o solicitud de oración." url="https://nidodegracia.org/contacto">
     <main id="contacto" class="contacto">
@@ -94,4 +94,4 @@ import "@/styles/contacto.css";
     </main>
 </Layout>
 
-<script src="../utils/requestSendEmail.ts"></script>
+<script src="@/utils/requestSendEmail.ts"></script>
