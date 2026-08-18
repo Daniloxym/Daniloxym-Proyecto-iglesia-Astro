@@ -1,24 +1,53 @@
 /*------BARRA DE NAVEGACIÓN---------------*/
 .navegacion {
-  padding-inline: 47px;
-  padding-block: 5px;
-  background-color: var(--pure-white);
   position: sticky;
+  width: 100%;
+  padding: 8px clamp(24px, 8.5vw, 96px);
+  background: var(--pure-white);
   top: 0;
-  z-index: 1;
-  box-shadow: 0 1px 2px var(--primary-color);
+  z-index: 20;
+  border-bottom: 1px solid rgba(173, 118, 94, 0.2);
+  box-shadow: 0 8px 20px rgba(39, 35, 32, 0.08);
+}
+
+.navegacion::after {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 72px;
+  height: 3px;
+  content: '';
+  background: var(--btn-color);
+  transform: translateX(-50%);
 }
 .navegacion__contenedor {
   display: flex;
+  width: 100%;
+  min-height: 42px;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 100%;
 }
+
+.navegacion__marca {
+  display: inline-flex;
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.navegacion__marca svg {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
 .navegacion__lista {
   display: flex;
-  height: 100%;
-  gap: 36px;
+  gap: clamp(18px, 3vw, 34px);
   align-items: center;
   justify-content: center;
   list-style: none;
@@ -30,17 +59,17 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
+  height: auto;
 }
 
 .navegacion__item::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 25px;
+  bottom: -9px;
   width: 0;
-  height: 4px;
-  background-color: var(--primary-color);
+  height: 2px;
+  background-color: #b28a4b;
   transition: width 0.2s linear;
 }
 
@@ -62,8 +91,11 @@
 
 .navegacion__item a {
   text-decoration: none;
+  color: #26303a;
+  font-size: 0.68rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color_texto);
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
 }
 
 .navegacion__logo {
@@ -78,8 +110,6 @@
 }
 
 /*NAVEGACIÓN - SUBMENU*/
-.navegacion__item--posicion {
-}
 .navegacion__item--posicion:hover :where(.submenu) {
   opacity: 1;
   visibility: visible;
@@ -96,14 +126,15 @@
 .submenu {
   list-style: none;
   position: absolute;
-  top: 97px;
+  top: 38px;
   background-color: var(--pure-white);
   width: 220px;
   display: flex;
-  border-radius: 10px;
+  border: 1px solid rgba(6, 26, 51, 0.1);
+  border-radius: 4px;
   flex-direction: column;
   justify-content: space-evenly;
-  box-shadow: 0 4px 2px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 12px 24px rgba(6, 26, 51, 0.12);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -119,8 +150,10 @@
   padding-block: 15px;
   background-color: var(--pure-white);
   text-decoration: none;
+  color: #26303a;
+  font-size: 0.68rem;
   font-weight: var(--font-weight-semibold);
-  color: var(--color_texto);
+  letter-spacing: 0.08em;
 }
 
 .submenu li:nth-child(n) {
@@ -149,16 +182,46 @@
   font: inherit;
   cursor: pointer;
   line-height: inherit;
-  color: var(--color_texto);
+  color: #26303a;
   font-weight: var(--font-weight-semibold);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
+
+.navegacion__seminario {
+  display: block;
+  padding: 11px 28px;
+  color: var(--pure-white) !important;
+  background: var(--primary-color);
+  font-size: 0.68rem !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.navegacion__seminario:hover,
+.navegacion__seminario:focus-visible {
+  background: #17385e;
+  transform: translateY(-1px);
+}
+
+.navegacion__item--cta::after {
+  display: none;
 }
 
 @media (width<=850px) {
+  .navegacion {
+    padding-inline: 20px;
+  }
+
   .navegacion__lista {
     position: fixed;
     top: 0;
-    right: -300px;
-    width: 300px;
+    right: -100vw;
+    width: min(300px, 100vw);
     height: 100%;
     background-color: var(--pure-white);
     flex-direction: column;
@@ -180,6 +243,17 @@
   .navegacion__logo {
     width: 60px;
   }
+
+  .navegacion__marca {
+    flex-basis: 86px;
+    width: 86px;
+    height: 86px;
+  }
+
+  .navegacion__marca svg {
+    width: 86px;
+    height: 86px;
+  }
   .navegacion__cerrar {
     width: 16px;
     display: block;
@@ -190,12 +264,16 @@
   .submenu {
     position: absolute;
     top: 30px;
-    right: -90px;
+    right: 0;
     background-color: var(--pure-white);
-    width: 290px;
+    width: min(290px, calc(100vw - 32px));
     height: 120px;
     z-index: 1;
     border-radius: 0;
     box-shadow: 0 1px 5px black;
+  }
+
+  .navegacion__seminario {
+    padding: 10px 22px;
   }
 }

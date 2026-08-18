@@ -1,73 +1,325 @@
 .pastores {
-  background: var(--pure-white);
-  padding-bottom: 100px;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: clamp(72px, 9vw, 112px) 28px 120px;
+  color: var(--color_titulos);
 }
 
-.pastores__texto {
-  background-color: var(--primary-color);
-  font-weight: var(--font-weight-bold);
-  color: var(--white-color);
-  padding: 10px;
+.pastores.pastores--reveal-ready [data-reveal] {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    filter 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.pastores__texto p {
-  padding: 0 100px;
-  font-size: var(--font-size-m);
+.pastores.pastores--reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
-.pastores__titulo {
+.pastores.pastores--reveal-ready .pastores__panorama.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+.pastores.pastores--reveal-ready .pastores__contexto [data-reveal]:nth-child(2),
+.pastores.pastores--reveal-ready .pastores__lista [data-reveal]:nth-child(2),
+.pastores.pastores--reveal-ready .diaconos-integrados__lista [data-reveal]:nth-child(2) {
+  transition-delay: 110ms;
+}
+
+.pastores.pastores--reveal-ready .diaconos-integrados__lista [data-reveal]:nth-child(3) {
+  transition-delay: 220ms;
+}
+
+.pastores__hero {
+  width: min(680px, 100%);
+  margin: 0 auto 44px;
   text-align: center;
-  color: var(--white-color);
-  font-size: var(--font-size-xl);
+}
+
+.pastores__eyebrow,
+.pastores__rol,
+.pastores__numero {
+  color: var(--btn-color);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pastores__hero h1 {
+  margin: 10px 0 14px;
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.25rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pastores__hero p {
+  margin: 0 auto;
+  color: #53616b;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.pastores__panorama {
+  width: min(960px, 100%);
+  height: clamp(260px, 38vw, 420px);
+  margin: 0 auto 42px;
+  overflow: hidden;
+  border: 1px solid rgba(173, 118, 94, 0.2);
+  background: #e8e2da;
+  box-shadow: 0 12px 28px rgba(39, 35, 32, 0.08);
+}
+
+.pastores__panorama img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 10%;
+  background: #e8e2da;
+  filter: saturate(0.88);
+}
+
+.pastores.pastores--reveal-ready .pastores__panorama img {
+  transform: scale(1.05);
+  transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1), filter 1100ms ease;
+}
+
+.pastores.pastores--reveal-ready .pastores__panorama.is-visible img {
+  filter: saturate(1);
+  transform: scale(1);
+}
+
+.pastores__contexto {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.75fr);
+  gap: 22px;
+  width: min(960px, 100%);
+  margin: 0 auto clamp(72px, 10vw, 112px);
+}
+
+.pastores__bloque {
+  min-height: 190px;
+  padding: 26px 28px;
+  border: 1px solid rgba(173, 118, 94, 0.2);
+  background: rgba(250, 245, 242, 0.48);
+}
+
+.pastores__bloque--vision {
+  background: var(--pure-white);
+  border-left: 3px solid var(--btn-color);
+}
+
+.pastores__bloque h2 {
+  margin: 10px 0 12px;
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.pastores__bloque p,
+.pastores__bloque blockquote {
+  margin: 0 0 12px;
+  color: #53616b;
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.pastores__bloque p:last-child {
+  margin-bottom: 0;
+}
+
+.pastores__bloque blockquote {
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.pastores__perfiles {
+  width: min(960px, 100%);
+  margin: 0 auto;
+}
+
+.pastores__perfiles > h2 {
+  margin: 0 0 28px;
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  text-align: center;
 }
 
 .pastores__lista {
-  margin: 70px;
-  margin-inline: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 80px;
-  padding-inline: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .pastores__item {
-  background-color: var(--white-color);
-  border-radius: 5px;
-  max-width: 450px;
-  box-shadow: 0 8px 16px var(--shadow-color);
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 22px 24px 28px;
+  border: 1px solid rgba(173, 118, 94, 0.2);
+  background: linear-gradient(145deg, var(--white-color), #f0e4dc);
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(39, 35, 32, 0.05);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .pastores__item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px var(--shadow-color-hover);
+  box-shadow: 0 16px 30px rgba(39, 35, 32, 0.1);
+  transform: translateY(-5px);
 }
 
 .pastores__img {
-  object-fit: cover;
-  border-radius: 50%;
-  object-position: 0 20%;
-  width: 100%;
-  max-width: 250px;
-  max-height: 250px;
   display: block;
-  margin: 0 auto;
-  transition: all 0.3s ease;
+  width: 116px;
+  height: 116px;
+  margin: 0 auto 18px;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: 0 5px 14px rgba(39, 35, 32, 0.12);
+}
+
+.pastores__rol {
+  font-size: 0.6rem;
 }
 
 .pastores__nombre {
-  text-align: center;
+  margin: 6px 0 14px;
   color: var(--color_titulos);
-  margin: 15px 0;
-  font-size: var(--font-size-l);
-  font-weight: var(--font-weight-semibold);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .pastores__item p {
-  font-size: 1rem;
-  color: var(--gris-claro);
-  line-height: 1.5;
-  margin-bottom: 1lh;
+  margin: 0 0 13px;
+  color: #53616b;
+  font-size: 0.72rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.pastores__item p:last-child {
+  margin-bottom: 0;
+}
+
+.diaconos-integrados {
+  width: min(960px, 100%);
+  margin: clamp(84px, 12vw, 132px) auto 0;
+  padding-top: clamp(56px, 8vw, 84px);
+  border-top: 1px solid rgba(173, 118, 94, 0.24);
+}
+
+.diaconos-integrados__header {
+  width: min(620px, 100%);
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.diaconos-integrados__header h2 {
+  margin: 10px 0 14px;
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.diaconos-integrados__header p {
+  margin: 0;
+  color: #53616b;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.diaconos-integrados__lista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.diacono-integrado {
+  padding: 20px 20px 24px;
+  border: 1px solid rgba(173, 118, 94, 0.2);
+  background: linear-gradient(145deg, var(--white-color), #f0e4dc);
+  text-align: center;
+  box-shadow: 0 7px 18px rgba(39, 35, 32, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.diacono-integrado:hover {
+  box-shadow: 0 14px 26px rgba(39, 35, 32, 0.1);
+  transform: translateY(-4px);
+}
+
+.diacono-integrado__img {
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 16px;
+  border: 4px solid rgba(255, 255, 255, 0.82);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  box-shadow: 0 5px 14px rgba(39, 35, 32, 0.1);
+}
+
+.diacono-integrado h3 {
+  margin: 6px 0 12px;
+  color: var(--color_titulos);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+}
+
+.diacono-integrado p {
+  margin: 0;
+  color: #53616b;
+  font-size: 0.7rem;
+  line-height: 1.65;
+  text-align: left;
+}
+
+@media (max-width: 700px) {
+  .pastores {
+    padding: 52px 20px 84px;
+  }
+
+  .pastores__panorama {
+    height: 260px;
+  }
+
+  .pastores__contexto,
+  .pastores__lista,
+  .diaconos-integrados__lista {
+    grid-template-columns: 1fr;
+  }
+
+  .pastores__bloque {
+    min-height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pastores__item,
+  .diacono-integrado,
+  .pastores.pastores--reveal-ready [data-reveal],
+  .pastores.pastores--reveal-ready .pastores__panorama img {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
 }

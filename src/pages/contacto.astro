@@ -1,20 +1,22 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import MapaIglesia from "@/components/MapaIglesia.astro";
 import "@/styles/contacto.css";
 ---
 <Layout title = "Contacto - Nido de Gracia 🙏" description="Ponte en contacto con nosotros para cualquier pregunta o solicitud de oración." url="https://nidodegracia.org/contacto">
-    <section id="contacto" class="contacto">
-      <section class="contacto__informacion">
-        <h3>CONTACTANOS</h3>
+    <main id="contacto" class="contacto">
+      <header class="contacto__encabezado">
+        <span class="contacto__eyebrow">Estamos para servirte</span>
+        <h1>Contáctanos</h1>
         <p class="contacto__informacion__texto">
-          Nos encantaría conocerte y ayudarte en tu caminar con Dios! Si tienes
-          alguna pregunta, petición de oración o simplemente deseas hablar con
-          alguien, no dudes en comunicarte con nosotros.
+          Ya sea que tengas preguntas sobre nuestra congregación, necesites oración o desees visitarnos, no dudes en comunicarte con nosotros.
         </p>
-
-      </section>
+      </header>
   
-      <form class="formulario">
+      <div class="contacto__contenido">
+        <section class="contacto__formulario" aria-labelledby="contacto-formulario-titulo">
+          <h2 id="contacto-formulario-titulo">Contáctanos</h2>
+          <form class="formulario">
         <div class="formulario__grid">
             <label>
               <input
@@ -67,8 +69,29 @@ import "@/styles/contacto.css";
           <p class="error" id="error-consentimiento"></p>
         </div>
         <button type= "submit" class="formulario__btn">Enviar mensaje</button>
-      </form>
-    </section>
+          </form>
+
+          <aside class="contacto__directo">
+            <span>Información directa</span>
+            <a href="mailto:pastores@nidodegracia.org">pastores@nidodegracia.org</a>
+            <small>Para consultas pastorales</small>
+          </aside>
+        </section>
+
+        <section class="contacto__lugar" aria-labelledby="ubicacion-titulo">
+          <h2 id="ubicacion-titulo">Ubicación</h2>
+          <div class="contacto__mapa"><MapaIglesia /></div>
+          <p class="contacto__direccion"><strong>Finca El Nido, Turbana, Bolívar</strong><br />A las afueras de la ciudad, un espacio apartado para el recogimiento y la adoración.</p>
+
+          <div class="contacto__horarios">
+            <h2>Horarios</h2>
+            <p><span>Día del Señor (Culto principal)</span><strong>Domingos · 10:45 AM</strong></p>
+            <p><span>Estudio bíblico y oración</span><strong>Miércoles · 4:00 PM</strong></p>
+            <p><span>Escuela dominical</span><strong>Domingos · 9:00 AM</strong></p>
+          </div>
+        </section>
+      </div>
+    </main>
 </Layout>
 
 <script src="../utils/requestSendEmail.ts"></script>
