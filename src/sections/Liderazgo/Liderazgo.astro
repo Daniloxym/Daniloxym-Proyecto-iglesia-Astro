@@ -41,27 +41,11 @@ import "./Liderazgo.css";
 </section>
 
 <script>
-  const liderazgo = document.querySelector(".liderazgo");
-  const liderazgoElements = document.querySelectorAll(
-    ".liderazgo__texto, .liderazgo__imagen",
-  );
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 
-  if (liderazgo && !reducedMotion && "IntersectionObserver" in window) {
-    liderazgo.classList.add("liderazgo--reveal");
-
-    const liderazgoObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -48px" },
-    );
-
-    liderazgoElements.forEach((element) => liderazgoObserver.observe(element));
-  }
+  setupRevealOnScroll({
+    sectionSelector: ".liderazgo",
+    elementSelector: ".liderazgo__texto, .liderazgo__imagen",
+    revealClass: "liderazgo--reveal",
+  });
 </script>

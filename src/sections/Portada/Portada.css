@@ -10,24 +10,25 @@
 }
 
 .contenido__titulo {
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: flex;
-  grid-area: 1 / 1;
-  place-self: center;
+  width: 100%;
+  height: 100%;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: min(760px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 32px 0;
+  margin: 0;
+  padding: 32px 16px;
   color: var(--pure-white);
   text-align: center;
-  transform: translateY(-40vh);
+  box-sizing: border-box;
 }
 
 .contenido__titulo h1 {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, serif;
   font-size: clamp(2.35rem, 6vw, 4.8rem);
   font-weight: 400;
   line-height: 1.03;
@@ -63,7 +64,7 @@
   align-items: center;
   flex-direction: column;
   gap: 3px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
   font-size: 0.62rem;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.16em;
@@ -75,7 +76,7 @@
   width: 24px;
   height: 24px;
   fill: currentColor;
-  animation: portada-deslizar 1200ms ease-in-out infinite;
+  animation: portada-deslizar 1100ms ease-in-out infinite;
 }
 
 @keyframes portada-deslizar {
@@ -99,9 +100,9 @@
   grid-area: 1 / 1;
   display: block;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   object-fit: cover;
-  object-position: center 48%;
+  object-position: center 50%;
 }
 .contenido__portada::before {
   position: absolute;
@@ -114,6 +115,9 @@
     rgba(4, 15, 28, 0.35) 50%,
     rgba(4, 15, 28, 0.58)
   );
+}
+
+@media (width <= 1200px) {
 }
 
 @media (width<=850px) {
@@ -141,10 +145,6 @@
     font-size: clamp(1.8rem, 9.5vw, 3.1rem);
   }
 
-  .contenido__titulo {
-    transform: translateY(-8vh);
-  }
-
   .contenido__titulo p {
     font-size: 0.58rem;
     letter-spacing: 0.1em;
@@ -157,6 +157,7 @@
   .contenido__titulo {
     animation: none;
     transition: none;
+    transform: none;
   }
 
   .portada__deslizar svg {

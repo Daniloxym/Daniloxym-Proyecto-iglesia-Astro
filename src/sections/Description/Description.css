@@ -22,10 +22,10 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 38px;
+  width: 48px;
   height: 3px;
   content: '';
-  background: var(--btn-color);
+  background: var(--primary-color);
   transform: translateX(-50%);
 }
 

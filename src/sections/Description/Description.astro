@@ -38,25 +38,13 @@ import "./Description.css"
     </section>
 
 <script>
-  const descriptionSection = document.querySelector(".descripcion");
-  const descriptionElements = document.querySelectorAll(".descripcion__elemento");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 
-  if (descriptionSection && !reducedMotion && "IntersectionObserver" in window) {
-    descriptionSection.classList.add("descripcion--reveal");
-
-    const descriptionObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -40px" },
-    );
-
-    descriptionElements.forEach((element) => descriptionObserver.observe(element));
-  }
+  setupRevealOnScroll({
+    sectionSelector: ".descripcion",
+    elementSelector: ".descripcion__elemento",
+    revealClass: "descripcion--reveal",
+    threshold: 0.18,
+    rootMargin: "0px 0px -40px",
+  });
 </script>
