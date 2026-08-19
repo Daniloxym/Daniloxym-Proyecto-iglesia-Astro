@@ -1,5 +1,4 @@
 import type { Predicas } from '../types';
-import predica from '@/assets/img/predica4.png';
 
 export const predicas: Predicas[] = [
   {

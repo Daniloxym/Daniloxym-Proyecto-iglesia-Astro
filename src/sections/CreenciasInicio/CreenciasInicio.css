@@ -8,8 +8,7 @@
   color: var(--pure-white);
   background-color: #171714;
   background-image:
-    linear-gradient(rgba(13, 15, 13, 0.72), rgba(13, 15, 13, 0.82)),
-    url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJiieith-RHVaQI2MY0pr-K7H5T5HhRdXQ-9XeiocGoqO5PQ3-kajFMe2nVv_ei09ATxfGHmxjim8EI38LA7QCd08J0tHgDAh28i39A8YOjJAwUo9UyVTP68AIXFcfncc9yXBGUXwDjVuYrgR2zN2WBMHeYpwWqUbtuWsluYqyqaf8HGjKB8kBWbK8Cg9MRpaaZOXo1EXnSinNo33UswyMEyLiHHWwcBoIg9sGzLE0W7H45gIQUYlIDw');
+    linear-gradient(rgba(13, 15, 13, 0.72), rgba(13, 15, 13, 0.82)), url('@/assets/img/bible.jpg');
   background-position: center;
   background-size: cover;
 }

@@ -30,23 +30,14 @@ import "./CreenciasInicio.css";
 </section>
 
 <script>
-  const beliefsSection = document.querySelector(".creencias-inicio");
-  const revealItems = document.querySelectorAll("[data-reveal-item]");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 
-  if (beliefsSection && !reducedMotion && "IntersectionObserver" in window) {
-    beliefsSection.classList.add("creencias-inicio--reveal-ready");
-
-    const beliefsObserver = new IntersectionObserver(
-      ([entry], observer) => {
-        if (!entry.isIntersecting) return;
-
-        beliefsSection.classList.add("creencias-inicio--is-visible");
-        observer.unobserve(entry.target);
-      },
-      { threshold: 0.28, rootMargin: "0px 0px -48px" },
-    );
-
-    beliefsObserver.observe(beliefsSection);
-  }
+  setupRevealOnScroll({
+    sectionSelector: ".creencias-inicio",
+    elementSelector: "[data-reveal-item]",
+    revealClass: "creencias-inicio--reveal-ready",
+    sectionVisibleClass: "creencias-inicio--is-visible",
+    threshold: 0.28,
+    rootMargin: "0px 0px -48px",
+  });
 </script>

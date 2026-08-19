@@ -1,5 +1,6 @@
 ---
 import MapaIglesia from "@/components/MapaIglesia.astro";
+import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 import "./LocationInfo.css"
 ---
 
@@ -47,58 +48,30 @@ import "./LocationInfo.css"
     </section>
 
 <script>
-  const visitHeader = document.querySelector(".visit__header");
-  const scheduleContainer = document.querySelector(".schedule-container");
-  const scheduleCards = document.querySelectorAll("[data-card-reveal]");
-  const mapContainer = document.querySelector("[data-map-reveal]");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+  
+  setupRevealOnScroll({
+    sectionSelector: ".visit__header",
+    elementSelector: ".visit__header",
+    revealClass: "visit__header--reveal",
+    threshold: 0.2,
+    rootMargin: "0px 0px -36px",
+  });
 
-  if (visitHeader && !reducedMotion && "IntersectionObserver" in window) {
-    visitHeader.classList.add("visit__header--reveal");
+  setupRevealOnScroll({
+    sectionSelector: ".schedule-container",
+    elementSelector: "[data-card-reveal]",
+    revealClass: "schedule-container--reveal",
+    threshold: 0.2,
+    rootMargin: "0px 0px -36px",
+  });
 
-    const visitHeaderObserver = new IntersectionObserver(
-      ([entry], observer) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -36px" },
-    );
-
-    visitHeaderObserver.observe(visitHeader);
-  }
-
-  if (scheduleContainer && !reducedMotion && "IntersectionObserver" in window) {
-    scheduleContainer.classList.add("schedule-container--reveal");
-
-    const scheduleObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -36px" },
-    );
-
-    scheduleCards.forEach((card) => scheduleObserver.observe(card));
-  }
-
-  if (mapContainer && !reducedMotion && "IntersectionObserver" in window) {
-    const mapObserver = new IntersectionObserver(
-      ([entry], observer) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("map-container--reveal");
-        requestAnimationFrame(() => entry.target.classList.add("is-visible"));
-        observer.unobserve(entry.target);
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -36px" },
-    );
-
-    mapObserver.observe(mapContainer);
-  }
+  setupRevealOnScroll({
+    sectionSelector: "[data-map-reveal]",
+    elementSelector: "[data-map-reveal]",
+    revealClass: "map-container--reveal",
+    revealOnIntersect: true,
+    threshold: 0.15,
+    rootMargin: "0px 0px -36px",
+  });
 </script>

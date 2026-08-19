@@ -16,7 +16,7 @@ import "./Seminario.css";
       </p>
       <a
         class="seminario__boton"
-        href="https://facultadteologicabautista.org/"
+        href="https://ftbautista.org/"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -36,22 +36,13 @@ import "./Seminario.css";
 </section>
 
 <script>
-  const seminarSection = document.querySelector(".seminario");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 
-  if (seminarSection && !reducedMotion && "IntersectionObserver" in window) {
-    seminarSection.classList.add("seminario--reveal");
-
-    const seminarObserver = new IntersectionObserver(
-      ([entry], observer) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -40px" },
-    );
-
-    seminarObserver.observe(seminarSection);
-  }
+  setupRevealOnScroll({
+    sectionSelector: ".seminario",
+    elementSelector: ".seminario",
+    revealClass: "seminario--reveal",
+    threshold: 0.18,
+    rootMargin: "0px 0px -40px",
+  });
 </script>
