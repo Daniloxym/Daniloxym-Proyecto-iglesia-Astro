@@ -1,6 +1,6 @@
 ---
 import MapaIglesia from "@/components/MapaIglesia.astro";
-import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+import ManosSVG from "@/assets/svg/ManosSVG.astro";
 import "./LocationInfo.css"
 ---
 
@@ -25,7 +25,7 @@ import "./LocationInfo.css"
           <time datetime="SU10:45">Domingos · 10:45 AM</time>
         </div>
         <div class="schedule-card" data-card-reveal>
-          <span class="schedule-card__icon" aria-hidden="true">♧</span>
+          <span class="schedule-card__icon" aria-hidden="true"><ManosSVG /></span>
           <h3>Culto de oración</h3>
           <p>Tiempo dedicado a clamar juntos al Señor.</p>
           <time datetime="WE16:00">Miércoles · 4:00 PM</time>
