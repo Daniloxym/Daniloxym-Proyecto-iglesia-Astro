@@ -1,7 +1,7 @@
 .footer__principal {
   padding: 64px clamp(24px, 7vw, 96px) 22px;
   border-top: 1px solid rgba(173, 118, 94, 0.28);
-  background: #f3eee9;
+  background: var(--white-color);
   color: var(--color_titulos);
 }
 
@@ -28,7 +28,7 @@
   margin: 0 0 5px;
   color: var(--color_titulos);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.45rem;
+  font-size: 1.2rem;
 }
 
 .footer__lema {
