@@ -91,25 +91,13 @@ import "./pastores.css";
 </Layout>
 
 <script>
-    const pastorsPage = document.querySelector(".pastores");
-    const revealElements = document.querySelectorAll("[data-reveal]");
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
 
-    if (pastorsPage && !reducedMotion && "IntersectionObserver" in window) {
-        pastorsPage.classList.add("pastores--reveal-ready");
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-                entries.forEach((entry) => {
-                    if (!entry.isIntersecting) return;
-
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                });
-            },
-            { threshold: 0.14, rootMargin: "0px 0px -44px" },
-        );
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-    }
+    setupRevealOnScroll({
+        sectionSelector: ".pastores",
+        elementSelector: "[data-reveal]",
+        revealClass: "pastores--reveal-ready",
+        threshold: 0.14,
+        rootMargin: "0px 0px -44px",
+    });
 </script>

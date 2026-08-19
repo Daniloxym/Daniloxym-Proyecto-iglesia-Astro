@@ -72,22 +72,22 @@
 .formulario input,
 .formulario textarea {
   width: 100%;
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid rgba(96, 91, 87, 0.24);
-  border-radius: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(96, 91, 87, 0.26);
+  border-radius: 9px;
   outline: none;
   color: var(--color_texto);
-  background: transparent;
+  background: #f1f2f3;
   font-family: inherit;
   font-size: 0.78rem;
   transition:
     border-color 180ms ease,
-    box-shadow 180ms ease;
+    box-shadow 180ms ease,
+    background-color 180ms ease;
 }
 
 .formulario textarea {
-  min-height: 110px;
+  min-height: 128px;
   resize: vertical;
 }
 
@@ -99,7 +99,8 @@
 .formulario input:focus,
 .formulario textarea:focus {
   border-color: var(--btn-color);
-  box-shadow: 0 1px 0 var(--btn-color);
+  background: var(--pure-white);
+  box-shadow: 0 0 0 3px rgba(180, 113, 91, 0.14);
 }
 
 .error {
