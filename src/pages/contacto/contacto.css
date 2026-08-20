@@ -142,7 +142,7 @@
   margin-top: 2px;
 }
 
-.formulario__consentimiento {
+label.formulario__consentimiento {
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -162,7 +162,7 @@
   flex: 0 0 17px;
   width: 17px;
   height: 17px;
-  margin-top: 2px;
+  margin-top: 3px;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(96, 91, 87, 0.35);
