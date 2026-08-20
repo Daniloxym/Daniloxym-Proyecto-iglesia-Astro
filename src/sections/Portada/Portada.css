@@ -63,13 +63,19 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 3px;
+  gap: 0px;
   color: rgb(255, 255, 255);
   font-size: 0.62rem;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   transform: translateX(-50%);
+}
+
+.portada__deslizar span,
+.portada__flecha {
+  display: block;
+  align-self: center;
 }
 
 .portada__deslizar svg {
