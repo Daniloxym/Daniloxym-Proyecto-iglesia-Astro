@@ -162,7 +162,7 @@
   background: #f2eee9;
   content: '';
   box-shadow: 0 0 0 0 rgba(180, 113, 91, 0);
-  animation: schedule-icon-pulse 3.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: schedule-icon-pulse 2.3s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   will-change: opacity, transform, box-shadow;
 }
 
@@ -240,7 +240,7 @@
   display: grid;
   grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
   align-items: stretch;
-  gap: 0;
+  gap: 5px;
   width: min(1000px, 100%);
   margin: 0 auto;
   text-align: left;

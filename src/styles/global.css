@@ -114,8 +114,7 @@ body {
   }
 
   body.show-mobile-menu .navegacion__lista {
-    right: 0;
-    top: 0;
+    transform: translateX(0);
   }
 
   body.efecto header::before {
