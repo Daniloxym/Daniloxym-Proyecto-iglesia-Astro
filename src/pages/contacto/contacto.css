@@ -32,7 +32,8 @@
 
 .contacto__encabezado {
   width: min(680px, 100%);
-  margin-bottom: clamp(48px, 7vw, 72px);
+  margin: 0 auto clamp(48px, 7vw, 72px);
+  text-align: center;
 }
 
 .contacto__eyebrow {
@@ -56,7 +57,7 @@
 
 .contacto__informacion__texto {
   max-width: 620px;
-  margin: 0;
+  margin: 0 auto;
   color: #53616b;
   font-size: 0.86rem;
   line-height: 1.7;
@@ -284,28 +285,6 @@ label.formulario__consentimiento {
 
 .contacto__direccion strong {
   color: var(--color_titulos);
-}
-
-.contacto__horarios h2 {
-  margin-bottom: 10px;
-}
-
-.contacto__horarios p {
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  margin: 0;
-  padding: 14px 0;
-  border-top: 1px solid rgba(96, 91, 87, 0.14);
-  color: #53616b;
-  font-size: 0.72rem;
-}
-
-.contacto__horarios strong {
-  color: var(--btn-color);
-  font-size: 0.62rem;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
 }
 
 @media (max-width: 760px) {
