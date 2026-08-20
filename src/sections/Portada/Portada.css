@@ -132,6 +132,11 @@
     height: calc(100svh - 59px);
   }
 
+  .contenido__img {
+    height: 100%;
+    object-position: 15% 10%;
+  }
+
   .contenido__titulo p {
     max-width: 420px;
   }
