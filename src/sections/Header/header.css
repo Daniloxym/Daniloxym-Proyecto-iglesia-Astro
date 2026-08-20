@@ -3,11 +3,30 @@
   position: sticky;
   width: 100%;
   padding: 8px clamp(24px, 8.5vw, 96px);
-  background: var(--pure-white);
+  background: #fffdfb;
   top: 0;
   z-index: 20;
   border-bottom: 1px solid rgba(173, 118, 94, 0.2);
-  box-shadow: 0 8px 20px rgba(39, 35, 32, 0.08);
+  box-shadow: 0 8px 20px rgba(126, 82, 62, 0.1);
+}
+
+.navegacion::before {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 8px;
+  content: '';
+  background: linear-gradient(
+    90deg,
+    rgba(180, 113, 91, 0.08),
+    rgba(180, 113, 91, 0.38) 38%,
+    rgba(205, 157, 132, 0.22) 62%,
+    rgba(180, 113, 91, 0.08)
+  );
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  pointer-events: none;
 }
 
 @media (width <= 850px) {
@@ -18,6 +37,10 @@
 
   body {
     padding-bottom: 82px;
+  }
+
+  body:not(:has(.contenido__portada)) {
+    padding-top: 72px;
   }
 }
 
@@ -43,6 +66,7 @@ body.show-mobile-menu .navegacion::after {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 1;
 }
 
 .navegacion__marca {
@@ -235,7 +259,33 @@ body.show-mobile-menu .navegacion::after {
 
 @media (width<=850px) {
   .navegacion {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
     padding-inline: 20px;
+  }
+
+  .navegacion__contenedor {
+    min-height: 72px;
+    justify-content: center;
+  }
+
+  .navegacion__marca {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .navegacion__marca svg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .navegacion__menu {
+    position: absolute;
+    right: 0;
   }
 
   .navegacion__movil {
@@ -361,14 +411,14 @@ body.show-mobile-menu .navegacion::after {
   }
 
   .navegacion__marca {
-    flex-basis: 86px;
-    width: 86px;
-    height: 86px;
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
   }
 
   .navegacion__marca svg {
-    width: 86px;
-    height: 86px;
+    width: 64px;
+    height: 64px;
   }
   .navegacion__cerrar {
     width: 20px;
@@ -430,10 +480,5 @@ body.show-mobile-menu .navegacion::after {
     padding: 14px 22px;
     border-radius: 7px;
     text-align: center;
-  }
-}
-
-@media (width<=500px) {
-  .navegacion__item::after {
   }
 }
