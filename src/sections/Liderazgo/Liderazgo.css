@@ -142,12 +142,12 @@
 
 @media (max-width: 760px) {
   .liderazgo {
-    padding: 72px 24px;
+    padding: 52px 20px 64px;
   }
 
   .liderazgo__contenido {
     grid-template-columns: 1fr;
-    gap: 42px;
+    gap: 28px;
   }
 
   .liderazgo__texto {
@@ -157,6 +157,13 @@
   .liderazgo__imagen {
     width: min(100%, 420px);
     margin: 0 auto;
+    padding: 9px;
+  }
+
+  .liderazgo__imagen img {
+    aspect-ratio: 4 / 3;
+    max-height: 248px;
+    object-position: center top;
   }
 }
 

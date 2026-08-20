@@ -123,6 +123,12 @@
   }
 }
 
+/* @media (width <= 480px) {
+  .footer__nombre {
+    text-align: center;
+  }
+} */
+
 @media (prefers-reduced-motion: reduce) {
   .footer__enlaces a,
   .footer__contacto a {
