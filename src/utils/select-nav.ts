@@ -9,14 +9,14 @@ const leadershipPaths = new Set(['/pastores', '/diaconos', '/creencias']);
 function selectActiveNavigation(): void {
   clearActiveLinks();
 
-  const activeLink = Array.from(navigationLinks).find((link) => {
+  const activeLinks = Array.from(navigationLinks).filter((link) => {
     const href = link.getAttribute('href');
 
     return href && normalizePath(new URL(href, window.location.origin).pathname) === currentPath;
   });
 
-  if (activeLink) {
-    setActiveLink(activeLink);
+  if (activeLinks.length > 0) {
+    activeLinks.forEach(setActiveLink);
   }
 
   if (leadershipPaths.has(currentPath)) {
