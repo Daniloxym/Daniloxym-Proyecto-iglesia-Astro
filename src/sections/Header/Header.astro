@@ -1,6 +1,9 @@
 ---
 import CerrarSVG from "@/assets/svg/CerrarSVG.astro";
+import BibliaSVG from "@/assets/svg/BibliaSVG.astro";
+import Correo from "@/assets/svg/Correo.astro";
 import FlechaSVG from "@/assets/svg/FlechaSVG.astro";
+import IglesiaSVG from "@/assets/svg/IglesiaSVG.astro";
 import LogoSVG from "@/assets/svg/LogoSVG.astro";
 import MenuSVG from "@/assets/svg/MenuSVG.astro";
 import "./header.css";
@@ -41,6 +44,25 @@ import "./header.css";
       </ul>
       
       <MenuSVG aria-label="Abrir menú" class="navegacion__menu" />
+    </nav>
+
+    <nav class="navegacion__movil" aria-label="Navegación móvil">
+      <a class="navegacion__movil-link navegacion__link" href="/">
+        <IglesiaSVG width={19} height={19} aria-hidden="true" />
+        <span>Inicio</span>
+      </a>
+      <a class="navegacion__movil-link navegacion__link" href="/creencias/">
+        <BibliaSVG class="navegacion__movil-biblia" width={19} height={19} fill="currentColor" aria-hidden="true" />
+        <span>Creencias</span>
+      </a>
+      <a class="navegacion__movil-link navegacion__link" href="/pastores/">
+        <IglesiaSVG width={20} height={20} aria-hidden="true" />
+        <span>Nosotros</span>
+      </a>
+      <a class="navegacion__movil-link navegacion__link" href="/contacto/">
+        <Correo aria-hidden="true" />
+        <span>Contacto</span>
+      </a>
     </nav>
   </header>
 
