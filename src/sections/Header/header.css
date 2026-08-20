@@ -326,8 +326,6 @@ body.show-mobile-menu .navegacion::after {
   }
 
   .navegacion__movil-link svg {
-    width: 19px;
-    height: 19px;
     fill: currentColor;
   }
 
