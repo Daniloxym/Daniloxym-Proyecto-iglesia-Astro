@@ -1,13 +1,46 @@
 ---
-import iglesia from "@/assets/img/predicas/predica5.jpeg";
-import FlechaSVG from "@/assets/svg/FlechaSVG.astro";
 import { Image } from "astro:assets";
-import "./Portada.css"
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+import "./Portada.css";
+
+import slider01 from "@/assets/img/slider/predica-slider-01.jpeg";
+import slider02 from "@/assets/img/slider/predica-slider-02.jpeg";
+import slider03 from "@/assets/img/slider/predica-slider-03.jpg";
+import slider04 from "@/assets/img/slider/predica-slider-04.jpeg";
+import slider05 from "@/assets/img/slider/predica-slider-05.jpeg";
+import slider06 from "@/assets/img/slider/predica-slider-06.jpeg";
+
+const slides = [
+  { image: slider01, alt: "Reunión de la iglesia Nido de Gracia" },
+  { image: slider02, alt: "Culto de la iglesia Nido de Gracia" },
+  { image: slider03, alt: "Predicación en la iglesia Nido de Gracia" },
+  { image: slider04, alt: "Predicación en la iglesia Nido de Gracia" },
+  { image: slider05, alt: "Reunión de la iglesia Nido de Gracia" },
+  { image: slider06, alt: "Predicación en la iglesia Nido de Gracia" },
+];
 ---
 
 <section class="contenido__portada" aria-labelledby="portada-titulo">
-      <Image src={iglesia} alt="Iglesia Bautista Nido de Gracia" loading="eager"  
-      width={1280} height={960} class="contenido__img" />
+      <div class="portada__slider swiper" aria-label="Galería de predicaciones">
+        <div class="swiper-wrapper">
+          {slides.map((slide, index) => (
+            <div class="swiper-slide">
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                loading={index === 0 ? "eager" : "lazy"}
+                width={1280}
+                height={960}
+                class="contenido__img"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="portada__paginacion swiper-pagination" aria-label="Seleccionar imagen"></div>
 
       <article class="contenido__titulo">
         <h1 id="portada-titulo">
@@ -21,8 +54,33 @@ import "./Portada.css"
         </p>
       </article>
 
-      <div class="portada__deslizar" aria-label="Deslizar hacia abajo">
-        <span>Deslizar</span>
-        <FlechaSVG class="portada__flecha" aria-hidden="true" />
-      </div>
     </section>
+
+<script>
+  import Swiper from "swiper";
+  import { A11y, Autoplay, EffectFade, Pagination } from "swiper/modules";
+
+  const slider = new Swiper(".portada__slider", {
+    modules: [A11y, Autoplay, EffectFade, Pagination],
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    pagination: {
+      el: ".portada__paginacion",
+      clickable: true,
+    },
+    a11y: {
+      enabled: true,
+    },
+  });
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    slider.autoplay?.stop();
+  }
+</script>

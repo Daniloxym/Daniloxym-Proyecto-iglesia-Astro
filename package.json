@@ -19,6 +19,7 @@
     "nodemailer": "^9.0.3",
     "resend": "^6.1.0",
     "sweetalert2": "^11.26.3",
+    "swiper": "^14.1.0",
     "toastify-js": "^1.12.0",
     "typescript": "^6.0.3",
     "zod": "^3.25.76"
