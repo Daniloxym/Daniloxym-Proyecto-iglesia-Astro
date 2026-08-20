@@ -1,10 +1,13 @@
 ---
 import MapaIglesia from "@/components/MapaIglesia.astro";
 import ManosSVG from "@/assets/svg/ManosSVG.astro";
+import BibliaSVG from "@/assets/svg/BibliaSVG.astro";
+import IglesiaSVG from "@/assets/svg/IglesiaSVG.astro";
 import "./LocationInfo.css"
 ---
 
 <section class="visit">
+
       <header class="visit__header" data-text-reveal>
         <span class="visit__eyebrow">Ven a visitarnos</span>
         <h2>Ubicación y horarios</h2>
@@ -13,19 +16,19 @@ import "./LocationInfo.css"
 
       <div class="schedule-container">
         <div class="schedule-card" data-card-reveal>
-          <span class="schedule-card__icon" aria-hidden="true">▧</span>
+          <span class="schedule-card__icon" aria-hidden="true"><BibliaSVG class="schedule-card__bible-icon" width={21} height={21} fill="currentColor" /></span>
           <h3>Escuela dominical</h3>
           <p>Estudio sistemático de la Escritura.</p>
           <time datetime="SU09:00">Domingos · 9:00 AM</time>
         </div>
         <div class="schedule-card" data-card-reveal>
-          <span class="schedule-card__icon schedule-card__icon--active" aria-hidden="true">✦</span>
+          <span class="schedule-card__icon" aria-hidden="true"><IglesiaSVG class="schedule-card__church-icon" width={21} height={21} fill="currentColor" /></span>
           <h3>Culto de adoración</h3>
           <p>Lectura, predicación, cantos y sacramentos.</p>
           <time datetime="SU10:45">Domingos · 10:45 AM</time>
         </div>
         <div class="schedule-card" data-card-reveal>
-          <span class="schedule-card__icon" aria-hidden="true"><ManosSVG /></span>
+          <span class="schedule-card__icon" aria-hidden="true"><ManosSVG class="schedule-card__hands-icon" width={21} height={21} fill="currentColor" /></span>
           <h3>Culto de oración</h3>
           <p>Tiempo dedicado a clamar juntos al Señor.</p>
           <time datetime="WE16:00">Miércoles · 4:00 PM</time>

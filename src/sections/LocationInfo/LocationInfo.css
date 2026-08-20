@@ -144,19 +144,36 @@
 }
 
 .schedule-card__icon {
+  position: relative;
   display: inline-grid;
   width: 38px;
   height: 38px;
   place-items: center;
   border-radius: 50%;
   color: var(--btn-color);
-  background: #f2eee9;
   font-size: 1.25rem;
 }
 
-.schedule-card__icon--active {
-  color: var(--white-color);
-  background: #061a33;
+.schedule-card__icon::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background: #f2eee9;
+  content: '';
+  box-shadow: 0 0 0 0 rgba(180, 113, 91, 0);
+  animation: schedule-icon-pulse 3.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: opacity, transform, box-shadow;
+}
+
+.schedule-card__icon > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.schedule-card__hands-icon {
+  display: block;
 }
 
 .map-container {
@@ -195,6 +212,29 @@
   width: 100%;
   min-height: 320px;
   border: 0;
+}
+
+@keyframes schedule-icon-pulse {
+  0% {
+    opacity: 0.78;
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(180, 113, 91, 0);
+  }
+  38% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(180, 113, 91, 0.08);
+  }
+  68% {
+    opacity: 0.62;
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgba(180, 113, 91, 0);
+  }
+  100% {
+    opacity: 0.78;
+    transform: scale(0.94);
+    box-shadow: 0 0 0 8px rgba(180, 113, 91, 0);
+  }
 }
 
 .visit__lugar {
@@ -299,5 +339,13 @@
     filter: none;
     transform: none;
     transition: none;
+  }
+
+  .schedule-card__icon {
+    animation: none;
+  }
+
+  .schedule-card__icon::before {
+    animation: none;
   }
 }
