@@ -13,11 +13,11 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
   grid-template-areas:
-    "eyebrow image"
-    "title image"
-    "desc image"
-    "card image"
-    "button image";
+    'eyebrow image'
+    'title image'
+    'desc image'
+    'card image'
+    'button image';
   column-gap: clamp(40px, 7vw, 86px);
   row-gap: 0;
   width: min(1120px, 100%);
@@ -175,12 +175,12 @@
   .liderazgo__texto {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "eyebrow"
-      "title"
-      "desc"
-      "card"
-      "image"
-      "button";
+      'eyebrow'
+      'title'
+      'desc'
+      'card'
+      'image'
+      'button';
     row-gap: 0;
     max-width: none;
   }
