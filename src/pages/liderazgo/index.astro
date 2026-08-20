@@ -1,0 +1,104 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import { Image } from "astro:assets";
+import mike from "@/assets/img/pastores/mike.avif"
+import fabio from "@/assets/img/pastores/fabio.avif"
+import pastores from "@/assets/img/pastores/pastores.avif"
+import amaury from "@/assets/img/diaconos/amaury.avif"
+import holger from "@/assets/img/diaconos/holger.jpg"
+import silvio from "@/assets/img/diaconos/silvio.jpg"
+import "./pastores.css";
+---
+
+<Layout title = "Liderazgo - Nido de Gracia 🙏 " description="Conoce a nuestros pastores y su labor en la iglesia." url="https://nidodegracia.org/pastores">
+        <main class="pastores">
+            <header class="pastores__hero" data-reveal>
+                <span class="pastores__eyebrow">Liderazgo</span>
+                <h1 class="pastores__titulo">Nuestro Liderazgo</h1>
+                <p>Guiados por la Escritura y comprometidos con el rebaño, nuestros líderes buscan reflejar el amor y la verdad de Cristo en cada aspecto de la vida de nuestra iglesia.</p>
+            </header>
+
+            <div class="pastores__panorama" data-reveal>
+                <Image src={pastores} alt="Pastores de la Iglesia Bautista Nido de Gracia" width={720}
+        height={720} loading="eager" />
+            </div>
+
+            <section class="pastores__contexto" aria-label="Nuestra historia y visión">
+                <article class="pastores__bloque" data-reveal>
+                    <span class="pastores__numero">01</span>
+                    <h2>Nuestra Historia</h2>
+                    <p>Nido de Gracia nació de un profundo deseo de ver el evangelio proclamado en nuestra comunidad, con una iglesia centrada en la Palabra, la oración y la comunión de los santos.</p>
+                    <p>A lo largo de los años, Dios ha sido fiel en edificar su iglesia mediante vidas transformadas y familias arraigadas en la gracia.</p>
+                </article>
+                <article class="pastores__bloque pastores__bloque--vision" data-reveal>
+                    <span class="pastores__numero">02</span>
+                    <h2>Nuestra Visión</h2>
+                    <blockquote>“Ser una comunidad entregada a la Palabra, que enseñe a Cristo, espere su retorno y extienda la gracia salvadora de Dios a nuestra ciudad y nación.”</blockquote>
+                </article>
+            </section>
+
+            <section class="pastores__perfiles" aria-labelledby="perfiles-titulo">
+                <h2 id="perfiles-titulo" data-reveal>Conoce nuestros pastores</h2>
+                <div class="pastores__lista">
+                    <article class="pastores__item" data-reveal>
+                        <Image src={mike} alt="Pastor Michael Riffle" width={380} class="pastores__img" loading="lazy" />
+                        <span class="pastores__rol">Pastor</span>
+                        <h3 class="pastores__nombre">Pastor Michael Riffle</h3>
+                        <p>Michael Riffle fue uno de los misioneros fundadores de la Iglesia Bautista Reformada Nido de Gracia, cuyo primer culto se celebró el 5 de junio de 2011. Fue ordenado como pastor local en 2023 y obtuvo en 2021 una Maestría en Teología Sistemática Reformada.</p>
+                        <p>Está casado con Stacy desde 2002, tienen cinco hijos y un nieto. Disfruta del tiempo en familia, la música y la construcción. Además, es director de la Fundación Gracia Colombia y coordinador de la Facultad Teológica Bautista.</p>
+                    </article>
+
+                    <article class="pastores__item" data-reveal>
+                        <Image src={fabio} alt="Pastor Fabio Ledezma" width={380} class="pastores__img" loading="lazy" />
+                        <span class="pastores__rol">Pastor</span>
+                        <h3 class="pastores__nombre">Pastor Fabio Ledezma</h3>
+                        <p>Fabio Ledezma fue ordenado como pastor local el 23 de octubre de 2022. En 2024 realizó un diplomado en Teología Confesional.</p>
+                        <p>Está casado con Emilce Quintero desde 1991; juntos tienen cuatro hijos y dos nietos. Fue recibido como miembro de la iglesia en 2017 y disfruta del tiempo con su familia, el campo y la agricultura.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="diaconos-integrados" aria-labelledby="diaconos-titulo">
+                <header class="diaconos-integrados__header" data-reveal>
+                    <span class="pastores__eyebrow">Servicio y cuidado</span>
+                    <h2 id="diaconos-titulo">Nuestro servicio diaconal</h2>
+                    <p>Hombres llamados a servir con diligencia, cuidar a la congregación y reflejar la gracia de Cristo en las necesidades cotidianas de la iglesia.</p>
+                </header>
+
+                <div class="diaconos-integrados__lista">
+                    <article class="diacono-integrado" data-reveal>
+                        <Image src={amaury} alt="Diácono Amaury Pájaro" width={360} class="diacono-integrado__img" loading="lazy" />
+                        <span class="pastores__rol">Diácono</span>
+                        <h3>Amaury Pájaro</h3>
+                        <p>Ordenado diácono en 2013. En 2019 cursó la Licenciatura en Teología Confesional. Está casado con Nerys Muñoz Cervantes y disfruta pasar tiempo en familia, cantar y tocar instrumentos musicales.</p>
+                    </article>
+
+                    <article class="diacono-integrado" data-reveal>
+                        <Image src={silvio} alt="Diácono Silvio Pérez" width={360} class="diacono-integrado__img" loading="lazy" />
+                        <span class="pastores__rol">Diácono</span>
+                        <h3>Silvio Pérez</h3>
+                        <p>Ordenado diácono en 2023. Está casado con Zulinda Pérez Campillo desde 1978. Disfruta la lectura y pasar tiempo en familia.</p>
+                    </article>
+
+                    <article class="diacono-integrado" data-reveal>
+                        <Image src={holger} alt="Diácono Holger Ribón" width={360} class="diacono-integrado__img" loading="lazy" />
+                        <span class="pastores__rol">Diácono</span>
+                        <h3>Holger Ribón</h3>
+                        <p>Ordenado diácono en 2024. Cursó la Licenciatura en Teología Ministerial y obtuvo un Diplomado en Teología Confesional. Está casado con Elcie Conde y disfruta pasar tiempo en familia y practicar inglés.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+</Layout>
+
+<script>
+    import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+
+    setupRevealOnScroll({
+        sectionSelector: ".pastores",
+        elementSelector: "[data-reveal]",
+        revealClass: "pastores--reveal-ready",
+        threshold: 0.14,
+        rootMargin: "0px 0px -44px",
+    });
+</script>

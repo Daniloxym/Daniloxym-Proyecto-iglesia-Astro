@@ -1,19 +1,43 @@
 ---
 import Correo from '@/assets/svg/Correo.astro';
 import Ubicacion from '@/assets/svg/Ubicacion.astro';
+import LogoSVG from '@/assets/svg/LogoSVG.astro';
 import './footer.css';
 ---
 <footer class="footer__principal">
-    <div class="footer__container">
-    
-      <div class="footer__info">
-      <p>© 2025 Iglesia Bautista Nido de Gracia · Todos los derechos reservados</p>
+  <div class="footer__container">
+    <div class="footer__marca">
+      <LogoSVG width="58" height="58" aria-hidden="true" />
+      <div>
+        <p class="footer__nombre">Iglesia Bautista Reformada Nido de Gracia</p>
+        <p class="footer__lema">Una iglesia formada por la Palabra.</p>
+      </div>
     </div>
 
+    <nav class="footer__enlaces" aria-label="Enlaces del pie de página">
+      <span>Explora</span>
+      <a href="/">Inicio</a>
+      <a href="/pastores/">Conócenos</a>
+      <a href="/creencias/">Creencias</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+
     <div class="footer__contacto">
-      <p><strong>Contacto:</strong></p>
-      <p><Ubicacion aria-label="Ubicación" /> Finca El Nido - Turbana, Bolívar</p>
-      <p><Correo aria-label="Correo" /> pastores@nidodegracia.org</p>
+      <span>Encuéntranos</span>
+      <a href="https://www.google.com/maps/search/?api=1&query=Finca+El+Nido+Turbana+Bolivar" target="_blank" rel="noopener noreferrer">
+        <Ubicacion aria-label="Ubicación" />
+        Finca El Nido · Turbana, Bolívar
+      </a>
+      <a href="mailto:pastores@nidodegracia.org">
+        <Correo aria-label="Correo" />
+        pastores@nidodegracia.org
+      </a>
     </div>
   </div>
-  </footer>
+
+  <div class="footer__inferior">
+    <p>© 2025 Iglesia Bautista Nido de Gracia</p>
+    <a href="/privacidad/">Privacidad</a>
+    <span>Soli Deo Gloria</span>
+  </div>
+</footer>

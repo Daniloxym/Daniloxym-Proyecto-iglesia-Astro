@@ -1,18 +1,47 @@
-const pathName = window.location.pathname;
-const links = document.querySelectorAll('.navegacion__link') as NodeListOf<HTMLAnchorElement>;
+const currentPath = normalizePath(window.location.pathname);
 
-if (pathName.includes(''))
-  document.addEventListener('DOMContentLoaded', () => {
-    links.forEach((link) => {
-      if (link.getAttribute('href') === pathName) {
-        document
-          .querySelector('.navegacion__link--active')
-          ?.classList.remove('navegacion__link--active');
-        link.classList.add('navegacion__link--active');
-      }
-    });
+const navigationLinks = document.querySelectorAll<HTMLAnchorElement>('.navegacion__link[href]');
 
-    if (pathName === '/pastores/' || pathName === '/diaconos/' || pathName === '/creencias/') {
-      document.querySelector('.nosotros')?.classList.add('navegacion__link--active');
-    }
+const nosotrosButton = document.querySelector<HTMLButtonElement>('.nosotros');
+
+const leadershipPaths = new Set(['/pastores', '/diaconos', '/creencias']);
+
+function selectActiveNavigation(): void {
+  clearActiveLinks();
+
+  const activeLink = Array.from(navigationLinks).find((link) => {
+    const href = link.getAttribute('href');
+
+    return href && normalizePath(new URL(href, window.location.origin).pathname) === currentPath;
   });
+
+  if (activeLink) {
+    setActiveLink(activeLink);
+  }
+
+  if (leadershipPaths.has(currentPath)) {
+    nosotrosButton?.classList.add('navegacion__link--active');
+  }
+}
+
+function clearActiveLinks(): void {
+  document.querySelectorAll('.navegacion__link--active').forEach((element) => {
+    element.classList.remove('navegacion__link--active');
+    element.removeAttribute('aria-current');
+  });
+}
+
+function setActiveLink(link: HTMLAnchorElement): void {
+  link.classList.add('navegacion__link--active');
+  link.setAttribute('aria-current', 'page');
+}
+
+function normalizePath(path: string): string {
+  if (path.length > 1) {
+    return path.replace(/\/+$/, '');
+  }
+
+  return path;
+}
+
+selectActiveNavigation();

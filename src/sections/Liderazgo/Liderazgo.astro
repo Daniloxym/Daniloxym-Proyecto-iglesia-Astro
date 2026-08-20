@@ -1,0 +1,51 @@
+---
+import pastores from "@/assets/img/pastores/pastores.avif";
+import { Image } from "astro:assets";
+import "./Liderazgo.css";
+---
+
+<section class="liderazgo" aria-labelledby="liderazgo-titulo">
+  <div class="liderazgo__contenido">
+    <div class="liderazgo__texto">
+      <span class="liderazgo__eyebrow">Liderazgo</span>
+      <h2 id="liderazgo-titulo">Conócenos</h2>
+      <p class="liderazgo__descripcion">
+        Nuestra iglesia está gobernada por una pluralidad de ancianos, hombres
+        llamados por Dios y reconocidos por la congregación para pastorear el
+        rebaño con la Palabra, la oración y el ejemplo.
+      </p>
+
+      <article class="liderazgo__tarjeta">
+        <h3>Nuestros Pastores</h3>
+        <p>
+          Hombres dedicados al ministerio de la Palabra y a la cura de almas,
+          buscando siempre la gloria de Cristo en la edificación de Su iglesia.
+        </p>
+      </article>
+
+      <a class="liderazgo__imagen" href="/pastores/" aria-label="Conoce a nuestros pastores">
+        <Image
+          src={pastores}
+          alt="Pastores de la iglesia Nido de Gracia"
+          width={720}
+          height={720}
+          loading="lazy"
+        />
+      </a>
+
+      <a class="liderazgo__boton" href="/pastores/">
+        Conoce a nuestros pastores
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+
+  setupRevealOnScroll({
+    sectionSelector: ".liderazgo",
+    elementSelector: ".liderazgo__texto, .liderazgo__imagen",
+    revealClass: "liderazgo--reveal",
+  });
+</script>

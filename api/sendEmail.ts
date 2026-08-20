@@ -88,7 +88,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     .replace('{{message}}', mensaje);
 
   try {
-    const data = await resend.emails.send({
+    await resend.emails.send({
       from: process.env.EMAIL_FROM as string,
       to: process.env.EMAIL_TO as string,
       replyTo: email,

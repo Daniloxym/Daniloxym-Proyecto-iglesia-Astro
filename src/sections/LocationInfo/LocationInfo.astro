@@ -1,0 +1,80 @@
+---
+import MapaIglesia from "@/components/MapaIglesia.astro";
+import ManosSVG from "@/assets/svg/ManosSVG.astro";
+import BibliaSVG from "@/assets/svg/BibliaSVG.astro";
+import IglesiaSVG from "@/assets/svg/IglesiaSVG.astro";
+import "./LocationInfo.css"
+---
+
+<section class="visit">
+
+      <header class="visit__header" data-text-reveal>
+        <span class="visit__eyebrow">Ven a visitarnos</span>
+        <h2>Ubicación y horarios</h2>
+        <p>Acompáñanos a adorar a Dios y estudiar su Palabra. Eres bienvenido a unirte a nuestra congregación en cualquiera de nuestros servicios semanales.</p>
+      </header>
+
+      <div class="schedule-container">
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon" aria-hidden="true"><BibliaSVG class="schedule-card__bible-icon" width={21} height={21} fill="currentColor" /></span>
+          <h3>Escuela dominical</h3>
+          <p>Estudio sistemático de la Escritura.</p>
+          <time datetime="SU09:00">Domingos · 9:00 AM</time>
+        </div>
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon" aria-hidden="true"><IglesiaSVG class="schedule-card__church-icon" width={21} height={21} fill="currentColor" /></span>
+          <h3>Culto de adoración</h3>
+          <p>Lectura, predicación, cantos y sacramentos.</p>
+          <time datetime="SU10:45">Domingos · 10:45 AM</time>
+        </div>
+        <div class="schedule-card" data-card-reveal>
+          <span class="schedule-card__icon" aria-hidden="true"><ManosSVG class="schedule-card__hands-icon" width={21} height={21} fill="currentColor" /></span>
+          <h3>Culto de oración</h3>
+          <p>Tiempo dedicado a clamar juntos al Señor.</p>
+          <time datetime="WE16:00">Miércoles · 4:00 PM</time>
+        </div>
+      </div>
+
+      <div class="visit__lugar">
+        <div class="visit__datos">
+          <span class="visit__eyebrow">Nuestra ubicación</span>
+          <h3>Finca El Nido</h3>
+          <p>Un espacio para reunirnos, aprender de la Palabra y crecer juntos en la fe.</p>
+          <address>Finca El Nido<br />Turbana, Bolívar</address>
+          <a href="https://www.google.com/maps/search/?api=1&query=Finca+El+Nido+Turbana+Bolivar" target="_blank" rel="noopener noreferrer">Ver en Google Maps <span aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="map-container" data-map-reveal>
+          <MapaIglesia />
+        </div>
+        
+      </div>
+    </section>
+
+<script>
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+  
+  setupRevealOnScroll({
+    sectionSelector: ".visit__header",
+    elementSelector: ".visit__header",
+    revealClass: "visit__header--reveal",
+    threshold: 0.2,
+    rootMargin: "0px 0px -36px",
+  });
+
+  setupRevealOnScroll({
+    sectionSelector: ".schedule-container",
+    elementSelector: "[data-card-reveal]",
+    revealClass: "schedule-container--reveal",
+    threshold: 0.2,
+    rootMargin: "0px 0px -36px",
+  });
+
+  setupRevealOnScroll({
+    sectionSelector: "[data-map-reveal]",
+    elementSelector: "[data-map-reveal]",
+    revealClass: "map-container--reveal",
+    revealOnIntersect: true,
+    threshold: 0.15,
+    rootMargin: "0px 0px -36px",
+  });
+</script>

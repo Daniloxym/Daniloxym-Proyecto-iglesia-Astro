@@ -1,0 +1,97 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import MapaIglesia from "@/components/MapaIglesia.astro";
+import "./contacto.css";
+---
+<Layout title = "Contacto - Nido de Gracia 🙏" description="Ponte en contacto con nosotros para cualquier pregunta o solicitud de oración." url="https://nidodegracia.org/contacto">
+    <main id="contacto" class="contacto">
+      <header class="contacto__encabezado">
+        <span class="contacto__eyebrow">Estamos para servirte</span>
+        <h1>Contáctanos</h1>
+        <p class="contacto__informacion__texto">
+          Ya sea que tengas preguntas sobre nuestra congregación, necesites oración o desees visitarnos, no dudes en comunicarte con nosotros.
+        </p>
+      </header>
+  
+      <div class="contacto__contenido">
+        <section class="contacto__formulario" aria-labelledby="contacto-formulario-titulo">
+          <h2 id="contacto-formulario-titulo">Envíanos un mensaje</h2>
+          <form class="formulario">
+        <div class="formulario__grid">
+            <label>
+              <input
+                name="nombre"
+                type="text"
+                class="formulario__nombre"
+                placeholder="Nombre completo"
+
+              />
+              <p class="error" id="error-nombre"></p>
+            </label>
+            <label>
+              <input
+                name="email"
+                type="email"
+                class="formulario__correo"
+                placeholder="Correo electronico"
+              />
+              <p class="error" id="error-email"></p>
+            </label>
+        </div>
+        <label>
+          <input name ="asunto" type="text" class="formulario__tema" placeholder="Asunto" />
+          <p class="error" id="error-asunto"></p>
+        </label>
+        <label>
+           <textarea
+          class="formulario_mensaje"
+          name="mensaje"
+          placeholder="Mensaje"
+        ></textarea>
+        <p class="error" id="error-mensaje"></p>
+        </label>
+        <!-- <div  class="formulario__confirmacion">
+          ✅ ¡Tu mensaje fue enviado con éxito! Te responderemos pronto.
+        </div> -->
+        <div class="formulario__consentimiento-wrapper">
+          <label class="formulario__consentimiento">
+            <input
+              type="checkbox"
+              id="consentimiento"
+              name="consentimiento"
+              class="formulario__checkbox"
+            />
+            <span class="formulario__checkbox-custom" aria-hidden="true"></span>
+            <span class="formulario__consentimiento-texto">
+              Acepto el tratamiento de mis datos personales (nombre completo y correo electrónico) con el único fin de recibir respuesta a mi consulta, conforme a nuestra <a href="/privacidad" class="formulario__consentimiento-link">política de privacidad</a>.
+            </span>
+          </label>
+          <p class="error" id="error-consentimiento"></p>
+        </div>
+        <button type= "submit" class="formulario__btn">Enviar mensaje</button>
+          </form>
+
+          <aside class="contacto__directo">
+            <span>Información directa</span>
+            <a href="mailto:pastores@nidodegracia.org">pastores@nidodegracia.org</a>
+            <small>Para consultas pastorales</small>
+          </aside>
+        </section>
+
+        <section class="contacto__lugar" aria-labelledby="ubicacion-titulo">
+          <h2 id="ubicacion-titulo">Ubicación</h2>
+          <div class="contacto__mapa"><MapaIglesia /></div>
+          <p class="contacto__direccion"><strong>Finca El Nido, Turbana, Bolívar</strong><br />A las afueras de la ciudad, un espacio apartado para el recogimiento y la adoración.</p>
+
+          <div class="contacto__horarios">
+            <h2>Horarios</h2>
+            <p><span>Día del Señor (Culto principal)</span><strong>Domingos · 10:45 AM</strong></p>
+            <p><span>Estudio bíblico y oración</span><strong>Miércoles · 4:00 PM</strong></p>
+            <p><span>Escuela dominical</span><strong>Domingos · 9:00 AM</strong></p>
+          </div>
+        </section>
+      </div>
+    </main>
+</Layout>
+
+<script src="@/utils/requestSendEmail.ts"></script>

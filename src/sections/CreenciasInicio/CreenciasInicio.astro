@@ -1,0 +1,43 @@
+---
+import "./CreenciasInicio.css";
+---
+
+<section class="creencias-inicio" aria-labelledby="creencias-inicio-titulo">
+  <div class="creencias-inicio__contenido">
+    <span class="creencias-inicio__eyebrow" data-reveal-item>Fundamento doctrinal</span>
+    <h2 id="creencias-inicio-titulo" data-reveal-item>Nuestras Creencias</h2>
+    <div class="creencias-inicio__linea" aria-hidden="true" data-reveal-item></div>
+    <h3 data-reveal-item>Confesión de Fe Bautista de Londres de 1689</h3>
+    <p data-reveal-item>
+      Nos adherimos a esta histórica confesión como un excelente resumen de las
+      doctrinas enseñadas en las Sagradas Escrituras. Es nuestro ancla teológica
+      en un mundo cambiante.
+    </p>
+    <a class="creencias-inicio__boton" href="/creencias/" data-reveal-item>
+      Leer confesión
+    </a>
+
+    <blockquote class="creencias-inicio__cita" data-reveal-item>
+      <p>
+        &ldquo;Toda la Escritura es inspirada por Dios, y útil para enseñar, para
+        redargüir, para corregir, para instruir en justicia, a fin de que el
+        hombre de Dios sea perfecto, enteramente preparado para toda buena
+        obra.&rdquo;
+      </p>
+      <cite>2 Timoteo 3:16-17</cite>
+    </blockquote>
+  </div>
+</section>
+
+<script>
+  import { setupRevealOnScroll } from "@/utils/reveal-on-scroll";
+
+  setupRevealOnScroll({
+    sectionSelector: ".creencias-inicio",
+    elementSelector: "[data-reveal-item]",
+    revealClass: "creencias-inicio--reveal-ready",
+    sectionVisibleClass: "creencias-inicio--is-visible",
+    threshold: 0.28,
+    rootMargin: "0px 0px -48px",
+  });
+</script>

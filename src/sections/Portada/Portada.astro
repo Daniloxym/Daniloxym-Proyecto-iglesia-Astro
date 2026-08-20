@@ -1,0 +1,28 @@
+---
+import iglesia from "@/assets/img/predicas/predica5.jpeg";
+import FlechaSVG from "@/assets/svg/FlechaSVG.astro";
+import { Image } from "astro:assets";
+import "./Portada.css"
+---
+
+<section class="contenido__portada" aria-labelledby="portada-titulo">
+      <Image src={iglesia} alt="Iglesia Bautista Nido de Gracia" loading="eager"  
+      width={1280} height={960} class="contenido__img" />
+
+      <article class="contenido__titulo">
+        <h1 id="portada-titulo">
+          IGLESIA BAUTISTA<br />
+          REFORMADA<br />
+          <span class="contenido__titulo-marca">NIDO DE GRACIA</span>
+        </h1>
+        <p>
+          SOLA SCRIPTURA - SOLA GRATIA - SOLA FIDE - SOLUS CHRISTUS - SOLI DEO
+          GLORIA
+        </p>
+      </article>
+
+      <div class="portada__deslizar" aria-label="Deslizar hacia abajo">
+        <span>Deslizar</span>
+        <FlechaSVG aria-hidden="true" />
+      </div>
+    </section>

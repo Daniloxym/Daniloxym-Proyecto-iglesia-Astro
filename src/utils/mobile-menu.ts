@@ -7,5 +7,5 @@ function toggleMenu() {
   document.body.classList.toggle('efecto');
 }
 
-menuCloseButton.addEventListener('click', toggleMenu);
-menuOpenButton.addEventListener('click', toggleMenu);
+menuCloseButton?.addEventListener('click', toggleMenu);
+menuOpenButton?.addEventListener('click', toggleMenu);
