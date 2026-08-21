@@ -44,7 +44,7 @@
   }
 }
 
-.navegacion::after {
+/* .navegacion::after {
   position: absolute;
   bottom: -2px;
   left: 50%;
@@ -53,7 +53,7 @@
   content: '';
   background: var(--btn-color);
   transform: translateX(-50%);
-}
+} */
 
 body.show-mobile-menu .navegacion::after {
   width: 0;
