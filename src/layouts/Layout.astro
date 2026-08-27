@@ -14,11 +14,31 @@ interface Props {
 const siteUrl = "https://www.nidodegracia.org";
 const {
   title = "Iglesia Bautista Reformada Nido de Gracia",
-  description = "Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.",
+  description = "Nido de Gracia es una iglesia cristiana en Turbana, Bolívar, con predicación bíblica, adoración, doctrina reformada y comunidad de fe.",
   url = siteUrl,
 } = Astro.props;
 
 const canonicalUrl = url.startsWith("http") ? url : new URL(url, siteUrl).toString();
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Church",
+  name: "Iglesia Bautista Reformada Nido de Gracia",
+  url: siteUrl,
+  logo: "https://www.nidodegracia.org/img/logo.webp",
+  image: "https://www.nidodegracia.org/img/iglesia2.webp",
+  description,
+  email: "pastores@nidodegracia.org",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Finca El Nido",
+    addressLocality: "Turbana",
+    addressRegion: "Bolívar",
+    addressCountry: "CO",
+  },
+  areaServed: "Turbana, Bolívar, Colombia",
+  sameAs: ["https://www.nidodegracia.org"],
+};
 ---
 
 <!doctype html>
@@ -30,6 +50,8 @@ const canonicalUrl = url.startsWith("http") ? url : new URL(url, siteUrl).toStri
 		<link rel="canonical" href={canonicalUrl} />
 		<meta name="robots" content="index, follow" />
 		<meta name="generator" content={Astro.generator} />
+		<meta property="og:locale" content="es_CO" />
+		<meta name="theme-color" content="#0f172a" />
 
     <!-- Primary Meta Tags -->
 
@@ -50,6 +72,8 @@ const canonicalUrl = url.startsWith("http") ? url : new URL(url, siteUrl).toStri
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 
     <!-- Vercel Speed Insights -->
     <SpeedInsights />
