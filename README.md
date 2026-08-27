@@ -1,123 +1,109 @@
-# Proyecto Iglesia Baustista Reformada Nido de Gracia 🙏
+# Iglesia Bautista Reformada Nido de Gracia 🙏
 
-Sitio web moderno para una iglesia construido con Astro, presentando información sobre la comunidad, pastores, diáconos, predicas, creencias y un formulario de contacto.
+Sitio web oficial de la Iglesia Bautista Reformada Nido de Gracia, desarrollado con Astro. El proyecto presenta la visión de la congregación, su liderazgo, su base doctrinal, información de contacto y una política de privacidad para el formulario del sitio.
 
-## 📋 Características
+## ✨ Funcionalidades actuales
 
-- **Diseño Moderno y Responsivo**: Interfaz adaptable a todos los dispositivos
-- **Secciones Principales**:
-  - 🏠 Página de inicio con información general
-  - 👨‍💼 Sección de Pastores
-  - 🤝 Sección de Diáconos
-  - ✝️ Creencias y confesión de fe
-  - 📧 Formulario de contacto funcional
-- **Mapa de Ubicación**: Integración de mapa para localizar la iglesia
-- **Sistema de Notificaciones**: Alertas visuales con SweetAlert2 y Toastify
-- **Envío de Correos**: Funcionalidad de contacto mediante Nodemailer y Resend
+- Página de inicio con hero, descripción de la congregación, liderazgo, ubicación y sección del seminario.
+- Página de liderazgo con información ampliada de pastores y diáconos.
+- Página doctrinal con acceso a la Confesión Bautista de Londres de 1689 en PDF.
+- Formulario de contacto con validación en cliente y servidor.
+- Política de privacidad enlazada desde el formulario de contacto.
+- Envío de correos mediante Resend a través de una función serverless.
+- Metadatos SEO base y Vercel Speed Insights integrados en el layout principal.
+- Animaciones de aparición al hacer scroll y slider principal con Swiper.
+- Pruebas unitarias para la lógica de envío del formulario.
 
-## 🚀 Tecnologías Utilizadas
+## 🧰 Tecnologías utilizadas
 
-- [Astro 5.5.4](https://astro.build/) - Framework web moderno
-- [TypeScript](https://www.typescriptlang.org/) - Tipado estático
-- [Nodemailer](https://nodemailer.com/) - Envío de correos
-- [Resend](https://resend.com/) - Servicio de email
-- [SweetAlert2](https://sweetalert2.github.io/) - Alertas personalizadas
-- [Toastify JS](https://apvarun.github.io/toastify-js/) - Notificaciones toast
+- [Astro 7](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vitest](https://vitest.dev/)
+- [Zod](https://zod.dev/)
+- [Resend](https://resend.com/)
+- [Swiper](https://swiperjs.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [Vercel Speed Insights](https://vercel.com/docs/speed-insights)
 
-## 📁 Estructura del Proyecto
+## 📁 Estructura principal
 
-```
+```text
 /
-├── api/
-│   └── sendEmail.ts          # API para envío de correos
-├── public/
-│   ├── fonts/                # Fuentes del sitio
-│   ├── img/                  # Imágenes
-│   ├── confesion.pdf         # Documento de confesión de fe
-│   └── sitemap.xml           # Mapa del sitio
+├── api/                      # Funciones serverless
+│   └── sendEmail.ts          # Endpoint para procesar el formulario de contacto
+├── public/                   # Archivos públicos estáticos
 ├── src/
-│   ├── components/           # Componentes reutilizables
-│   │   ├── Banner/
-│   │   ├── Categorias/
-│   │   ├── Description/
-│   │   ├── LocationInfo/
-│   │   ├── MapaIglesia.astro
-│   │   └── Portada/
-│   ├── layouts/              # Layouts de página
-│   ├── pages/                # Páginas del sitio
-│   │   ├── index.astro       # Página principal
-│   │   ├── pastores.astro
-│   │   ├── diaconos.astro
-│   │   ├── predicas.astro
-│   │   ├── creencias.astro
-│   │   ├── contacto.astro
-│   │   └── 404.astro
-│   ├── sections/             # Secciones del sitio
+│   ├── assets/               # Imágenes y SVGs del sitio
+│   ├── components/           # Componentes reutilizables puntuales
+│   ├── layouts/              # Layouts globales
+│   ├── pages/                # Rutas del sitio
+│   ├── schema/               # Esquemas de validación
+│   ├── sections/             # Secciones de la interfaz
+│   ├── services/             # Servicios de consumo/API
 │   ├── styles/               # Estilos globales
-│   ├── utils/                # Utilidades
-│   └── types.d.ts            # Definiciones de tipos
+│   ├── tests/                # Pruebas unitarias
+│   └── utils/                # Utilidades del frontend
 ├── astro.config.mjs          # Configuración de Astro
-├── package.json
-└── tsconfig.json
+├── package.json              # Scripts y dependencias
+├── tsconfig.json             # Configuración de TypeScript
+└── vitest.config.ts          # Configuración de pruebas
 ```
 
 ## 🛠️ Instalación
 
-1. **Clonar el repositorio**
-```bash
-git clone <url-del-repositorio>
-cd Proyecto\ iglesia\ Astro
-```
+1. Clona el repositorio.
+2. Instala las dependencias:
 
-2. **Instalar dependencias**
 ```bash
 npm install
 ```
 
-3. **Configurar variables de entorno** (si es necesario)
-Crea un archivo `.env` para las credenciales de email
+3. Crea un archivo `.env` con las variables necesarias para el formulario:
 
-4. **Ejecutar en modo desarrollo**
+```env
+RESEND_API_KEY=tu_api_key
+EMAIL_FROM=remitente@dominio.com
+EMAIL_TO=destinatario@dominio.com
+```
+
+4. Inicia el entorno de desarrollo:
+
 ```bash
 npm run dev
 ```
 
-## 📜 Comandos Disponibles
+## 📜 Scripts disponibles
 
-| Comando           | Acción                                      |
-|:------------------|:--------------------------------------------|
-| `npm run dev`     | Inicia el servidor de desarrollo           |
-| `npm run build`   | Construye el sitio para producción         |
-| `npm run preview` | Vista previa del sitio construido          |
-| `npm run astro`   | Ejecuta comandos CLI de Astro             |
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Genera la build de producción |
+| `npm run preview` | Previsualiza la build local |
+| `npm run test` | Ejecuta las pruebas con Vitest |
+| `npm run test:coverage` | Ejecuta las pruebas con cobertura |
+| `npm run astro` | Ejecuta comandos de la CLI de Astro |
 
-## 🌐 Páginas del Sitio
+## 🌐 Rutas principales
 
-- **/** - Página principal con información general
-- **/pastores** - Información sobre los pastores
-- **/diaconos** - Información sobre los diáconos
-- **/creencias** - Creencias y doctrina de la iglesia
-- **/contacto** - Formulario de contacto
-- **/404** - Página de error personalizada
+- `/` — Inicio
+- `/liderazgo` — Pastores y diáconos
+- `/creencias` — Base doctrinal y descarga del PDF
+- `/contacto` — Formulario de contacto
+- `/privacidad` — Política de privacidad
+- `/404` — Página de error personalizada
 
-## 🤝 Contribuir
+## ✅ Pruebas
 
-Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
+Para ejecutar las pruebas unitarias del formulario de contacto:
 
-1. Fork el proyecto
-2. Crea una rama para tu característica (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+```bash
+npm run test
+```
+
+## 🚀 Despliegue
+
+El proyecto está preparado para funcionar como sitio Astro con una función serverless en `api/sendEmail.ts`, por lo que debe desplegarse en una plataforma compatible con este flujo.
 
 ## 📄 Licencia
 
-Este proyecto es para uso de la comunidad eclesiástica.
-
-## 📞 Contacto
-
-Para más información, visita la sección de contacto en el sitio web.
-
----
-
-Desarrollado con ❤️ usando Astro
+Proyecto desarrollado para la comunidad de la Iglesia Bautista Reformada Nido de Gracia.
