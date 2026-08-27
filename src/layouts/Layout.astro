@@ -11,7 +11,14 @@ interface Props {
   url?: string;
 }
 
-const { title = "Iglesia Bautista Reformada Nido de Gracia", description = "Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.", url = "https://nidodegracia.org" } = Astro.props;
+const siteUrl = "https://www.nidodegracia.org";
+const {
+  title = "Iglesia Bautista Reformada Nido de Gracia",
+  description = "Nido de Gracia es una iglesia cristiana que comparte el mensaje de fe, esperanza y amor en Jesucristo. Descubre quiénes somos y lo que creemos.",
+  url = siteUrl,
+} = Astro.props;
+
+const canonicalUrl = url.startsWith("http") ? url : new URL(url, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -20,6 +27,8 @@ const { title = "Iglesia Bautista Reformada Nido de Gracia", description = "Nido
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/webp" href="/img/logo.webp">
+		<link rel="canonical" href={canonicalUrl} />
+		<meta name="robots" content="index, follow" />
 		<meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
@@ -27,17 +36,18 @@ const { title = "Iglesia Bautista Reformada Nido de Gracia", description = "Nido
 		<title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta property="og:site_name" content="Nido de Gracia" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://www.nidodegracia.org/img/iglesia2.webp" />
 
     <!-- X (Twitter) -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={url} />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
 
