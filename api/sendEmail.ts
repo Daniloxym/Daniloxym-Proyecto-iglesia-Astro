@@ -65,6 +65,8 @@ const InputSchema = z.object({
     .string()
     .min(3, 'El mensaje debe tener al menos 3 caracteres')
     .max(1000, 'El mensaje es demasiado largo')
+    .trim(),
+  website: z.string().max(0, 'Campo inválido').optional()
 });
 
 export default async (req: VercelRequest, res: VercelResponse) => {
@@ -87,17 +89,29 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     .replace('{{email}}', email)
     .replace('{{message}}', mensaje);
 
+  if (typeof req.body?.website === 'string' && req.body.website.trim() !== '') {
+    return res.status(400).json({ error: 'Solicitud inválida' });
+  }
+
   try {
-    await resend.emails.send({
-      from: process.env.EMAIL_FROM as string,
-      to: process.env.EMAIL_TO as string,
-      replyTo: email,
-      subject: `${asunto} - Mensaje de ${nombre}`,
-      html
-    });
+    await Promise.race([
+      resend.emails.send({
+        from: process.env.EMAIL_FROM as string,
+        to: process.env.EMAIL_TO as string,
+        replyTo: email,
+        subject: `${asunto} - Mensaje de ${nombre}`,
+        html
+      }),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Email provider timeout')), 8000)
+      )
+    ]);
 
     res.status(200).json({ message: 'Correo enviado con éxito' });
   } catch (error) {
-    res.status(500).json({ error: 'Error enviando el correo' });
+    const message = error instanceof Error && error.message === 'Email provider timeout'
+      ? 'El servicio de correo tardó demasiado en responder'
+      : 'Error enviando el correo';
+    res.status(500).json({ error: message });
   }
 };
