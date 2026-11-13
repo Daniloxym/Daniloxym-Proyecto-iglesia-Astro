@@ -37,7 +37,8 @@
         "minimatch": ">10.2.2"
       },
       "path-to-regexp": ">6.2.2",
-      "@fastify/busboy": ">3.2.1"
+      "@fastify/busboy": ">3.2.1",
+      "undici": "^6.29.1"
     }
   }
 }
